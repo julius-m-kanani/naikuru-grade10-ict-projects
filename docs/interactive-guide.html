@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ICT Project Guide — Grade 10</title>
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --surface: #ffffff;
+    --surface2: #f0efe9;
+    --text: #1a1a18;
+    --muted: #6b6b66;
+    --accent: #1a5c96;
+    --accent-bg: #e8f0f9;
+    --green: #1e6b3a;
+    --green-bg: #e6f4ec;
+    --amber: #8a4f00;
+    --amber-bg: #fef3e2;
+    --red: #8b1c1c;
+    --red-bg: #fdeaea;
+    --border: rgba(0,0,0,0.09);
+    --radius: 10px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.65; }
+
+  .shell { display: flex; min-height: 100vh; }
+
+  /* Sidebar */
+  .sidebar { width: 260px; background: var(--surface); border-right: 1px solid var(--border); padding: 1.5rem 1rem; flex-shrink: 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+  .sidebar-logo { font-size: 13px; font-weight: 600; color: var(--accent); letter-spacing: 0.03em; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+  .sidebar-logo span { display: block; color: var(--muted); font-weight: 400; margin-top: 2px; }
+  .nav-group { margin-bottom: 1.2rem; }
+  .nav-label { font-size: 10px; font-weight: 600; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; padding: 0 8px; }
+  .nav-item { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 7px; cursor: pointer; font-size: 13.5px; color: var(--muted); transition: background 0.15s; border: none; background: none; width: 100%; text-align: left; }
+  .nav-item:hover { background: var(--surface2); color: var(--text); }
+  .nav-item.active { background: var(--accent-bg); color: var(--accent); font-weight: 500; }
+  .nav-item .badge { margin-left: auto; font-size: 11px; background: var(--surface2); padding: 1px 7px; border-radius: 20px; color: var(--muted); }
+  .nav-item.active .badge { background: var(--accent); color: #fff; }
+
+  /* Main */
+  .main { flex: 1; padding: 2rem; max-width: 820px; }
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* Page header */
+  .page-title { font-size: 22px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .page-sub { color: var(--muted); font-size: 14px; margin-bottom: 1.8rem; }
+
+  /* Cards */
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 1rem; }
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin-bottom: 1.5rem; }
+  .topic-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.2rem; cursor: pointer; transition: border-color 0.15s, box-shadow 0.15s; }
+  .topic-card:hover { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-bg); }
+  .topic-card.selected { border-color: var(--accent); background: var(--accent-bg); }
+  .topic-icon { font-size: 22px; margin-bottom: 8px; }
+  .topic-title { font-size: 14px; font-weight: 600; }
+  .topic-desc { font-size: 12px; color: var(--muted); margin-top: 3px; }
+
+  /* Progress bar */
+  .progress-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.5rem; margin-bottom: 1.5rem; }
+  .progress-label { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .progress-bar { height: 6px; background: var(--surface2); border-radius: 99px; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--accent); border-radius: 99px; transition: width 0.4s; }
+  .task-row { display: flex; align-items: center; gap: 10px; margin-top: 10px; font-size: 13px; }
+  .task-dot { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; flex-shrink: 0; }
+  .task-dot.done { background: var(--green-bg); color: var(--green); }
+  .task-dot.active { background: var(--accent-bg); color: var(--accent); border: 2px solid var(--accent); }
+  .task-dot.todo { background: var(--surface2); color: var(--muted); }
+
+  /* Steps */
+  .steps-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
+  .steps-nav { display: flex; gap: 8px; }
+  .btn { padding: 7px 14px; border-radius: 7px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 13px; cursor: pointer; }
+  .btn:hover { background: var(--surface2); }
+  .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .btn.primary:hover { opacity: 0.9; }
+  .step-indicator { font-size: 13px; color: var(--muted); }
+
+  .step-block { display: none; }
+  .step-block.active { display: block; }
+
+  .step-number { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--accent); color: #fff; border-radius: 50%; font-size: 13px; font-weight: 600; margin-bottom: 10px; }
+  .step-title { font-size: 17px; font-weight: 600; margin-bottom: 6px; }
+  .step-body { color: var(--muted); font-size: 14px; line-height: 1.7; margin-bottom: 1rem; }
+
+  .tip { background: var(--amber-bg); border-left: 3px solid #f59e0b; padding: 10px 14px; border-radius: 0 7px 7px 0; font-size: 13px; color: var(--amber); margin-bottom: 1rem; }
+  .tip strong { color: #6b3800; }
+  .warn { background: var(--red-bg); border-left: 3px solid #ef4444; padding: 10px 14px; border-radius: 0 7px 7px 0; font-size: 13px; color: var(--red); margin-bottom: 1rem; }
+  .success { background: var(--green-bg); border-left: 3px solid #16a34a; padding: 10px 14px; border-radius: 0 7px 7px 0; font-size: 13px; color: var(--green); margin-bottom: 1rem; }
+
+  /* Screenshot mock */
+  .screen-mock { background: #1e1e1e; border-radius: 10px; padding: 0; overflow: hidden; margin: 1rem 0 1.2rem; border: 1px solid var(--border); }
+  .screen-bar { background: #323232; display: flex; align-items: center; gap: 6px; padding: 8px 12px; }
+  .screen-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .screen-content { padding: 14px 16px; font-family: 'Courier New', monospace; font-size: 12px; color: #d4d4d4; line-height: 1.6; }
+  .sc-header { color: #9cdcfe; }
+  .sc-formula { color: #ce9178; }
+  .sc-comment { color: #6a9955; }
+  .sc-label { color: #4ec9b0; }
+
+  .excel-mock { border-radius: 8px; border: 1px solid var(--border); overflow: hidden; margin: 1rem 0; font-size: 12px; }
+  .excel-header { background: #217346; color: #fff; padding: 6px 12px; font-size: 12px; font-weight: 600; }
+  .excel-row { display: grid; }
+  .excel-row.header-row { background: #e2efda; font-weight: 600; color: #333; }
+  .excel-row.alt { background: #f8fdf6; }
+  .excel-cell { padding: 5px 10px; border-right: 1px solid #d0d0d0; border-bottom: 1px solid #d0d0d0; }
+
+  /* Sample doc */
+  .doc-preview { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .doc-toolbar { background: #f3f2f0; border-bottom: 1px solid var(--border); padding: 6px 12px; display: flex; gap: 6px; align-items: center; font-size: 12px; color: var(--muted); }
+  .doc-body { padding: 1.5rem 2rem; font-family: 'Times New Roman', serif; font-size: 13.5px; line-height: 1.8; }
+  .doc-h1 { font-size: 18px; font-weight: bold; text-align: center; margin-bottom: 4px; }
+  .doc-h2 { font-size: 14px; font-weight: bold; margin: 12px 0 4px; }
+  .doc-p { margin-bottom: 8px; text-align: justify; }
+  .doc-toc { background: #f9f9f9; border: 1px solid #ddd; padding: 10px 14px; margin: 10px 0; font-size: 12px; }
+  .doc-toc-title { font-weight: bold; margin-bottom: 6px; font-size: 13px; }
+  .doc-toc-item { display: flex; justify-content: space-between; padding: 2px 0; color: #444; }
+  .doc-bullet { margin-left: 18px; font-size: 13px; }
+  .doc-table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 8px 0; }
+  .doc-table th { background: #217346; color: #fff; padding: 6px 10px; text-align: left; }
+  .doc-table td { padding: 5px 10px; border: 1px solid #ccc; }
+  .doc-table tr:nth-child(even) td { background: #f5f5f5; }
+
+  /* Slide mock */
+  .slide-deck { border-radius: 10px; border: 1px solid var(--border); overflow: hidden; margin: 1rem 0; }
+  .slide-nav-bar { background: #2b2b2b; display: flex; align-items: center; justify-content: space-between; padding: 6px 12px; }
+  .slide-dots { display: flex; gap: 5px; }
+  .slide-dot { width: 8px; height: 8px; border-radius: 50%; background: #555; cursor: pointer; }
+  .slide-dot.active { background: #4a9af5; }
+  .slide-count { font-size: 11px; color: #888; }
+  .slide { display: none; min-height: 220px; }
+  .slide.active { display: flex; flex-direction: column; justify-content: center; }
+  .slide-1 { background: linear-gradient(135deg, #1a4580, #2563ab); color: #fff; padding: 2rem; }
+  .slide-2 { background: #fff; padding: 1.5rem; }
+  .slide-3 { background: #fff; padding: 1.5rem; }
+  .slide-title { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+  .slide-sub { font-size: 14px; opacity: 0.8; }
+  .slide-h { font-size: 16px; font-weight: 600; color: #1a4580; margin-bottom: 10px; }
+  .slide-bullet { font-size: 13px; color: #333; padding: 4px 0 4px 16px; border-left: 3px solid #2563ab; margin-bottom: 6px; }
+  .slide-chart-bar { display: flex; align-items: flex-end; gap: 6px; height: 80px; margin-top: 10px; }
+  .bar { border-radius: 3px 3px 0 0; background: #2563ab; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 3px; font-size: 10px; color: #fff; font-weight: 600; }
+  .bar-label { font-size: 10px; text-align: center; color: #555; margin-top: 3px; }
+
+  /* Marks table */
+  .marks-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .marks-table th { background: var(--accent); color: #fff; padding: 9px 14px; text-align: left; }
+  .marks-table td { padding: 8px 14px; border-bottom: 1px solid var(--border); }
+  .marks-table tr:last-child td { font-weight: 600; background: var(--accent-bg); color: var(--accent); }
+  .marks-table .pts { font-weight: 600; color: var(--accent); }
+
+  /* Checklist */
+  .checklist { list-style: none; }
+  .checklist li { display: flex; gap: 10px; align-items: flex-start; padding: 7px 0; font-size: 14px; border-bottom: 1px solid var(--border); }
+  .checklist li:last-child { border: none; }
+  .checklist input[type=checkbox] { width: 16px; height: 16px; margin-top: 2px; flex-shrink: 0; accent-color: var(--accent); }
+
+  /* AI chat */
+  .ai-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .ai-chat-area { padding: 1rem; min-height: 120px; max-height: 260px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+  .msg { max-width: 85%; padding: 9px 13px; border-radius: 10px; font-size: 13.5px; line-height: 1.55; }
+  .msg.user { background: var(--accent); color: #fff; align-self: flex-end; border-bottom-right-radius: 3px; }
+  .msg.ai { background: var(--surface2); color: var(--text); align-self: flex-start; border-bottom-left-radius: 3px; }
+  .ai-input-row { display: flex; gap: 8px; padding: 10px 12px; border-top: 1px solid var(--border); background: var(--bg); }
+  .ai-input { flex: 1; padding: 8px 12px; border: 1px solid var(--border); border-radius: 7px; font-size: 13px; background: var(--surface); color: var(--text); }
+  .ai-input:focus { outline: none; border-color: var(--accent); }
+  .suggestion-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 12px; border-top: 1px solid var(--border); }
+  .chip { padding: 5px 12px; background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; font-size: 12px; color: var(--muted); cursor: pointer; }
+  .chip:hover { background: var(--accent-bg); color: var(--accent); border-color: var(--accent); }
+
+  /* Responsive */
+  @media (max-width: 700px) {
+    .sidebar { display: none; }
+    .main { padding: 1rem; }
+  }
+  .typing { display: inline-block; }
+  .typing span { display: inline-block; width: 6px; height: 6px; background: var(--muted); border-radius: 50%; margin: 0 2px; animation: bounce 1.2s infinite; }
+  .typing span:nth-child(2) { animation-delay: 0.2s; }
+  .typing span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes bounce { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-5px)} }
+</style>
+</head>
+<body>
+<h2 class="sr-only" style="position:absolute;left:-9999px">Grade 10 ICT Project Interactive Guide — KNEC 2026</h2>
+
+<div class="shell">
+
+<!-- Sidebar -->
+<nav class="sidebar">
+  <div class="sidebar-logo">ICT Project Guide <span>Grade 10 · KNEC 2026</span></div>
+  <div class="nav-group">
+    <div class="nav-label">Overview</div>
+    <button class="nav-item active" onclick="showSection('overview')">🏠 Home</button>
+    <button class="nav-item" onclick="showSection('topics')">🎯 Choose Your Topic <span class="badge">6</span></button>
+    <button class="nav-item" onclick="showSection('marks')">📊 Marks Breakdown</button>
+  </div>
+  <div class="nav-group">
+    <div class="nav-label">Tasks</div>
+    <button class="nav-item" onclick="showSection('task1')">📋 Task 1 — Data <span class="badge">13</span></button>
+    <button class="nav-item" onclick="showSection('task2')">📝 Task 2 — Report <span class="badge">21</span></button>
+    <button class="nav-item" onclick="showSection('task3')">📽 Task 3 — Slides <span class="badge">14</span></button>
+    <button class="nav-item" onclick="showSection('task4')">🗂 Task 4 — Files <span class="badge">2</span></button>
+  </div>
+  <div class="nav-group">
+    <div class="nav-label">Samples & Help</div>
+    <button class="nav-item" onclick="showSection('samples')">👁 Sample Documents</button>
+    <button class="nav-item" onclick="showSection('ai')">🤖 Ask AI</button>
+    <button class="nav-item" onclick="showSection('checklist')">✅ Submission Checklist</button>
+  </div>
+</nav>
+
+<!-- Main -->
+<main class="main">
+
+<!-- OVERVIEW -->
+<div id="sec-overview" class="section active">
+  <div class="page-title">Welcome to your ICT Project</div>
+  <div class="page-sub">This guide walks your group through all four tasks — from choosing a topic to submitting your e-portfolio.</div>
+
+  <div class="card" style="border-left: 4px solid var(--accent);">
+    <div style="font-weight:600; margin-bottom:6px;">What you're doing</div>
+    <div style="font-size:14px; color:var(--muted)">Your group will pick a real problem in your school or community, then investigate it using a <strong style="color:var(--text)">spreadsheet</strong>, a <strong style="color:var(--text)">word processor</strong>, and <strong style="color:var(--text)">presentation software</strong>. The project is out of <strong style="color:var(--accent)">50 marks</strong>.</div>
+  </div>
+
+  <div class="card-grid" style="margin-top:1rem">
+    <div class="card" style="cursor:pointer;border-top:3px solid #2563ab" onclick="showSection('task1')">
+      <div style="font-size:22px;margin-bottom:6px">📋</div>
+      <div style="font-weight:600;font-size:14px">Task 1</div>
+      <div style="font-size:12px;color:var(--muted)">Collect & analyse data in a spreadsheet</div>
+      <div style="margin-top:8px;font-weight:700;color:#2563ab">13 marks</div>
+    </div>
+    <div class="card" style="cursor:pointer;border-top:3px solid #16a34a" onclick="showSection('task2')">
+      <div style="font-size:22px;margin-bottom:6px">📝</div>
+      <div style="font-weight:600;font-size:14px">Task 2</div>
+      <div style="font-size:12px;color:var(--muted)">Write a report using a word processor</div>
+      <div style="margin-top:8px;font-weight:700;color:#16a34a">21 marks</div>
+    </div>
+    <div class="card" style="cursor:pointer;border-top:3px solid #9333ea" onclick="showSection('task3')">
+      <div style="font-size:22px;margin-bottom:6px">📽</div>
+      <div style="font-weight:600;font-size:14px">Task 3</div>
+      <div style="font-size:12px;color:var(--muted)">Create a presentation and present it</div>
+      <div style="margin-top:8px;font-weight:700;color:#9333ea">14 marks</div>
+    </div>
+    <div class="card" style="cursor:pointer;border-top:3px solid #d97706" onclick="showSection('task4')">
+      <div style="font-size:22px;margin-bottom:6px">🗂</div>
+      <div style="font-weight:600;font-size:14px">Task 4</div>
+      <div style="font-size:12px;color:var(--muted)">Organise files and submit your e-portfolio</div>
+      <div style="margin-top:8px;font-weight:700;color:#d97706">2 marks</div>
+    </div>
+  </div>
+
+  <div class="tip"><strong>Start here:</strong> Click "Choose Your Topic" in the sidebar to pick your problem area before anything else. Your topic decides everything — your survey questions, your report, your slides.</div>
+</div>
+
+<!-- TOPICS -->
+<div id="sec-topics" class="section">
+  <div class="page-title">Choose your project topic</div>
+  <div class="page-sub">Pick one problem your group will investigate. Tap a topic to select it.</div>
+
+  <div class="card-grid">
+    <div class="topic-card" id="t1" onclick="selectTopic('t1', 'Waste Management')">
+      <div class="topic-icon">🗑</div>
+      <div class="topic-title">Waste Management</div>
+      <div class="topic-desc">Littering, poor disposal, lack of bins in school/community</div>
+    </div>
+    <div class="topic-card" id="t2" onclick="selectTopic('t2', 'Road Safety')">
+      <div class="topic-icon">🚦</div>
+      <div class="topic-title">Road Safety</div>
+      <div class="topic-desc">Accidents, traffic, learners crossing roads unsafely</div>
+    </div>
+    <div class="topic-card" id="t3" onclick="selectTopic('t3', 'Health & Safety Awareness')">
+      <div class="topic-icon">🧼</div>
+      <div class="topic-title">Health & Safety</div>
+      <div class="topic-desc">Hand-washing, first aid kits, food hygiene in school</div>
+    </div>
+    <div class="topic-card" id="t4" onclick="selectTopic('t4', 'Time Management Among Learners')">
+      <div class="topic-icon">⏰</div>
+      <div class="topic-title">Time Management</div>
+      <div class="topic-desc">Late arrivals, not completing assignments, poor study habits</div>
+    </div>
+    <div class="topic-card" id="t5" onclick="selectTopic('t5', 'Environmental Conservation')">
+      <div class="topic-icon">🌳</div>
+      <div class="topic-title">Environmental Conservation</div>
+      <div class="topic-desc">Tree cutting, soil erosion, water wastage in the locality</div>
+    </div>
+    <div class="topic-card" id="t6" onclick="selectTopic('t6', 'Small Business Record Keeping')">
+      <div class="topic-icon">🏪</div>
+      <div class="topic-title">Small Business Records</div>
+      <div class="topic-desc">Local traders not keeping proper financial records</div>
+    </div>
+  </div>
+
+  <div id="topic-selected" style="display:none" class="success">
+    ✅ Topic selected: <strong id="topic-name-display"></strong>. Now head to <strong>Task 1</strong> to start collecting your data.
+  </div>
+</div>
+
+<!-- MARKS -->
+<div id="sec-marks" class="section">
+  <div class="page-title">Marks breakdown</div>
+  <div class="page-sub">Know exactly where every mark comes from.</div>
+  <table class="marks-table">
+    <thead><tr><th>Task</th><th>What is assessed</th><th>Marks</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Task 1</strong></td><td>Data entry with headings, formulas & functions, chart/graph, file saved</td><td class="pts">13</td></tr>
+      <tr><td><strong>Task 2</strong></td><td>Report content (title, intro, problem, causes, effects + image, solutions table, conclusion), formatting (headings, fonts, spacing, alignment), table of contents, mail merge to 10+ classmates, saved separately</td><td class="pts">21</td></tr>
+      <tr><td><strong>Task 3</strong></td><td>5–8 slides with required content, slide design/theme, transitions, animations, oral presentation</td><td class="pts">14</td></tr>
+      <tr><td><strong>Task 4</strong></td><td>All files in one folder, submitted as e-portfolio</td><td class="pts">2</td></tr>
+      <tr><td colspan="2"><strong>Total</strong></td><td class="pts">50</td></tr>
+    </tbody>
+  </table>
+  <div class="tip" style="margin-top:1rem"><strong>Biggest task:</strong> Task 2 is worth 21 marks — over 40% of the whole project. Do NOT skip the mail merge step. Many groups lose 5+ marks there.</div>
+</div>
+
+<!-- TASK 1 -->
+<div id="sec-task1" class="section">
+  <div class="page-title">Task 1 — Collecting and analysing data</div>
+  <div class="page-sub">13 marks · Spreadsheet · At least 20 participants</div>
+
+  <div class="progress-wrap">
+    <div class="progress-label">Your progress in Task 1</div>
+    <div class="progress-bar"><div class="progress-fill" id="t1-progress" style="width:0%"></div></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px">
+      <label style="font-size:13px;display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" onchange="updateProgress('t1',this)"> Identified the problem</label>
+      <label style="font-size:13px;display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" onchange="updateProgress('t1',this)"> Collected 20+ responses</label>
+      <label style="font-size:13px;display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" onchange="updateProgress('t1',this)"> Entered data in spreadsheet</label>
+      <label style="font-size:13px;display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" onchange="updateProgress('t1',this)"> Used formulas/functions</label>
+      <label style="font-size:13px;display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" onchange="updateProgress('t1',this)"> Created a chart/graph</label>
+      <label style="font-size:13px;display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" onchange="updateProgress('t1',this)"> Saved the file correctly</label>
+    </div>
+  </div>
+
+  <div class="steps-header">
+    <div class="step-indicator">Step <span id="t1-step-num">1</span> of 4</div>
+    <div class="steps-nav">
+      <button class="btn" onclick="changeStep('t1',-1)">← Back</button>
+      <button class="btn primary" onclick="changeStep('t1',1)">Next →</button>
+    </div>
+  </div>
+
+  <div id="t1-s1" class="step-block active">
+    <div class="step-number">1</div>
+    <div class="step-title">Identify your problem and design a survey</div>
+    <div class="step-body">Based on your chosen topic, write 3–5 short questions that will help you understand the problem. At least one question should have a yes/no or number answer so you can count responses easily.</div>
+    <div class="tip"><strong>Example (Waste Management):</strong><br>Q1. How many days per week do you see litter in school? (0 / 1–2 / 3–4 / 5+)<br>Q2. Are there enough dustbins in your class? (Yes / No)<br>Q3. Have you ever littered at school? (Yes / No / Sometimes)</div>
+    <div class="card" style="margin-top:1rem">
+      <div style="font-weight:600;margin-bottom:8px;font-size:14px">Your survey questions</div>
+      <div id="question-inputs">
+        <input type="text" placeholder="Question 1" style="width:100%;padding:7px 10px;border:1px solid var(--border);border-radius:6px;font-size:13px;margin-bottom:7px;background:var(--surface);color:var(--text)">
+        <input type="text" placeholder="Question 2" style="width:100%;padding:7px 10px;border:1px solid var(--border);border-radius:6px;font-size:13px;margin-bottom:7px;background:var(--surface);color:var(--text)">
+        <input type="text" placeholder="Question 3" style="width:100%;padding:7px 10px;border:1px solid var(--border);border-radius:6px;font-size:13px;margin-bottom:7px;background:var(--surface);color:var(--text)">
+      </div>
+    </div>
+  </div>
+
+  <div id="t1-s2" class="step-block">
+    <div class="step-number">2</div>
+    <div class="step-title">Collect data from at least 20 participants</div>
+    <div class="step-body">Walk around school during break time. Ask at least 20 different people your questions and write their answers on paper first. Split the work among your group members — each person can interview 4–5 people.</div>
+    <div class="warn"><strong>Don't forget:</strong> You need a minimum of 20 responses. The examiner checks the number of rows in your spreadsheet.</div>
+  </div>
+
+  <div id="t1-s3" class="step-block">
+    <div class="step-number">3</div>
+    <div class="step-title">Enter your data in a spreadsheet</div>
+    <div class="step-body">Open Microsoft Excel (or LibreOffice Calc). Row 1 is your headings. Each row below is one person's responses. Then use formulas to summarise.</div>
+    <div class="excel-mock">
+      <div class="excel-header">Microsoft Excel — WasteManagement_Data.xlsx</div>
+      <div class="excel-row header-row" style="grid-template-columns:40px 120px 100px 80px 80px 80px">
+        <div class="excel-cell"></div>
+        <div class="excel-cell">A — Participant</div>
+        <div class="excel-cell">B — Days/Litter</div>
+        <div class="excel-cell">C — Bins OK?</div>
+        <div class="excel-cell">D — Littered?</div>
+        <div class="excel-cell">E — Age</div>
+      </div>
+      <div class="excel-row" style="grid-template-columns:40px 120px 100px 80px 80px 80px">
+        <div class="excel-cell" style="color:#888;font-size:11px">1</div>
+        <div class="excel-cell" style="font-weight:600;font-size:12px">Participant No.</div>
+        <div class="excel-cell" style="font-weight:600;font-size:12px">Days of Litter</div>
+        <div class="excel-cell" style="font-weight:600;font-size:12px">Enough Bins</div>
+        <div class="excel-cell" style="font-weight:600;font-size:12px">Littered?</div>
+        <div class="excel-cell" style="font-weight:600;font-size:12px">Age</div>
+      </div>
+      <div class="excel-row alt" style="grid-template-columns:40px 120px 100px 80px 80px 80px">
+        <div class="excel-cell" style="color:#888;font-size:11px">2</div>
+        <div class="excel-cell" style="font-size:12px">1</div><div class="excel-cell" style="font-size:12px">4</div><div class="excel-cell" style="font-size:12px">No</div><div class="excel-cell" style="font-size:12px">Yes</div><div class="excel-cell" style="font-size:12px">16</div>
+      </div>
+      <div class="excel-row" style="grid-template-columns:40px 120px 100px 80px 80px 80px">
+        <div class="excel-cell" style="color:#888;font-size:11px">3</div>
+        <div class="excel-cell" style="font-size:12px">2</div><div class="excel-cell" style="font-size:12px">3</div><div class="excel-cell" style="font-size:12px">No</div><div class="excel-cell" style="font-size:12px">Sometimes</div><div class="excel-cell" style="font-size:12px">15</div>
+      </div>
+      <div class="excel-row alt" style="grid-template-columns:40px 120px 100px 80px 80px 80px">
+        <div class="excel-cell" style="color:#888;font-size:11px">23</div>
+        <div class="excel-cell" style="font-size:12px">22</div><div class="excel-cell" style="font-size:12px">5</div><div class="excel-cell" style="font-size:12px">Yes</div><div class="excel-cell" style="font-size:12px">No</div><div class="excel-cell" style="font-size:12px">17</div>
+      </div>
+      <div class="excel-row" style="grid-template-columns:40px 200px 1fr;background:#fffde7">
+        <div class="excel-cell" style="color:#888;font-size:11px">25</div>
+        <div class="excel-cell" style="font-size:12px;color:#333"><strong>AVERAGE (Days of Litter)</strong></div>
+        <div class="excel-cell" style="font-size:12px;color:#217346">=AVERAGE(B2:B23)</div>
+      </div>
+      <div class="excel-row alt" style="grid-template-columns:40px 200px 1fr;background:#fffde7">
+        <div class="excel-cell" style="color:#888;font-size:11px">26</div>
+        <div class="excel-cell" style="font-size:12px;color:#333"><strong>COUNT of "Yes" (Bins OK)</strong></div>
+        <div class="excel-cell" style="font-size:12px;color:#217346">=COUNTIF(C2:C23,"Yes")</div>
+      </div>
+    </div>
+    <div class="tip"><strong>Formulas you must use:</strong> SUM, AVERAGE, COUNT or COUNTIF, MAX or MIN, and percentage (e.g. <code>=COUNTIF(C2:C23,"Yes")/22*100</code>)</div>
+  </div>
+
+  <div id="t1-s4" class="step-block">
+    <div class="step-number">4</div>
+    <div class="step-title">Create a chart and save your file</div>
+    <div class="step-body">Select your data columns, then go to <strong>Insert → Chart</strong>. Choose a bar chart or pie chart. Give it a title and label the axes. Then save as: <code>Task1_[Topic]_Data.xlsx</code></div>
+    <div class="success">✅ When done: Your spreadsheet should have at least 20 rows of data, visible formulas in a summary section, and a chart. Save and close before moving to Task 2.</div>
+  </div>
+</div>
+
+<!-- TASK 2 -->
+<div id="sec-task2" class="section">
+  <div class="page-title">Task 2 — Report writing</div>
+  <div class="page-sub">21 marks · Word processor · Report + Mail merge</div>
+
+  <div class="progress-wrap">
+    <div class="progress-label">Your progress in Task 2</div>
+    <div class="progress-bar"><div class="progress-fill" id="t2-progress" style="width:0%"></div></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px">
+      <label style="font-size:13px;display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" onchange="updateProgress('t2',this)"> Title & Introduction written</label>
+      <label style="font-size:13px;display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" onchange="updateProgress('t2',this)"> Problem described</label>
+      <label style="font-size:13px;display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" onchange="updateProgress('t2',this)"> Causes in bullet points</label>
+      <label style="font-size:13px;display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" onchange="updateProgress('t2',this)"> Effects with image</label>
+      <label style="font-size:13px;display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" onchange="updateProgress('t2',this)"> Solutions in a table</label>
+      <label style="font-size:13px;display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" onchange="updateProgress('t2',this)"> Conclusion written</label>
+      <label style="font-size:13px;display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" onchange="updateProgress('t2',this)"> Formatting applied</label>
+      <label style="font-size:13px;display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" onchange="updateProgress('t2',this)"> Table of contents generated</label>
+      <label style="font-size:13px;display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" onchange="updateProgress('t2',this)"> Mail merge done</label>
+      <label style="font-size:13px;display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" onchange="updateProgress('t2',this)"> Both files saved</label>
+    </div>
+  </div>
+
+  <div class="steps-header">
+    <div class="step-indicator">Step <span id="t2-step-num">1</span> of 5</div>
+    <div class="steps-nav">
+      <button class="btn" onclick="changeStep('t2',-1)">← Back</button>
+      <button class="btn primary" onclick="changeStep('t2',1)">Next →</button>
+    </div>
+  </div>
+
+  <div id="t2-s1" class="step-block active">
+    <div class="step-number">1</div>
+    <div class="step-title">Write your report content</div>
+    <div class="step-body">Your report needs these 6 sections in order. Use the sample below as a guide — it shows how a Waste Management report looks.</div>
+    <div class="doc-preview">
+      <div class="doc-toolbar">📄 Word Processor · WasteManagement_Report.docx</div>
+      <div class="doc-body">
+        <div class="doc-h1">WASTE MANAGEMENT IN NAIKURU SECONDARY SCHOOL</div>
+        <div style="text-align:center;font-size:12px;color:#666;margin-bottom:10px">A Community Service Learning Project Report · Grade 10 · 2026</div>
+        <div class="doc-toc">
+          <div class="doc-toc-title">Table of Contents</div>
+          <div class="doc-toc-item"><span>1. Introduction</span><span>2</span></div>
+          <div class="doc-toc-item"><span>2. Description of the Problem</span><span>2</span></div>
+          <div class="doc-toc-item"><span>3. Causes of the Problem</span><span>3</span></div>
+          <div class="doc-toc-item"><span>4. Effects of the Problem</span><span>3</span></div>
+          <div class="doc-toc-item"><span>5. Proposed Solutions</span><span>4</span></div>
+          <div class="doc-toc-item"><span>6. Conclusion</span><span>5</span></div>
+        </div>
+        <div class="doc-h2">1. Introduction</div>
+        <div class="doc-p">Waste management is a growing concern in many Kenyan schools. This report investigates the problem of poor waste disposal at Naikuru Secondary School, examines its causes and effects, and proposes practical solutions that can be implemented by the school community.</div>
+        <div class="doc-h2">3. Causes of the Problem</div>
+        <ul class="doc-bullet">
+          <li>Insufficient number of dustbins within the school compound</li>
+          <li>Lack of awareness among learners about proper waste disposal</li>
+          <li>Absence of a school-wide waste management policy</li>
+          <li>No designated areas for organic and non-organic waste</li>
+        </ul>
+        <div class="doc-h2">5. Proposed Solutions</div>
+        <table class="doc-table">
+          <thead><tr><th>No.</th><th>Solution</th><th>Who is Responsible</th><th>Timeline</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Install 10 new dustbins across the school</td><td>School administration</td><td>Term 1</td></tr>
+            <tr><td>2</td><td>Conduct weekly waste awareness assemblies</td><td>Prefects & teachers</td><td>Ongoing</td></tr>
+            <tr><td>3</td><td>Introduce a "Green School" competition</td><td>Environmental club</td><td>Term 2</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div id="t2-s2" class="step-block">
+    <div class="step-number">2</div>
+    <div class="step-title">Apply formatting</div>
+    <div class="step-body">The examiner checks these 4 formatting elements specifically. Apply all of them.</div>
+    <div class="card-grid">
+      <div class="card"><div style="font-weight:600;font-size:13px;margin-bottom:4px">📌 Headings</div><div style="font-size:12px;color:var(--muted)">Select each section title → <em>Home → Styles → Heading 1</em> or Heading 2</div></div>
+      <div class="card"><div style="font-weight:600;font-size:13px;margin-bottom:4px">🔤 Font styles</div><div style="font-size:12px;color:var(--muted)">Title: bold 16pt. Body: regular 12pt. Try using a different font for headings vs body text</div></div>
+      <div class="card"><div style="font-weight:600;font-size:13px;margin-bottom:4px">↕ Line spacing</div><div style="font-size:12px;color:var(--muted)"><em>Home → Line Spacing → 1.5</em> for body text. Double spacing for the abstract/intro</div></div>
+      <div class="card"><div style="font-weight:600;font-size:13px;margin-bottom:4px">⬛ Alignment</div><div style="font-size:12px;color:var(--muted)">Title: Center. Body: Justify. Section headings: Left align</div></div>
+    </div>
+  </div>
+
+  <div id="t2-s3" class="step-block">
+    <div class="step-number">3</div>
+    <div class="step-title">Generate a Table of Contents</div>
+    <div class="step-body">This only works if you applied Heading styles in Step 2. Once you have, place your cursor after the title page, then:</div>
+    <div class="screen-mock">
+      <div class="screen-bar"><div class="screen-dot" style="background:#ff5f57"></div><div class="screen-dot" style="background:#ffbd2e"></div><div class="screen-dot" style="background:#28ca41"></div><span style="color:#aaa;font-size:11px;margin-left:8px">Microsoft Word</span></div>
+      <div class="screen-content">
+        <div class="sc-comment">Step 1: Click where you want the Table of Contents</div>
+        <div style="margin:6px 0">▶ Click at the top of page 2 (after title page)</div>
+        <div class="sc-comment" style="margin-top:8px">Step 2: Insert it from the menu</div>
+        <div style="margin:6px 0"><span class="sc-header">References</span> → <span class="sc-label">Table of Contents</span> → <span class="sc-formula">Automatic Table 1</span></div>
+        <div class="sc-comment" style="margin-top:8px">Step 3: Update if you add more content later</div>
+        <div style="margin:6px 0">Right-click the TOC → <span class="sc-formula">Update Field</span> → <span class="sc-label">Update entire table</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="t2-s4" class="step-block">
+    <div class="step-number">4</div>
+    <div class="step-title">Do the Mail Merge</div>
+    <div class="step-body">Mail merge creates personalised copies of your report letter for each classmate. This is worth marks — do not skip it.</div>
+    <div class="screen-mock">
+      <div class="screen-bar"><div class="screen-dot" style="background:#ff5f57"></div><div class="screen-dot" style="background:#ffbd2e"></div><div class="screen-dot" style="background:#28ca41"></div><span style="color:#aaa;font-size:11px;margin-left:8px">Mail Merge Wizard</span></div>
+      <div class="screen-content">
+        <div class="sc-comment">Step 1: Create your recipient list (Excel file)</div>
+        <div style="margin:4px 0">Save a file: <span class="sc-formula">Classmates_List.xlsx</span></div>
+        <div style="margin:4px 0">Columns: <span class="sc-label">FirstName</span> | <span class="sc-label">LastName</span> | <span class="sc-label">AdmNumber</span></div>
+        <div style="margin:4px 0">Add at least 10 classmates' names</div>
+        <div class="sc-comment" style="margin-top:8px">Step 2: Start mail merge in Word</div>
+        <div style="margin:4px 0"><span class="sc-header">Mailings</span> → <span class="sc-label">Start Mail Merge</span> → <span class="sc-formula">Letters</span></div>
+        <div style="margin:4px 0"><span class="sc-header">Mailings</span> → <span class="sc-label">Select Recipients</span> → Use Existing List → choose your Excel file</div>
+        <div class="sc-comment" style="margin-top:8px">Step 3: Insert merge fields in the letter</div>
+        <div style="margin:4px 0">Type: <span class="sc-formula">Dear «FirstName» «LastName»,</span></div>
+        <div style="margin:4px 0">Use <span class="sc-label">Insert Merge Field</span> to add the field names</div>
+        <div class="sc-comment" style="margin-top:8px">Step 4: Complete and save merged letters</div>
+        <div style="margin:4px 0"><span class="sc-header">Finish & Merge</span> → <span class="sc-label">Edit Individual Documents</span> → All</div>
+        <div style="margin:4px 0">Save as: <span class="sc-formula">Task2_MailMerge_Letters.docx</span></div>
+      </div>
+    </div>
+    <div class="warn"><strong>Save TWO files:</strong> (1) your original report, (2) the merged letters as a separate document. You lose marks if only one file is saved.</div>
+  </div>
+
+  <div id="t2-s5" class="step-block">
+    <div class="step-number">5</div>
+    <div class="step-title">Save both files with correct names</div>
+    <div class="step-body">Use clear, descriptive file names. Avoid "Document1" or "Untitled".</div>
+    <div class="success">
+      ✅ <strong>Report file:</strong> Task2_[Topic]_Report.docx<br>
+      ✅ <strong>Mail merge file:</strong> Task2_[Topic]_MailMerge.docx<br>
+      Both go into your project folder for Task 4.
+    </div>
+  </div>
+</div>
+
+<!-- TASK 3 -->
+<div id="sec-task3" class="section">
+  <div class="page-title">Task 3 — Presentation</div>
+  <div class="page-sub">14 marks · PowerPoint or LibreOffice Impress · 5–8 slides · Oral delivery</div>
+
+  <div class="progress-wrap">
+    <div class="progress-label">Your progress in Task 3</div>
+    <div class="progress-bar"><div class="progress-fill" id="t3-progress" style="width:0%"></div></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px">
+      <label style="font-size:13px;display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" onchange="updateProgress('t3',this)"> All 5 required slides created</label>
+      <label style="font-size:13px;display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" onchange="updateProgress('t3',this)"> Chart included in findings slide</label>
+      <label style="font-size:13px;display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" onchange="updateProgress('t3',this)"> Slide design/theme applied</label>
+      <label style="font-size:13px;display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" onchange="updateProgress('t3',this)"> Transitions added</label>
+      <label style="font-size:13px;display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" onchange="updateProgress('t3',this)"> Animations added</label>
+      <label style="font-size:13px;display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" onchange="updateProgress('t3',this)"> Presentation saved</label>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:1rem">
+    <div style="font-weight:600;margin-bottom:10px;font-size:14px">Sample slide deck preview</div>
+    <div class="slide-deck">
+      <div class="slide-nav-bar">
+        <div class="slide-dots" id="slide-dots"></div>
+        <div class="slide-count" id="slide-count">Slide 1 of 5</div>
+      </div>
+      <div id="slide-1" class="slide slide-1 active">
+        <div class="slide-title">Waste Management in Our School</div>
+        <div class="slide-sub">Grade 10 ICT Project · Naikuru Secondary School · 2026</div>
+        <div style="margin-top:12px;font-size:12px;opacity:0.7">Group Members: [List names here]</div>
+      </div>
+      <div id="slide-2" class="slide slide-2">
+        <div class="slide-h">Problem Description</div>
+        <div class="slide-bullet">Naikuru school generates large amounts of waste daily</div>
+        <div class="slide-bullet">Less than 30% of waste ends up in dustbins</div>
+        <div class="slide-bullet">Survey of 22 learners conducted in September 2026</div>
+        <div class="slide-bullet">78% reported seeing litter 3+ days per week</div>
+      </div>
+      <div id="slide-3" class="slide slide-3">
+        <div class="slide-h">Key Findings</div>
+        <div style="display:flex;align-items:flex-end;gap:8px;margin-top:8px">
+          <div>
+            <div class="slide-chart-bar">
+              <div class="bar" style="height:30%;width:40px">14%</div>
+              <div class="bar" style="height:55%;width:40px">27%</div>
+              <div class="bar" style="height:80%;width:40px">41%</div>
+              <div class="bar" style="height:95%;width:40px">55%</div>
+            </div>
+            <div style="display:flex;gap:8px;margin-top:4px">
+              <div class="bar-label" style="width:40px">0 days</div>
+              <div class="bar-label" style="width:40px">1-2</div>
+              <div class="bar-label" style="width:40px">3-4</div>
+              <div class="bar-label" style="width:40px">5+</div>
+            </div>
+            <div style="font-size:11px;color:#777;margin-top:4px;text-align:center">Days litter seen per week</div>
+          </div>
+          <div style="flex:1;padding-left:16px">
+            <div class="slide-bullet">82% say bins are insufficient</div>
+            <div class="slide-bullet">64% have littered at least once</div>
+            <div class="slide-bullet">Average: 3.8 litter days/week</div>
+          </div>
+        </div>
+      </div>
+      <div id="slide-4" class="slide slide-2">
+        <div class="slide-h">Proposed Solutions</div>
+        <div class="slide-bullet">Install 10 additional dustbins near classrooms and the canteen</div>
+        <div class="slide-bullet">Launch a weekly "Clean School" awareness campaign</div>
+        <div class="slide-bullet">Introduce a class cleanliness competition every term</div>
+        <div class="slide-bullet">Partner with the county government for a waste collection schedule</div>
+      </div>
+      <div id="slide-5" class="slide slide-1" style="background:linear-gradient(135deg,#14532d,#166534)">
+        <div class="slide-title">Conclusion</div>
+        <div class="slide-sub" style="opacity:1;font-size:13px;line-height:1.7;margin-top:8px">Waste management at Naikuru school requires urgent attention. With proper dustbin placement, awareness campaigns, and student involvement, we can reduce littering by an estimated 60% within one term. We call on the administration to act on these findings.</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+      <button class="btn" onclick="changeSlide(-1)">← Prev</button>
+      <button class="btn" onclick="changeSlide(1)">Next →</button>
+    </div>
+  </div>
+
+  <div class="tip"><strong>3 things most groups forget:</strong><br>
+  (1) Add a <em>slide design/theme</em> from the Design tab — plain white slides lose marks.<br>
+  (2) Add <em>slide transitions</em> — select all slides (Ctrl+A), then apply one transition.<br>
+  (3) Add <em>animations</em> — click a text box, then Animations tab → choose Appear or Fly In.</div>
+</div>
+
+<!-- TASK 4 -->
+<div id="sec-task4" class="section">
+  <div class="page-title">Task 4 — File management</div>
+  <div class="page-sub">2 marks — Easy marks, don't lose them</div>
+
+  <div class="card" style="border-left:4px solid #d97706">
+    <div style="font-weight:600;margin-bottom:10px">Your folder structure should look like this:</div>
+    <div class="screen-mock">
+      <div class="screen-bar"><div class="screen-dot" style="background:#ff5f57"></div><div class="screen-dot" style="background:#ffbd2e"></div><div class="screen-dot" style="background:#28ca41"></div><span style="color:#aaa;font-size:11px;margin-left:8px">File Explorer</span></div>
+      <div class="screen-content">
+        <div>📁 <span class="sc-label">Group3_WasteManagement_Project/</span></div>
+        <div style="margin-left:20px">📊 <span class="sc-formula">Task1_WasteManagement_Data.xlsx</span></div>
+        <div style="margin-left:20px">📄 <span class="sc-formula">Task2_WasteManagement_Report.docx</span></div>
+        <div style="margin-left:20px">📄 <span class="sc-formula">Task2_WasteManagement_MailMerge.docx</span></div>
+        <div style="margin-left:20px">📽 <span class="sc-formula">Task3_WasteManagement_Slides.pptx</span></div>
+        <div style="margin-left:20px">📋 <span class="sc-formula">Classmates_List.xlsx</span> <span class="sc-comment">(mail merge data)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip" style="margin-top:1rem"><strong>E-portfolio submission:</strong> Your teacher will tell you how to submit — this may be a USB drive, Google Drive link, school network folder, or email. Whatever the method, submit the entire folder (not individual files).</div>
+  <div class="success" style="margin-top:0.5rem">✅ All 5 files in one clearly named folder = full 2 marks for Task 4.</div>
+</div>
+
+<!-- SAMPLES -->
+<div id="sec-samples" class="section">
+  <div class="page-title">Sample documents</div>
+  <div class="page-sub">See what a completed project looks like — use these as a reference, not to copy.</div>
+
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:1.5rem">
+    <button class="btn primary" onclick="showSample('spreadsheet')">📊 Sample Spreadsheet</button>
+    <button class="btn" onclick="showSample('report')">📄 Sample Report</button>
+    <button class="btn" onclick="showSample('slides')">📽 Sample Slides</button>
+  </div>
+
+  <div id="sample-spreadsheet">
+    <div class="card" style="margin-bottom:1rem">
+      <div style="font-weight:600;margin-bottom:4px">Sample: Task 1 Spreadsheet — Time Management Survey</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:10px">22 participants, 4 questions, AVERAGE / COUNTIF / percentage formulas, one bar chart</div>
+      <div class="excel-mock">
+        <div class="excel-header">TimeManagement_Data.xlsx — Summary Sheet</div>
+        <div class="excel-row header-row" style="grid-template-columns:40px 100px 90px 100px 80px 100px">
+          <div class="excel-cell"></div><div class="excel-cell">Participant</div><div class="excel-cell">Late Arrivals/week</div><div class="excel-cell">Completed HW?</div><div class="excel-cell">Study hrs/day</div><div class="excel-cell">Phone hrs/day</div>
+        </div>
+        <div class="excel-row alt" style="grid-template-columns:40px 100px 90px 100px 80px 100px">
+          <div class="excel-cell" style="font-size:11px;color:#888">2</div><div class="excel-cell" style="font-size:12px">1</div><div class="excel-cell" style="font-size:12px">3</div><div class="excel-cell" style="font-size:12px">Sometimes</div><div class="excel-cell" style="font-size:12px">1.5</div><div class="excel-cell" style="font-size:12px">4</div>
+        </div>
+        <div class="excel-row" style="grid-template-columns:40px 100px 90px 100px 80px 100px">
+          <div class="excel-cell" style="font-size:11px;color:#888">3</div><div class="excel-cell" style="font-size:12px">2</div><div class="excel-cell" style="font-size:12px">1</div><div class="excel-cell" style="font-size:12px">Yes</div><div class="excel-cell" style="font-size:12px">3.0</div><div class="excel-cell" style="font-size:12px">2</div>
+        </div>
+        <div class="excel-row alt" style="grid-template-columns:40px 100px 90px 100px 80px 100px">
+          <div class="excel-cell" style="font-size:11px;color:#888">…</div><div class="excel-cell" style="font-size:12px">…</div><div class="excel-cell" style="font-size:12px">…</div><div class="excel-cell" style="font-size:12px">…</div><div class="excel-cell" style="font-size:12px">…</div><div class="excel-cell" style="font-size:12px">…</div>
+        </div>
+        <div class="excel-row" style="grid-template-columns:40px 200px 1fr;background:#fffde7">
+          <div class="excel-cell" style="font-size:11px;color:#888">25</div><div class="excel-cell" style="font-size:12px;font-weight:600">Average late arrivals/week</div><div class="excel-cell" style="font-size:12px;color:#217346">=AVERAGE(B2:B23) → <strong>2.3</strong></div>
+        </div>
+        <div class="excel-row alt" style="grid-template-columns:40px 200px 1fr;background:#fffde7">
+          <div class="excel-cell" style="font-size:11px;color:#888">26</div><div class="excel-cell" style="font-size:12px;font-weight:600">Learners who always complete HW</div><div class="excel-cell" style="font-size:12px;color:#217346">=COUNTIF(C2:C23,"Yes") → <strong>6</strong></div>
+        </div>
+        <div class="excel-row" style="grid-template-columns:40px 200px 1fr;background:#fffde7">
+          <div class="excel-cell" style="font-size:11px;color:#888">27</div><div class="excel-cell" style="font-size:12px;font-weight:600">% who complete HW</div><div class="excel-cell" style="font-size:12px;color:#217346">=B26/22*100 → <strong>27.3%</strong></div>
+        </div>
+        <div class="excel-row alt" style="grid-template-columns:40px 200px 1fr;background:#fffde7">
+          <div class="excel-cell" style="font-size:11px;color:#888">28</div><div class="excel-cell" style="font-size:12px;font-weight:600">Max phone hours/day</div><div class="excel-cell" style="font-size:12px;color:#217346">=MAX(E2:E23) → <strong>7</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sample-report" style="display:none">
+    <div class="doc-preview">
+      <div class="doc-toolbar">📄 Task2_TimeManagement_Report.docx — Sample (abridged)</div>
+      <div class="doc-body">
+        <div class="doc-h1" style="font-size:16px">TIME MANAGEMENT AMONG LEARNERS AT NAIKURU SECONDARY SCHOOL</div>
+        <div style="text-align:center;font-size:11px;color:#888;margin-bottom:10px">A Community Service Learning Report | Grade 10 ICT | 2026</div>
+        <div class="doc-toc">
+          <div class="doc-toc-title">Table of Contents</div>
+          <div class="doc-toc-item"><span>1. Introduction ................</span><span>2</span></div>
+          <div class="doc-toc-item"><span>2. Description of the Problem ..</span><span>2</span></div>
+          <div class="doc-toc-item"><span>3. Causes .....................</span><span>3</span></div>
+          <div class="doc-toc-item"><span>4. Effects ....................</span><span>3</span></div>
+          <div class="doc-toc-item"><span>5. Proposed Solutions .........</span><span>4</span></div>
+          <div class="doc-toc-item"><span>6. Conclusion .................</span><span>5</span></div>
+        </div>
+        <div class="doc-h2">1. Introduction</div>
+        <div class="doc-p">Time management is one of the most critical skills for academic success. This report investigates the challenge of poor time management among Grade 10 learners at Naikuru Secondary School, based on a survey conducted in September 2026 with 22 participants.</div>
+        <div class="doc-h2">3. Causes of the Problem</div>
+        <ul class="doc-bullet">
+          <li>Excessive use of mobile phones for entertainment during study hours</li>
+          <li>Lack of structured daily routines at home</li>
+          <li>Heavy household chores assigned to learners in the evenings</li>
+          <li>Peer pressure leading to socialising instead of studying</li>
+        </ul>
+        <div class="doc-h2">4. Effects of the Problem</div>
+        <div class="doc-p">Poor time management leads to late arrival to school, incomplete assignments, and low examination performance. The survey found that 64% of respondents arrive late at least once per week.</div>
+        <div style="background:#f0f0f0;border:1px solid #ccc;padding:8px;text-align:center;font-size:11px;color:#666;margin:8px 0;border-radius:4px">[Insert image: photo or diagram showing effects of poor time management]</div>
+        <div class="doc-h2">5. Proposed Solutions</div>
+        <table class="doc-table">
+          <thead><tr><th>#</th><th>Solution</th><th>Responsible Party</th><th>Expected Outcome</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Introduce a school diary/planner</td><td>Class teachers</td><td>Learners plan their week</td></tr>
+            <tr><td>2</td><td>Time management sessions during assembly</td><td>Guidance teacher</td><td>Improved habits</td></tr>
+            <tr><td>3</td><td>Phone-free study period policy (4–6pm)</td><td>Parents & school</td><td>2+ study hours daily</td></tr>
+          </tbody>
+        </table>
+        <div class="doc-h2">6. Conclusion</div>
+        <div class="doc-p">Poor time management is a real and measurable problem among Grade 10 learners at Naikuru. The proposed interventions are practical, low-cost, and can be implemented immediately. The school community is urged to adopt these recommendations to improve academic outcomes.</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sample-slides" style="display:none">
+    <div class="card">
+      <div style="font-weight:600;margin-bottom:8px">Sample: Task 3 Slides — all 5 required slides shown</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:10px">Click the slide buttons to preview each one</div>
+      <div class="slide-deck">
+        <div class="slide-nav-bar">
+          <div class="slide-dots" id="sample-slide-dots"></div>
+          <div class="slide-count" id="sample-slide-count">Slide 1 of 5</div>
+        </div>
+        <div id="ss-1" class="slide slide-1 active"><div class="slide-title">Time Management Among Learners</div><div class="slide-sub">Grade 10 ICT SBA Project · Naikuru Secondary School · 2026</div></div>
+        <div id="ss-2" class="slide slide-2"><div class="slide-h">Problem Description</div><div class="slide-bullet">Survey of 22 Grade 10 learners at Naikuru Secondary School</div><div class="slide-bullet">Focus: punctuality, homework completion, daily study time</div><div class="slide-bullet">Data collected September 2026 using structured questionnaire</div></div>
+        <div id="ss-3" class="slide slide-3"><div class="slide-h">Key Findings</div><div style="display:flex;align-items:flex-end;gap:6px;margin-top:8px"><div class="slide-chart-bar"><div class="bar" style="height:45%;width:38px">27%</div><div class="bar" style="height:65%;width:38px" title="Sometimes">41%</div><div class="bar" style="height:95%;width:38px">55%</div></div><div style="flex:1;padding-left:14px"><div class="slide-bullet">Avg: 2.3 late arrivals/week</div><div class="slide-bullet">Only 27% complete HW daily</div><div class="slide-bullet">Avg phone use: 4.2 hrs/day</div></div></div></div>
+        <div id="ss-4" class="slide slide-2"><div class="slide-h">Proposed Solutions</div><div class="slide-bullet">School diary issued to every learner</div><div class="slide-bullet">Weekly time management assembly talk</div><div class="slide-bullet">Phone-free study hours policy (4–6pm)</div><div class="slide-bullet">Parent engagement sessions each term</div></div>
+        <div id="ss-5" class="slide slide-1" style="background:linear-gradient(135deg,#1e3a5f,#1e40af)"><div class="slide-title">Conclusion</div><div class="slide-sub" style="opacity:1;font-size:12px;margin-top:8px;line-height:1.7">With structured interventions at home and school, poor time management is solvable. We recommend the school adopt all three proposed solutions by the start of next term.</div></div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:10px"><button class="btn" onclick="changeSampleSlide(-1)">← Prev</button><button class="btn" onclick="changeSampleSlide(1)">Next →</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- AI HELP -->
+<div id="sec-ai" class="section">
+  <div class="page-title">Ask for help</div>
+  <div class="page-sub">Type a question about the project below, or tap one of the suggestion chips.</div>
+
+  <div class="ai-box">
+    <div class="ai-chat-area" id="chat-area">
+      <div class="msg ai">Hello! I'm here to help with your ICT project. Ask me anything — how to do mail merge, what formula to use, how to structure your report, or what to say in your presentation. What do you need help with?</div>
+    </div>
+    <div class="suggestion-chips">
+      <div class="chip" onclick="sendChip('How do I create a pie chart in Excel?')">How to create a pie chart?</div>
+      <div class="chip" onclick="sendChip('What formulas do I need in Task 1?')">What formulas for Task 1?</div>
+      <div class="chip" onclick="sendChip('Walk me through mail merge step by step')">Mail merge steps</div>
+      <div class="chip" onclick="sendChip('What should my report conclusion say?')">What to write in conclusion</div>
+      <div class="chip" onclick="sendChip('How do I add transitions in PowerPoint?')">Adding transitions in PPT</div>
+      <div class="chip" onclick="sendChip('What is an e-portfolio?')">What is an e-portfolio?</div>
+    </div>
+    <div class="ai-input-row">
+      <input class="ai-input" id="user-input" type="text" placeholder="Type your question here…" onkeydown="if(event.key==='Enter')sendMessage()">
+      <button class="btn primary" onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKLIST -->
+<div id="sec-checklist" class="section">
+  <div class="page-title">Final submission checklist</div>
+  <div class="page-sub">Go through every item before submitting your e-portfolio. Tick each one when done.</div>
+
+  <div class="card" style="margin-bottom:1rem">
+    <div style="font-weight:600;margin-bottom:10px;font-size:14px">📋 Task 1 — Spreadsheet</div>
+    <ul class="checklist">
+      <li><input type="checkbox"> Data from at least 20 participants entered with headings and labels</li>
+      <li><input type="checkbox"> At least 3 different formulas used (SUM/AVERAGE, COUNTIF, MAX/MIN or %)</li>
+      <li><input type="checkbox"> One chart or graph created and titled</li>
+      <li><input type="checkbox"> File saved as Task1_[Topic]_Data.xlsx inside the project folder</li>
+    </ul>
+  </div>
+
+  <div class="card" style="margin-bottom:1rem">
+    <div style="font-weight:600;margin-bottom:10px;font-size:14px">📝 Task 2 — Report</div>
+    <ul class="checklist">
+      <li><input type="checkbox"> Report has all 6 sections: Title, Introduction, Problem, Causes (bullets), Effects (with image), Solutions (table), Conclusion</li>
+      <li><input type="checkbox"> Heading styles applied (Heading 1 / Heading 2)</li>
+      <li><input type="checkbox"> At least 2 different font styles used</li>
+      <li><input type="checkbox"> Line spacing set (1.5 or double for body text)</li>
+      <li><input type="checkbox"> At least 2 alignment styles used (e.g. centred title + justified body)</li>
+      <li><input type="checkbox"> Table of contents generated (not typed manually)</li>
+      <li><input type="checkbox"> At least one image inserted in the Effects section</li>
+      <li><input type="checkbox"> Mail merge done with at least 10 classmates</li>
+      <li><input type="checkbox"> Report saved: Task2_[Topic]_Report.docx</li>
+      <li><input type="checkbox"> Merged letters saved separately: Task2_[Topic]_MailMerge.docx</li>
+    </ul>
+  </div>
+
+  <div class="card" style="margin-bottom:1rem">
+    <div style="font-weight:600;margin-bottom:10px;font-size:14px">📽 Task 3 — Presentation</div>
+    <ul class="checklist">
+      <li><input type="checkbox"> Exactly 5–8 slides created</li>
+      <li><input type="checkbox"> All 5 required content sections present (title, description, findings with chart, solutions, conclusion)</li>
+      <li><input type="checkbox"> A slide design/theme applied (not plain white)</li>
+      <li><input type="checkbox"> Slide transitions added to all slides</li>
+      <li><input type="checkbox"> At least one animation added to slide content</li>
+      <li><input type="checkbox"> Presentation saved: Task3_[Topic]_Slides.pptx</li>
+      <li><input type="checkbox"> Group is ready for oral presentation</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div style="font-weight:600;margin-bottom:10px;font-size:14px">🗂 Task 4 — File management</div>
+    <ul class="checklist">
+      <li><input type="checkbox"> One folder created with a clear name (Group_Topic_Project)</li>
+      <li><input type="checkbox"> All task files (spreadsheet, report, merged letters, slides) are inside the folder</li>
+      <li><input type="checkbox"> Folder submitted using the teacher's specified method (USB / Drive / network)</li>
+    </ul>
+  </div>
+
+  <div style="margin-top:1rem" id="checklist-score" class="success" style="display:none"></div>
+</div>
+
+</main>
+</div>
+
+<script>
+  let t1Step=1, t1Max=4;
+  let t2Step=1, t2Max=5;
+  let t3Step=1;
+  let currentSlide=1, totalSlides=5;
+  let currentSampleSlide=1;
+
+  function showSection(id){
+    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+    document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+    document.getElementById('sec-'+id).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+  function selectTopic(id, name){
+    document.querySelectorAll('.topic-card').forEach(c=>c.classList.remove('selected'));
+    document.getElementById(id).classList.add('selected');
+    document.getElementById('topic-selected').style.display='block';
+    document.getElementById('topic-name-display').textContent=name;
+  }
+
+  function changeStep(task, dir){
+    let step, max;
+    if(task==='t1'){step=t1Step; max=t1Max;}
+    else if(task==='t2'){step=t2Step; max=t2Max;}
+    else return;
+    document.getElementById(task+'-s'+step).classList.remove('active');
+    step=Math.min(max,Math.max(1,step+dir));
+    document.getElementById(task+'-s'+step).classList.add('active');
+    document.getElementById(task+'-step-num').textContent=step;
+    if(task==='t1') t1Step=step;
+    if(task==='t2') t2Step=step;
+  }
+
+  function updateProgress(task, cb){
+    const cbs=document.querySelectorAll('#sec-'+task+' input[type=checkbox]');
+    const total=cbs.length, done=[...cbs].filter(c=>c.checked).length;
+    const pct=Math.round(done/total*100);
+    document.getElementById(task+'-progress').style.width=pct+'%';
+  }
+
+  function initSlides(){
+    const dots=document.getElementById('slide-dots');
+    dots.innerHTML='';
+    for(let i=1;i<=totalSlides;i++){
+      const d=document.createElement('div');
+      d.className='slide-dot'+(i===1?' active':'');
+      d.onclick=()=>goSlide(i);
+      dots.appendChild(d);
+    }
+  }
+
+  function goSlide(n){
+    document.getElementById('slide-'+currentSlide).classList.remove('active');
+    document.querySelectorAll('#slide-dots .slide-dot')[currentSlide-1].classList.remove('active');
+    currentSlide=n;
+    document.getElementById('slide-'+currentSlide).classList.add('active');
+    document.querySelectorAll('#slide-dots .slide-dot')[currentSlide-1].classList.add('active');
+    document.getElementById('slide-count').textContent='Slide '+currentSlide+' of '+totalSlides;
+  }
+
+  function changeSlide(dir){goSlide(Math.min(totalSlides,Math.max(1,currentSlide+dir)));}
+
+  function initSampleSlides(){
+    const dots=document.getElementById('sample-slide-dots');
+    if(!dots) return;
+    dots.innerHTML='';
+    for(let i=1;i<=5;i++){
+      const d=document.createElement('div');
+      d.className='slide-dot'+(i===1?' active':'');
+      d.onclick=()=>goSampleSlide(i);
+      dots.appendChild(d);
+    }
+  }
+
+  function goSampleSlide(n){
+    document.getElementById('ss-'+currentSampleSlide).classList.remove('active');
+    const dots=document.querySelectorAll('#sample-slide-dots .slide-dot');
+    if(dots[currentSampleSlide-1]) dots[currentSampleSlide-1].classList.remove('active');
+    currentSampleSlide=n;
+    document.getElementById('ss-'+currentSampleSlide).classList.add('active');
+    if(dots[currentSampleSlide-1]) dots[currentSampleSlide-1].classList.add('active');
+    document.getElementById('sample-slide-count').textContent='Slide '+currentSampleSlide+' of 5';
+  }
+
+  function changeSampleSlide(dir){goSampleSlide(Math.min(5,Math.max(1,currentSampleSlide+dir)));}
+
+  function showSample(type){
+    document.getElementById('sample-spreadsheet').style.display='none';
+    document.getElementById('sample-report').style.display='none';
+    document.getElementById('sample-slides').style.display='none';
+    document.getElementById('sample-'+type).style.display='block';
+    if(type==='slides') setTimeout(initSampleSlides,50);
+  }
+
+  const aiResponses = {
+    "pie chart": "To create a pie chart in Excel:\n1. Select the column you want to chart (e.g. the 'Bins OK?' column)\n2. Go to Insert → Charts → Pie Chart\n3. Choose a 2D Pie\n4. Right-click the chart → Add Data Labels to show percentages\n5. Give it a title: right-click the chart area → Edit Chart Title",
+    "formula": "For Task 1 you need at least 3 different formulas:\n• =SUM(B2:B23) — adds all values\n• =AVERAGE(B2:B23) — finds the mean\n• =COUNTIF(C2:C23,\"Yes\") — counts specific responses\n• =MAX(B2:B23) or =MIN(B2:B23) — highest/lowest\n• Percentage: =B26/22*100 to get a percentage\nMake sure your formulas are in a clearly labelled Summary section below your data.",
+    "mail merge": "Mail merge step by step:\n1. Create a new Excel file called Classmates_List.xlsx with columns: FirstName, LastName, AdmNumber. Add 10+ classmates.\n2. In Word, go to Mailings → Start Mail Merge → Letters\n3. Click Select Recipients → Use an Existing List → open your Excel file\n4. In your letter, type 'Dear ' then click Insert Merge Field → choose FirstName\n5. Click Preview Results to check it looks right\n6. Click Finish & Merge → Edit Individual Documents → All\n7. A new document opens with all 10+ personalised letters\n8. Save THAT new document as Task2_[Topic]_MailMerge.docx",
+    "conclusion": "Your conclusion should:\n1. Restate the problem in one sentence\n2. Summarise what your data showed (2–3 key findings)\n3. Briefly mention your proposed solutions\n4. End with a call to action — who should do what\n\nExample: 'Poor waste management at Naikuru school is a serious concern. Our survey of 22 learners found that 78% encounter litter regularly, largely due to insufficient bins. The school administration should install 10 new dustbins and introduce a Clean School campaign. With these measures, littering can be reduced significantly within one term.'",
+    "transition": "To add transitions in PowerPoint:\n1. Select ALL slides: press Ctrl+A in the slide panel on the left\n2. Click the Transitions tab\n3. Choose a transition (e.g. Fade, Push, or Wipe)\n4. Click Apply to All\n5. You can also set the timing under Advance Slide\n\nFor animations (separate from transitions):\n1. Click on a text box or image in a slide\n2. Go to Animations tab\n3. Click Add Animation → choose Appear or Fly In\n4. Repeat for other elements you want animated",
+    "e-portfolio": "An e-portfolio is simply a digital folder containing all your project files. Think of it as a digital version of a physical portfolio you'd hand in.\n\nFor this project, your e-portfolio is:\n• One folder on the computer with all your files inside it\n• Named clearly: e.g. Group3_WasteManagement_Project\n• Submitted to your teacher via USB drive, shared folder, or whatever method your teacher specifies\n\nThe 2 marks for Task 4 come from: (1) having all files in one folder, and (2) submitting it correctly.",
+    "default": "That's a great question! For this ICT project, make sure you always:\n• Work in groups of up to 5 members\n• Keep all files in one folder (Task 4)\n• Save your work regularly — use Ctrl+S often\n• Use the task name and topic in your file names\n\nIf you need help with something specific, try asking about formulas, mail merge, slide transitions, or the report structure."
+  };
+
+  function getResponse(q){
+    q=q.toLowerCase();
+    if(q.includes('pie')||q.includes('chart')||q.includes('graph')) return aiResponses['pie chart'];
+    if(q.includes('formula')||q.includes('function')||q.includes('average')||q.includes('countif')) return aiResponses['formula'];
+    if(q.includes('mail')||q.includes('merge')) return aiResponses['mail merge'];
+    if(q.includes('conclusion')) return aiResponses['conclusion'];
+    if(q.includes('transition')||q.includes('animation')||q.includes('powerpoint')||q.includes('ppt')) return aiResponses['transition'];
+    if(q.includes('e-portfolio')||q.includes('portfolio')) return aiResponses['e-portfolio'];
+    return aiResponses['default'];
+  }
+
+  function addMsg(text, who){
+    const area=document.getElementById('chat-area');
+    const div=document.createElement('div');
+    div.className='msg '+who;
+    div.style.whiteSpace='pre-line';
+    div.textContent=text;
+    area.appendChild(div);
+    area.scrollTop=area.scrollHeight;
+  }
+
+  function addTyping(){
+    const area=document.getElementById('chat-area');
+    const div=document.createElement('div');
+    div.className='msg ai';
+    div.id='typing-indicator';
+    div.innerHTML='<span class="typing"><span></span><span></span><span></span></span>';
+    area.appendChild(div);
+    area.scrollTop=area.scrollHeight;
+  }
+
+  function sendMessage(){
+    const inp=document.getElementById('user-input');
+    const q=inp.value.trim();
+    if(!q){inp.style.borderColor='#ef4444';setTimeout(()=>inp.style.borderColor='',1200);return;}
+    addMsg(q,'user');
+    inp.value='';
+    addTyping();
+    setTimeout(()=>{
+      const t=document.getElementById('typing-indicator');
+      if(t) t.remove();
+      addMsg(getResponse(q),'ai');
+    },900);
+  }
+
+  function sendChip(text){
+    document.getElementById('user-input').value=text;
+    sendMessage();
+  }
+
+  document.addEventListener('DOMContentLoaded',()=>{
+    initSlides();
+    document.querySelectorAll('input[type=checkbox]').forEach(cb=>{
+      cb.addEventListener('change',()=>{
+        const total=document.querySelectorAll('#sec-checklist input[type=checkbox]').length;
+        const done=document.querySelectorAll('#sec-checklist input[type=checkbox]:checked').length;
+        const sc=document.getElementById('checklist-score');
+        if(sc){
+          sc.style.display='block';
+          sc.textContent='✅ '+done+' of '+total+' items completed ('+Math.round(done/total*100)+'%)';
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>

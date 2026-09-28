@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Grade 10 ICT Project Portal</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f5f5f5;color:#222;font-size:16px;line-height:1.75}
+a{color:#005a9e;text-decoration:none}
+a:hover{text-decoration:underline}
+
+nav{background:#1a3a6b;padding:0}
+.nav-inner{max-width:900px;margin:0 auto;display:flex;flex-wrap:wrap;gap:0}
+.nav-inner a{color:#fff;padding:13px 18px;font-size:14px;font-weight:500;display:block;border-right:1px solid rgba(255,255,255,0.15)}
+.nav-inner a:hover,.nav-inner a.active{background:#2e5da8;text-decoration:none}
+.nav-inner a:first-child{font-weight:700;font-size:15px}
+
+.container{max-width:900px;margin:0 auto;padding:30px 20px 60px}
+
+h1{font-size:24px;font-weight:700;color:#1a3a6b;margin-bottom:6px;border-bottom:3px solid #1a3a6b;padding-bottom:10px}
+h2{font-size:19px;font-weight:700;color:#1a3a6b;margin:28px 0 10px}
+h3{font-size:16px;font-weight:700;color:#333;margin:20px 0 8px}
+p{margin-bottom:12px}
+ul,ol{margin:0 0 14px 24px}
+li{margin-bottom:5px}
+strong{font-weight:700}
+
+table{width:100%;border-collapse:collapse;margin:14px 0 20px;font-size:15px}
+th{background:#1a3a6b;color:#fff;padding:10px 14px;text-align:left}
+td{padding:9px 14px;border:1px solid #ccc}
+tr:nth-child(even) td{background:#f0f4fb}
+
+.info-box{background:#e8f0fb;border-left:5px solid #1a3a6b;padding:14px 18px;margin:16px 0;border-radius:0 6px 6px 0}
+.tip-box{background:#fff8e1;border-left:5px solid #f59e0b;padding:14px 18px;margin:16px 0;border-radius:0 6px 6px 0}
+.example-box{background:#f0fdf4;border-left:5px solid #16a34a;padding:14px 18px;margin:16px 0;border-radius:0 6px 6px 0}
+.example-box h3{color:#15803d;margin-top:0}
+.activity-box{background:#fef3c7;border:2px solid #d97706;padding:14px 18px;margin:20px 0;border-radius:6px}
+.activity-box h3{color:#92400e;margin-top:0}
+
+.step-nav{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:20px;border-top:2px solid #ddd;flex-wrap:wrap;gap:10px}
+.btn{display:inline-block;padding:11px 24px;border-radius:5px;font-size:15px;font-weight:600;cursor:pointer;border:none;text-decoration:none}
+.btn-primary{background:#1a3a6b;color:#fff}
+.btn-primary:hover{background:#2e5da8;text-decoration:none}
+.btn-secondary{background:#fff;color:#1a3a6b;border:2px solid #1a3a6b}
+.btn-secondary:hover{background:#e8f0fb;text-decoration:none}
+.btn-start{background:#16a34a;color:#fff;font-size:16px;padding:13px 30px}
+.btn-start:hover{background:#15803d;text-decoration:none}
+
+.hero{background:linear-gradient(135deg,#1a3a6b,#2e5da8);color:#fff;padding:36px 30px;border-radius:8px;margin-bottom:28px}
+.hero h1{color:#fff;border-bottom:2px solid rgba(255,255,255,0.4);font-size:26px}
+.hero p{color:rgba(255,255,255,0.9);font-size:16px;margin-bottom:0}
+
+.task-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:24px 0}
+.task-card{background:#fff;border:1px solid #d0d7e4;border-radius:8px;padding:20px;cursor:pointer}
+.task-card:hover{border-color:#1a3a6b;box-shadow:0 2px 8px rgba(26,58,107,0.15)}
+.task-card-num{font-size:12px;font-weight:700;color:#1a3a6b;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
+.task-card-title{font-size:15px;font-weight:700;color:#1a3a6b;margin-bottom:6px}
+.task-card-desc{font-size:13px;color:#555;line-height:1.5}
+.task-card-marks{margin-top:10px;font-size:13px;font-weight:700;color:#16a34a}
+
+.step-indicator{background:#e8f0fb;border-radius:5px;padding:8px 14px;font-size:13px;color:#1a3a6b;font-weight:600;margin-bottom:18px;display:inline-block}
+
+.slide-example{background:#1a3a6b;color:#fff;border-radius:8px;padding:24px 28px;margin:14px 0;min-height:140px}
+.slide-example h2{color:#fff;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:8px;margin-bottom:12px;margin-top:0;font-size:17px}
+.slide-example p,.slide-example li{color:rgba(255,255,255,0.9);font-size:14px}
+.slide-example ul{margin-left:20px}
+
+.formula-box{background:#1e1e1e;border-radius:6px;padding:14px 18px;font-family:'Courier New',monospace;font-size:13px;color:#4ec9b0;margin:10px 0;line-height:1.8}
+.formula-box .cmt{color:#6a9955}
+.formula-box .kw{color:#ce9178}
+
+.title-page-example{border:2px solid #ccc;border-radius:6px;padding:28px;text-align:center;background:#fff;margin:14px 0;font-family:'Times New Roman',serif}
+.title-page-example h2{font-size:18px;color:#1a3a6b;margin:0 0 10px;border:none}
+.title-page-example p{margin-bottom:6px;font-size:14px}
+
+footer{background:#1a3a6b;color:rgba(255,255,255,0.8);text-align:center;padding:18px;font-size:13px}
+
+.page{display:none}
+.page.active{display:block}
+
+@media(max-width:600px){
+  .nav-inner a{padding:10px 12px;font-size:13px}
+  .container{padding:20px 15px 50px}
+  h1{font-size:20px}
+  .task-cards{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" onclick="show('home')" id="nav-home" class="active">🏠 Home</a>
+    <a href="#" onclick="show('task1')" id="nav-task1">Task 1</a>
+    <a href="#" onclick="show('task2')" id="nav-task2">Task 2</a>
+    <a href="#" onclick="show('task3')" id="nav-task3">Task 3</a>
+    <a href="#" onclick="show('task4')" id="nav-task4">Task 4</a>
+  </div>
+</nav>
+
+<!-- ======== HOME ======== -->
+<div id="page-home" class="page active">
+<div class="container">
+  <div class="hero">
+    <h1>Grade 10 ICT Project Portal</h1>
+    <p>A step-by-step learning guide for the 2026 KNEC School Based Assessment</p>
+  </div>
+
+  <h2>Welcome, Learners</h2>
+  <p>Welcome to the Grade 10 ICT Project Portal. This platform has been designed to guide you step-by-step through the ICT project development process.</p>
+  <p>You will access project guidelines, follow step-by-step instructions for all four tasks, and learn how to use productivity tools to investigate a real-life problem in your school or community.</p>
+
+  <div class="info-box">
+    <strong>Project Overview</strong><br>
+    The project is assessed out of <strong>50 marks</strong>. You will work in groups of up to 5 members. Each member must actively participate in all tasks. All files must be submitted as an e-portfolio.
+  </div>
+
+  <h2>ICT Project Tasks</h2>
+  <div class="task-cards">
+    <div class="task-card" onclick="show('task1')">
+      <div class="task-card-num">Task 1</div>
+      <div class="task-card-title">Collecting and Analysing Information</div>
+      <div class="task-card-desc">Identify a problem, collect data from at least 20 participants and analyse it using a spreadsheet.</div>
+      <div class="task-card-marks">13 marks</div>
+    </div>
+    <div class="task-card" onclick="show('task2')">
+      <div class="task-card-num">Task 2</div>
+      <div class="task-card-title">Report Writing</div>
+      <div class="task-card-desc">Prepare a formal written report using a word processor and send it using mail merge.</div>
+      <div class="task-card-marks">21 marks</div>
+    </div>
+    <div class="task-card" onclick="show('task3')">
+      <div class="task-card-num">Task 3</div>
+      <div class="task-card-title">Presentation</div>
+      <div class="task-card-desc">Create a 5–8 slide presentation and deliver it orally to the school community.</div>
+      <div class="task-card-marks">14 marks</div>
+    </div>
+    <div class="task-card" onclick="show('task4')">
+      <div class="task-card-num">Task 4</div>
+      <div class="task-card-title">File Management</div>
+      <div class="task-card-desc">Organise all files into one folder and submit your e-portfolio to your teacher.</div>
+      <div class="task-card-marks">2 marks</div>
+    </div>
+  </div>
+
+  <h2>Marks Summary</h2>
+  <table>
+    <thead><tr><th>Task</th><th>Description</th><th>Maximum Score</th></tr></thead>
+    <tbody>
+      <tr><td>Task 1</td><td>Collecting and Analysing Information</td><td>13</td></tr>
+      <tr><td>Task 2</td><td>Report Writing</td><td>21</td></tr>
+      <tr><td>Task 3</td><td>Presentation</td><td>14</td></tr>
+      <tr><td>Task 4</td><td>File Management</td><td>2</td></tr>
+      <tr><td><strong>Total</strong></td><td></td><td><strong>50</strong></td></tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+<!-- ======== TASK 1 OVERVIEW ======== -->
+<div id="page-task1" class="page">
+<div class="container">
+  <h1>GRADE 10 ICT PROJECT 2026</h1>
+  <h2>Task 1 Overview: Collecting and Analysing Information</h2>
+  <p>Task 1 involves collecting and analysing information about a real-life problem affecting your school or community. Learners are expected to identify a problem, collect relevant data from respondents, and use Microsoft Excel to organise, analyse and present the collected information.</p>
+  <p>The collected data should be analysed using spreadsheet tools such as formulas, functions, tables and charts. The findings obtained from Task 1 will be used when preparing the project report and presentation in the next tasks.</p>
+
+  <h2>What is Required in Task 1?</h2>
+  <p>Before starting Task 1, learners should complete the following activities:</p>
+  <ul>
+    <li>Identify a real-life problem affecting the school or community.</li>
+    <li>Prepare questions for collecting information about the selected problem.</li>
+    <li>Collect data from at least <strong>twenty (20) respondents</strong>.</li>
+    <li>Record the collected information accurately.</li>
+    <li>Enter the collected data into Microsoft Excel.</li>
+    <li>Organise the data into a clear table using appropriate headings and labels.</li>
+    <li>Analyse the data using spreadsheet formulas and functions.</li>
+    <li>Create at least one chart or graph to represent the findings.</li>
+    <li>Save the completed worksheet.</li>
+  </ul>
+
+  <h2>Example Project Topic</h2>
+  <div class="example-box">
+    <h3>Topic: Poor Waste Management in School</h3>
+    <p><strong>Problem:</strong> Poor waste disposal practices have affected cleanliness and environmental conditions within the school.</p>
+    <p><strong>Information to Collect:</strong></p>
+    <ul>
+      <li>Number of learners affected by the problem.</li>
+      <li>Causes of poor waste management.</li>
+      <li>Effects of poor waste disposal.</li>
+      <li>Possible solutions to improve waste management.</li>
+    </ul>
+  </div>
+
+  <h2>Other Suggested Topics</h2>
+  <table>
+    <thead><tr><th>Topic</th><th>Problem Focus</th></tr></thead>
+    <tbody>
+      <tr><td>Waste Management</td><td>Littering, insufficient bins, no recycling</td></tr>
+      <tr><td>Road Safety</td><td>Accidents near school, unsafe crossings</td></tr>
+      <tr><td>Health and Safety</td><td>Poor hand-washing, lack of first aid</td></tr>
+      <tr><td>Time Management</td><td>Late arrivals, incomplete homework</td></tr>
+      <tr><td>Environmental Conservation</td><td>Tree cutting, soil erosion, water wastage</td></tr>
+      <tr><td>Small Business Record Keeping</td><td>Local traders not keeping financial records</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Expected Final Output</h2>
+  <p>At the end of Task 1, learners should have a completed Excel file containing:</p>
+  <ul>
+    <li>Collected data from at least 20 respondents.</li>
+    <li>Data analysis using formulas and functions.</li>
+    <li>Summary tables with totals, averages and percentages.</li>
+    <li>At least one chart or graph showing the findings.</li>
+  </ul>
+
+  <h2>Saving Your Work</h2>
+  <div class="info-box"><strong>Save your file as:</strong> Task1_Data_Analysis.xlsx</div>
+
+  <div class="step-nav">
+    <span></span>
+    <a href="#" onclick="show('t1s1')" class="btn btn-start">START TASK 1 →</a>
+  </div>
+</div>
+</div>
+
+<!-- ======== TASK 1 STEP 1 ======== -->
+<div id="page-t1s1" class="page">
+<div class="container">
+  <div class="step-indicator">Task 1 · Step 1 of 6</div>
+  <h1>TASK 1: FORMING YOUR PROJECT GROUP</h1>
+  <p>Welcome to Task 1 of the ICT Project. In this step, you will prepare your project group before starting data collection. Each member must be assigned a clear responsibility.</p>
+
+  <h2>Group Requirements</h2>
+  <ul>
+    <li>Groups should have <strong>up to 5 members</strong>.</li>
+    <li>Each member must participate actively in every task.</li>
+    <li>Assign roles clearly so all work is completed on time.</li>
+  </ul>
+
+  <h2>Suggested Group Responsibilities</h2>
+  <table>
+    <thead><tr><th>Member</th><th>Responsibility</th></tr></thead>
+    <tbody>
+      <tr><td>Member 1</td><td>Prepare survey questions and lead data collection</td></tr>
+      <tr><td>Member 2</td><td>Collect information from respondents</td></tr>
+      <tr><td>Member 3</td><td>Enter collected data into Excel</td></tr>
+      <tr><td>Member 4</td><td>Analyse data using formulas and functions</td></tr>
+      <tr><td>Member 5</td><td>Create charts and prepare the summary</td></tr>
+    </tbody>
+  </table>
+
+  <div class="activity-box">
+    <h3>Activity</h3>
+    <p>Discuss with your group members and assign each person a responsibility. Write down each member's name and their role. Ensure every member understands what they are expected to do.</p>
+  </div>
+
+  <div class="step-nav">
+    <a href="#" onclick="show('task1')" class="btn btn-secondary">← TASK 1 HOME</a>
+    <a href="#" onclick="show('t1s2')" class="btn btn-primary">NEXT STEP →</a>
+  </div>
+</div>
+</div>
+
+<!-- ======== TASK 1 STEP 2 ======== -->
+<div id="page-t1s2" class="page">
+<div class="container">
+  <div class="step-indicator">Task 1 · Step 2 of 6</div>
+  <h1>STEP 2: IDENTIFYING THE PROBLEM</h1>
+  <p>After forming your group, the next activity is to identify a real-life problem affecting your school or community. The problem should be something your group can investigate by asking questions and collecting information.</p>
+
+  <h2>Examples of Suitable Problems</h2>
+  <ul>
+    <li>Poor waste management in school</li>
+    <li>Poor time management among learners</li>
+    <li>Road safety challenges near school</li>
+    <li>Health and hygiene problems</li>
+    <li>Environmental pollution in the community</li>
+    <li>Poor record keeping by small businesses</li>
+  </ul>
+
+  <h2>How to Write a Problem Statement</h2>
+  <p>A problem statement should clearly explain what the problem is, where it is happening, and why it needs to be solved.</p>
+
+  <div class="example-box">
+    <h3>Example Problem Statement</h3>
+    <p><strong>Topic:</strong> Poor Waste Management in School</p>
+    <p><strong>Problem Statement:</strong> Poor disposal of waste has resulted in a dirty school environment and may affect the health of learners and teachers at the school.</p>
+  </div>
+
+  <h2>Questions to Discuss in Your Group</h2>
+  <ul>
+    <li>What is the problem?</li>
+    <li>Where is the problem happening?</li>
+    <li>Who is affected by the problem?</li>
+    <li>Why should the problem be investigated and solved?</li>
+    <li>What information do you need to collect?</li>
+  </ul>
+
+  <div class="activity-box">
+    <h3>Activity</h3>
+    <p>As a group, discuss and agree on one problem you will investigate. Write a clear problem statement for your chosen topic. This problem statement will appear in your report and presentation.</p>
+  </div>
+
+  <div class="step-nav">
+    <a href="#" onclick="show('t1s1')" class="btn btn-secondary">← PREVIOUS</a>
+    <a href="#" onclick="show('t1s3')" class="btn btn-primary">NEXT STEP →</a>
+  </div>
+</div>
+</div>
+
+<!-- ======== TASK 1 STEP 3 ======== -->
+<div id="page-t1s3" class="page">
+<div class="container">
+  <div class="step-indicator">Task 1 · Step 3 of 6</div>
+  <h1>STEP 3: PREPARING YOUR SURVEY QUESTIONS</h1>
+  <p>Now that you have identified your problem, you need to prepare questions that will help you collect useful information from respondents. Your questions should be clear, short, and easy to answer.</p>
+
+  <h2>Types of Questions</h2>
+  <table>
+    <thead><tr><th>Question Type</th><th>Description</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>Yes / No</td><td>Simple two-option answer</td><td>Do you dispose of waste in a dustbin? (Yes / No)</td></tr>
+      <tr><td>Multiple choice</td><td>Choose from given options</td><td>How often do you see litter in school? (Daily / Sometimes / Rarely / Never)</td></tr>
+      <tr><td>Number</td><td>A specific count or rating</td><td>How many times per week do you arrive late? (0 / 1 / 2 / 3 / More)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="example-box">
+    <h3>Example Survey — Waste Management</h3>
+    <ol>
+      <li>Do you dispose of your waste in a dustbin? (Yes / No / Sometimes)</li>
+      <li>Are there enough dustbins in your classroom block? (Yes / No)</li>
+      <li>How many days per week do you see litter on the school grounds? (0 / 1–2 / 3–4 / 5+)</li>
+      <li>What do you think causes poor waste disposal in school? (No bins / No awareness / Don't care / Other)</li>
+      <li>What is the best solution for waste management? (More bins / Campaigns / Fines / Other)</li>
+    </ol>
+  </div>
+
+  <div class="tip-box">
+    <strong>Tip:</strong> You need answers you can count and put in Excel. Make sure at least 3 of your questions have options that can be tallied — such as Yes/No or multiple choice answers.
+  </div>
+
+  <div class="activity-box">
+    <h3>Activity</h3>
+    <p>Prepare at least 4 survey questions for your chosen topic. Write your questions on a sheet of paper first. Show them to your teacher before going to collect data.</p>
+  </div>
+
+  <div class="step-nav">
+    <a href="#" onclick="show('t1s2')" class="btn btn-secondary">← PREVIOUS</a>
+    <a href="#" onclick="show('t1s4')" class="btn btn-primary">NEXT STEP →</a>
+  </div>
+</div>
+</div>
+
+<!-- ======== TASK 1 STEP 4 ======== -->
+<div id="page-t1s4" class="page">
+<div class="container">
+  <div class="step-indicator">Task 1 · Step 4 of 6</div>
+  <h1>STEP 4: COLLECTING DATA FROM RESPONDENTS</h1>
+  <p>In this step, you will go out and collect information from at least 20 people. Respondents can be fellow learners, teachers or community members, depending on your topic.</p>
+
+  <h2>Data Collection Guidelines</h2>
+  <ul>
+    <li>Collect responses from at least <strong>20 different people</strong>.</li>
+    <li>Read each question clearly to the respondent.</li>
+    <li>Record answers accurately on paper before entering them into Excel.</li>
+    <li>Be polite and respectful when approaching respondents.</li>
+    <li>Do not change any answers given by respondents.</li>
+    <li>Split the work — each group member can interview 4 to 5 people.</li>
+  </ul>
+
+  <h2>Sample Data Recording Sheet</h2>
+  <table>
+    <thead><tr><th>No.</th><th>Q1: Dispose in bin?</th><th>Q2: Enough bins?</th><th>Q3: Days of litter/week</th><th>Q4: Main cause</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Sometimes</td><td>No</td><td>4</td><td>No bins</td></tr>
+      <tr><td>2</td><td>Yes</td><td>No</td><td>2</td><td>No awareness</td></tr>
+      <tr><td>3</td><td>No</td><td>No</td><td>5</td><td>Don't care</td></tr>
+      <tr><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
+      <tr><td>20</td><td>Sometimes</td><td>No</td><td>3</td><td>No bins</td></tr>
+    </tbody>
+  </table>
+
+  <div class="activity-box">
+    <h3>Activity</h3>
+    <p>Go out with your data recording sheet and collect answers from at least 20 respondents. Write all answers on paper before moving to the next step. Count your responses to confirm you have 20 or more.</p>
+  </div>
+
+  <div class="step-nav">
+    <a href="#" onclick="show('t1s3')" class="btn btn-secondary">← PREVIOUS</a>
+    <a href="#" onclick="show('t1s5')" class="btn btn-primary">NEXT STEP →</a>
+  </div>
+</div>
+</div>
+
+<!-- ======== TASK 1 STEP 5 ======== -->
+<div id="page-t1s5" class="page">
+<div class="container">
+  <div class="step-indicator">Task 1 · Step 5 of 6</div>
+  <h1>STEP 5: ENTERING AND ANALYSING DATA IN EXCEL</h1>
+  <p>Now open Microsoft Excel and enter your collected data. Then use formulas and functions to analyse the information.</p>
+
+  <h2>Steps for Entering Data</h2>
+  <ol>
+    <li>Open Microsoft Excel and create a new workbook.</li>
+    <li>In Row 1, type your column headings — for example: <em>Participant No., Q1 Answer, Q2 Answer, Q3 Answer, Q4 Answer</em>.</li>
+    <li>From Row 2 onwards, enter one respondent's answers per row.</li>
+    <li>Enter all 20 or more respondents.</li>
+    <li>Below the data, add a <strong>Summary Section</strong> with your calculations.</li>
+  </ol>
+
+  <h2>Formulas You Must Use</h2>
+  <div class="formula-box">
+    <div class="cmt">'--- Average ---</div>
+    <div>=AVERAGE(B2:B21)<span class="cmt">  'Finds the average of a number column</span></div>
+    <br>
+    <div class="cmt">'--- Total / Sum ---</div>
+    <div>=SUM(C2:C21)<span class="cmt">  'Adds all values in a column</span></div>
+    <br>
+    <div class="cmt">'--- Count specific responses ---</div>
+    <div>=COUNTIF(D2:D21,<span class="kw">"Yes"</span>)<span class="cmt">  'Counts how many answered "Yes"</span></div>
+    <br>
+    <div class="cmt">'--- Percentage ---</div>
+    <div>=COUNTIF(D2:D21,<span class="kw">"Yes"</span>)/20*100<span class="cmt">  'Percentage who said "Yes"</span></div>
+    <br>
+    <div class="cmt">'--- Maximum and Minimum ---</div>
+    <div>=MAX(C2:C21)<span class="cmt">  'Highest value</span></div>
+    <div>=MIN(C2:C21)<span class="cmt">  'Lowest value</span></div>
+  </div>
+
+  <h2>Creating a Chart</h2>
+  <ol>
+    <li>Select the data you want to chart — for example, the summary column.</li>
+    <li>Click <strong>Insert</strong> on the menu bar.</li>
+    <li>Click <strong>Charts</strong> and choose a <strong>Bar Chart</strong> or <strong>Pie Chart</strong>.</li>
+    <li>Add a <strong>chart title</strong> that describes what the chart shows.</li>
+    <li>Label the axes if you used a bar chart.</li>
+  </ol>
+
+  <div class="tip-box">
+    <strong>Important:</strong> The examiner will check that your spreadsheet has headings and labels, at least 3 different formulas, and at least one chart or graph. Make sure all three are visible.
+  </div>
+
+  <div class="activity-box">
+    <h3>Activity</h3>
+    <p>Open Microsoft Excel. Enter all your collected data with proper headings. Add a summary section below with at least 3 different formulas. Insert one chart showing your key finding. Save the file as <strong>Task1_Data_Analysis.xlsx</strong>.</p>
+  </div>
+
+  <div class="step-nav">
+    <a href="#" onclick="show('t1s4')" class="btn btn-secondary">← PREVIOUS</a>
+    <a href="#" onclick="show('t1s6')" class="btn btn-primary">NEXT STEP →</a>
+  </div>
+</div>
+</div>
+
+<!-- ======== TASK 1 STEP 6 ======== -->
+<div id="page-t1s6" class="page">
+<div class="container">
+  <div class="step-indicator">Task 1 · Step 6 of 6</div>
+  <h1>STEP 6: SAVING YOUR WORK</h1>
+  <p>You have completed the data entry and analysis. The final step is to save your work correctly so it can be submitted as part of your e-portfolio.</p>
+
+  <h2>How to Save in Excel</h2>
+  <ol>
+    <li>Click <strong>File</strong> on the menu bar.</li>
+    <li>Click <strong>Save As</strong>.</li>
+    <li>Choose the folder where your group keeps all project files.</li>
+    <li>In the file name box, type: <strong>Task1_Data_Analysis.xlsx</strong></li>
+    <li>Make sure the file type is set to <strong>Excel Workbook (.xlsx)</strong>.</li>
+    <li>Click <strong>Save</strong>.</li>
+  </ol>
+
+  <div class="example-box">
+    <h3>Task 1 Checklist — Before Moving to Task 2</h3>
+    <ul>
+      <li>✅ Data from at least 20 respondents entered with proper headings</li>
+      <li>✅ At least 3 formulas used: AVERAGE, COUNTIF, and one other</li>
+      <li>✅ A percentage calculation is included</li>
+      <li>✅ At least one chart or graph is inserted and titled</li>
+      <li>✅ File saved as Task1_Data_Analysis.xlsx in the project folder</li>
+    </ul>
+  </div>
+
+  <div class="step-nav">
+    <a href="#" onclick="show('t1s5')" class="btn btn-secondary">← PREVIOUS</a>
+    <a href="#" onclick="show('task2')" class="btn btn-start">PROCEED TO TASK 2 →</a>
+  </div>
+</div>
+</div>
+
+<!-- ======== TASK 2 OVERVIEW ======== -->
+<div id="page-task2" class="page">
+<div class="container">
+  <h1>GRADE 10 ICT PROJECT 2026</h1>
+  <h2>Task 2 Overview: Report Writing</h2>
+  <p>Task 2 involves preparing a written report based on the information collected and analysed in Task 1. Learners are required to use a word processor such as Microsoft Word to present their project findings in a clear and organised manner.</p>
+  <p>The report should explain the identified problem, present the research findings, describe the causes and effects of the problem, and suggest possible solutions. The report should be professionally formatted and contain all required sections.</p>
+
+  <h2>What is Required in Task 2?</h2>
+  <ul>
+    <li>Create a title page containing project details and group information.</li>
+    <li>Write an introduction explaining the purpose of the project.</li>
+    <li>Describe the identified problem affecting the school or community.</li>
+    <li>List the causes of the problem using bullet points.</li>
+    <li>Explain the effects of the problem and insert at least one relevant image.</li>
+    <li>Present proposed solutions summarised in a table.</li>
+    <li>Write an appropriate conclusion.</li>
+    <li>Apply proper document formatting: headings, font styles, line spacing and alignment.</li>
+    <li>Generate a table of contents for the report.</li>
+    <li>Use mail merge to share the report with at least 10 classmates.</li>
+    <li>Save the personalised mail merge letters as a separate document.</li>
+  </ul>
+
+  <h2>Report Structure</h2>
+  <table>
+    <thead><tr><th>Section</th><th>Content Required</th></tr></thead>
+    <tbody>
+      <tr><td>Title Page</td><td>Project title, school name, group members, subject, year</td></tr>
+      <tr><td>Table of Contents</td><td>Auto-generated from heading styles</td></tr>
+      <tr><td>Introduction</td><td>Background and purpose of the report</td></tr>
+      <tr><td>Problem Description</td><td>Detailed explanation of the problem investigated</td></tr>
+      <tr><td>Causes</td><td>Bullet-pointed list of causes</td></tr>
+      <tr><td>Effects</td><td>Description of effects, with at least one image</td></tr>
+      <tr><td>Proposed Solutions</td><td>Solutions presented in a table</td></tr>
+      <tr><td>Conclusion</td><td>Summary and call to action</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Saving Your Work</h2>
+  <div class="info-box">
+    <strong>Report file:</strong> Task2_Project_Report.docx<br>
+    <strong>Mail merge letters:</strong> Task2_MailMerge_Letters.docx
+  </div>
+
+  <div class="step-nav">
+    <span></span>
+    <a href="#" onclick="show('t2s1')" class="btn btn-start">START TASK 2 →</a>
+  </div>
+</div>
+</div>
+
+<!-- ======== TASK 2 STEP 1 ======== -->
+<div id="page-t2s1" class="page">
+<div class="container">
+  <div class="step-indicator">Task 2 · Step 1 of 6</div>
+  <h1>TASK 2: CREATING THE TITLE PAGE</h1>
+  <p>In this step, you will create the title page of your project report. The title page is the first page of the report and gives important background information about the project and the group.</p>
+
+  <h2>What Should Appear on the Title Page?</h2>
+  <ul>
+    <li>Project title</li>
+    <li>School name</li>
+    <li>Subject name (Information and Communication Technology)</li>
+    <li>Names of all group members</li>
+    <li>Class / Grade</li>
+    <li>Year of the project</li>
+  </ul>
+
+  <h2>Example Title Page</h2>
+  <div class="title-page-example">
+    <h2>GRADE 10 ICT PROJECT 2026</h2>
+    <h2 style="font-size:16px;margin-bottom:16px">POOR WASTE MANAGEMENT IN OUR SCHOOL</h2>
+    <p><strong>Prepared by:</strong></p>
+    <p>1. John Kiptoo</p>
+    <p>2. Mary Chebet</p>
+    <p>3. Peter Rotich</p>
+    <p>4. Jane Akinyi</p>
+    <p>5. David Kamau</p>
+    <p style="margin-top:14px"><strong>School:</strong> Naikuru P.A.G Senior School</p>
+    <p><strong>Subject:</strong> Information and Communication Technology (ICT)</p>
+    <p><strong>Grade:</strong> 10</p>
+    <p><strong>Year:</strong> 2026</p>
+  </div>
+
+  <div class="activity-box">
+    <h3>Activity</h3>
+    <p>Open Microsoft Word and create a new document. Type the information required for the title page and arrange it neatly as shown in the example above. Centre the text on the page. Save the document as <strong>Task2_Project_Report.docx</strong>.</p>
+  </div>
+
+  <div class="step-nav">
+    <a href="#" onclick="show('task2')" class="btn btn-secondary">← TASK 2 HOME</a>
+    <a href="#" onclick="show('t2s2')" class="btn btn-primary">NEXT STEP →</a>
+  </div>
+</div>
+</div>
+
+<!-- ======== TASK 2 STEP 2 ======== -->
+<div id="page-t2s2" class="page">
+<div class="container">
+  <div class="step-indicator">Task 2 · Step 2 of 6</div>
+  <h1>STEP 2: WRITING THE REPORT CONTENT</h1>
+  <p>In this step, you will write all the main sections of your report. Start a new page after the title page and write each section using the headings listed below.</p>
+
+  <h2>How to Apply Heading Styles in Word</h2>
+  <ol>
+    <li>Type your section heading, for example: <strong>1. Introduction</strong></li>
+    <li>Select the heading text.</li>
+    <li>In the Home tab, click <strong>Heading 1</strong> in the Styles section.</li>
+    <li>For sub-headings, use <strong>Heading 2</strong>.</li>
+    <li>This is important — the Table of Contents is generated from these styles.</li>
+  </ol>
+
+  <h2>Sections to Write</h2>
+  <table>
+    <thead><tr><th>Section</th><th>What to Write</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1. Introduction</strong></td><td>Explain the background of the problem and the purpose of the report. 2–3 paragraphs.</td></tr>
+      <tr><td><strong>2. Problem Description</strong></td><td>Describe the problem in detail. Explain what is happening, where, and who is affected.</td></tr>
+      <tr><td><strong>3. Causes</strong></td><td>List the causes using bullet points. Give at least 4 causes.</td></tr>
+      <tr><td><strong>4. Effects</strong></td><td>Describe the effects of the problem. Insert at least one relevant image here.</td></tr>
+      <tr><td><strong>5. Proposed Solutions</strong></td><td>Summarise your solutions in a table with columns: Solution, Responsible Party, Timeline.</td></tr>
+      <tr><td><strong>6. Conclusion</strong></td><td>Summarise the report. State what action should be taken. 1–2 paragraphs.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="example-box">
+    <h3>Example — Conclusion Paragraph</h3>
+    <p>Poor waste management at our school is a serious concern that affects the health and learning environment of all learners. The survey findings show that the majority of learners are affected by this problem daily. The proposed solutions, including installing additional bins and conducting awareness campaigns, can significantly reduce the problem within one term. The school administration is urged to implement these recommendations immediately.</p>
+  </div>
+
+  <div class="activity-box">
+    <h3>Activity</h3>
+    <p>Write all six sections in your Word document. Apply Heading 1 style to each section title. Remember to insert at least one image in the Effects section. You can search for a relevant image online or take a photo at school.</p>
+  </div>
+
+  <div class="step-nav">
+    <a href="#" onclick="show('t2s1')" class="btn btn-secondary">← PREVIOUS</a>
+    <a href="#" onclick="show('t2s3')" class="btn btn-primary">NEXT STEP →</a>
+  </div>
+</div>
+</div>
+
+<!-- ======== TASK 2 STEP 3 ======== -->
+<div id="page-t2s3" class="page">
+<div class="container">
+  <div class="step-indicator">Task 2 · Step 3 of 6</div>
+  <h1>STEP 3: FORMATTING THE DOCUMENT</h1>
+  <p>The examiner checks for specific formatting in your report. Apply all four formatting requirements listed below.</p>
+
+  <h2>Required Formatting Elements</h2>
+  <table>
+    <thead><tr><th>Requirement</th><th>How to Apply in Microsoft Word</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Headings</strong></td><td>Select section title → Home tab → Styles → choose Heading 1 or Heading 2</td></tr>
+      <tr><td><strong>Different font styles</strong></td><td>Use a different font for headings and body text. Example: Calibri for body, Arial for headings</td></tr>
+      <tr><td><strong>Line spacing</strong></td><td>Select all body text → Home → Line Spacing → 1.5 Lines</td></tr>
+      <tr><td><strong>Alignment styles</strong></td><td>Centre the title. Justify the body paragraphs. Left-align the headings.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Recommended Font Sizes</h2>
+  <ul>
+    <li>Title (on title page): <strong>18–20pt, Bold</strong></li>
+    <li>Section headings (Heading 1): <strong>14–16pt, Bold</strong></li>
+    <li>Body text: <strong>12pt, Regular</strong></li>
+    <li>Table content: <strong>11–12pt</strong></li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>Tip:</strong> To select all the body text at once, press <strong>Ctrl + A</strong> to select everything, then change the font size and line spacing. Then go back and apply the heading styles individually to each section title.
+  </div>
+
+  <div class="activity-box">
+    <h3>Activity</h3>
+    <p>Apply all four formatting requirements to your report: headings (using Heading 1 style), at least two font styles, 1.5 line spacing for body text, and at least two different alignment styles (centred title and justified body).</p>
+  </div>
+
+  <div class="step-nav">
+    <a href="#" onclick="show('t2s2')" class="btn btn-secondary">← PREVIOUS</a>
+    <a href="#" onclick="show('t2s4')" class="btn btn-primary">NEXT STEP →</a>
+  </div>
+</div>
+</div>
+
+<!-- ======== TASK 2 STEP 4 ======== -->
+<div id="page-t2s4" class="page">
+<div class="container">
+  <div class="step-indicator">Task 2 · Step 4 of 6</div>
+  <h1>STEP 4: GENERATING THE TABLE OF CONTENTS</h1>
+  <p>A table of contents is an automatically generated list of all the sections in your report. It only works correctly if you applied Heading styles in the previous step.</p>
+
+  <h2>Steps to Generate a Table of Contents</h2>
+  <ol>
+    <li>Click at the top of <strong>Page 2</strong> of your document (after the title page).</li>
+    <li>Press <strong>Enter</strong> once to create a blank line.</li>
+    <li>Click the <strong>References</strong> tab on the menu bar.</li>
+    <li>Click <strong>Table of Contents</strong>.</li>
+    <li>Choose <strong>Automatic Table 1</strong> from the options.</li>
+    <li>The table of contents will appear automatically, showing all sections and page numbers.</li>
+  </ol>
+
+  <h2>Updating the Table of Contents</h2>
+  <p>If you add more content after generating the table of contents, you need to update it:</p>
+  <ol>
+    <li>Right-click anywhere on the table of contents.</li>
+    <li>Click <strong>Update Field</strong>.</li>
+    <li>Select <strong>Update entire table</strong>.</li>
+    <li>Click <strong>OK</strong>.</li>
+  </ol>
+
+  <div class="tip-box">
+    <strong>Common Mistake:</strong> Do not type the table of contents manually. It must be auto-generated using the References menu. A manually typed table of contents will not be awarded marks.
+  </div>
+
+  <div class="activity-box">
+    <h3>Activity</h3>
+    <p>Go to the References tab and insert an automatic Table of Contents on page 2 of your report. Confirm that all your section headings appear in the table with the correct page numbers. Update the table if needed.</p>
+  </div>
+
+  <div class="step-nav">
+    <a href="#" onclick="show('t2s3')" class="btn btn-secondary">← PREVIOUS</a>
+    <a href="#" onclick="show('t2s5')" class="btn btn-primary">NEXT STEP →</a>
+  </div>
+</div>
+</div>
+
+<!-- ======== TASK 2 STEP 5 ======== -->
+<div id="page-t2s5" class="page">
+<div class="container">
+  <div class="step-indicator">Task 2 · Step 5 of 6</div>
+  <h1>STEP 5: MAIL MERGE</h1>
+  <p>Mail merge allows you to create personalised copies of your report letter for each classmate. This is a required part of Task 2 and earns marks. Do not skip this step.</p>
+
+  <h2>Step 1 — Create Your Recipient List</h2>
+  <ol>
+    <li>Open a new Excel file.</li>
+    <li>Create three columns: <strong>FirstName</strong>, <strong>LastName</strong>, <strong>AdmNumber</strong>.</li>
+    <li>Enter the names of at least <strong>10 classmates</strong>.</li>
+    <li>Save the file as <strong>Classmates_List.xlsx</strong> in your project folder.</li>
+  </ol>
+
+  <h2>Step 2 — Start Mail Merge in Word</h2>
+  <ol>
+    <li>Open your report document in Microsoft Word.</li>
+    <li>Click the <strong>Mailings</strong> tab.</li>
+    <li>Click <strong>Start Mail Merge</strong> → choose <strong>Letters</strong>.</li>
+    <li>Click <strong>Select Recipients</strong> → <strong>Use an Existing List</strong>.</li>
+    <li>Browse to and open your <strong>Classmates_List.xlsx</strong> file.</li>
+  </ol>
+
+  <h2>Step 3 — Insert Merge Fields</h2>
+  <ol>
+    <li>At the top of the letter, type: <strong>Dear</strong> and press the space bar.</li>
+    <li>Click <strong>Insert Merge Field</strong> → select <strong>FirstName</strong>.</li>
+    <li>Press space bar, then click <strong>Insert Merge Field</strong> → select <strong>LastName</strong>.</li>
+    <li>The letter should now show: <em>Dear «FirstName» «LastName»,</em></li>
+    <li>Click <strong>Preview Results</strong> to confirm the names appear correctly.</li>
+  </ol>
+
+  <h2>Step 4 — Finish and Save</h2>
+  <ol>
+    <li>Click <strong>Finish &amp; Merge</strong> → <strong>Edit Individual Documents</strong> → <strong>All</strong>.</li>
+    <li>A new document opens containing all the personalised letters.</li>
+    <li>Save this new document as <strong>Task2_MailMerge_Letters.docx</strong>.</li>
+  </ol>
+
+  <div class="tip-box">
+    <strong>Remember:</strong> You must save TWO separate Word files — your original report and the merged letters document. You lose marks if you submit only one file.
+  </div>
+
+  <div class="activity-box">
+    <h3>Activity</h3>
+    <p>Complete the full mail merge process. Create the Classmates_List.xlsx with at least 10 names. Insert the merge fields into your report letter. Complete and save the merged document as Task2_MailMerge_Letters.docx.</p>
+  </div>
+
+  <div class="step-nav">
+    <a href="#" onclick="show('t2s4')" class="btn btn-secondary">← PREVIOUS</a>
+    <a href="#" onclick="show('t2s6')" class="btn btn-primary">NEXT STEP →</a>
+  </div>
+</div>
+</div>
+
+<!-- ======== TASK 2 STEP 6 ======== -->
+<div id="page-t2s6" class="page">
+<div class="container">
+  <div class="step-indicator">Task 2 · Step 6 of 6</div>
+  <h1>STEP 6: SAVING YOUR WORK</h1>
+  <p>You have now completed all the writing and formatting for Task 2. Save both files correctly before proceeding to Task 3.</p>
+
+  <h2>Files to Save</h2>
+  <table>
+    <thead><tr><th>File</th><th>File Name</th><th>Format</th></tr></thead>
+    <tbody>
+      <tr><td>Project report</td><td>Task2_Project_Report.docx</td><td>Word Document (.docx)</td></tr>
+      <tr><td>Mail merge letters</td><td>Task2_MailMerge_Letters.docx</td><td>Word Document (.docx)</td></tr>
+      <tr><td>Classmates list</td><td>Classmates_List.xlsx</td><td>Excel Workbook (.xlsx)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="example-box">
+    <h3>Task 2 Checklist — Before Moving to Task 3</h3>
+    <ul>
+      <li>✅ Title page with project name, school, members, subject, year</li>
+      <li>✅ All 6 sections written: Introduction, Problem, Causes, Effects, Solutions, Conclusion</li>
+      <li>✅ At least one image inserted in the Effects section</li>
+      <li>✅ Solutions presented in a table</li>
+      <li>✅ Heading 1 style applied to all section titles</li>
+      <li>✅ At least two font styles used</li>
+      <li>✅ Line spacing set to 1.5 for body text</li>
+      <li>✅ Table of contents generated automatically from References tab</li>
+      <li>✅ Mail merge completed with at least 10 classmates</li>
+      <li>✅ Both files saved: Task2_Project_Report.docx and Task2_MailMerge_Letters.docx</li>
+    </ul>
+  </div>
+
+  <div class="step-nav">
+    <a href="#" onclick="show('t2s5')" class="btn btn-secondary">← PREVIOUS</a>
+    <a href="#" onclick="show('task3')" class="btn btn-start">PROCEED TO TASK 3 →</a>
+  </div>
+</div>
+</div>
+
+<!-- ======== TASK 3 OVERVIEW ======== -->
+<div id="page-task3" class="page">
+<div class="container">
+  <h1>GRADE 10 ICT PROJECT 2026</h1>
+  <h2>Task 3 Overview: Project Presentation</h2>
+  <p>Task 3 involves preparing and presenting your project findings using presentation software such as Microsoft PowerPoint, Google Slides or LibreOffice Impress.</p>
+  <p>In this task, learners will transform the information collected, analysed and written in the previous tasks into a clear and attractive presentation. The presentation should communicate the problem investigated, research findings, proposed solutions and conclusion.</p>
+  <p>The presentation should be well organised, visually appealing and should allow the audience to understand the project easily.</p>
+
+  <h2>What is Required in Task 3?</h2>
+  <ul>
+    <li>Create a presentation containing between <strong>5 to 8 slides</strong>.</li>
+    <li>Create a title slide containing project information.</li>
+    <li>Explain the identified problem.</li>
+    <li>Present research findings using charts and tables.</li>
+    <li>Explain causes and effects of the problem.</li>
+    <li>Present proposed solutions.</li>
+    <li>Give a conclusion and recommendations.</li>
+    <li>Apply <strong>slide designs, transitions and animations</strong>.</li>
+    <li>Present the project orally to the school community.</li>
+  </ul>
+
+  <h2>Recommended Slide Arrangement</h2>
+  <table>
+    <thead><tr><th>Slide</th><th>Content</th></tr></thead>
+    <tbody>
+      <tr><td>Slide 1</td><td>Title of the project, school name, group members and year.</td></tr>
+      <tr><td>Slide 2</td><td>Description of the problem being investigated.</td></tr>
+      <tr><td>Slide 3</td><td>Research findings using charts, graphs or tables.</td></tr>
+      <tr><td>Slide 4</td><td>Causes and effects of the identified problem.</td></tr>
+      <tr><td>Slide 5</td><td>Proposed solutions to address the problem.</td></tr>
+      <tr><td>Slide 6</td><td>Conclusion and recommendations.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Presentation Requirements</h2>
+  <ul>
+    <li>Use appropriate slide layouts and a consistent design theme.</li>
+    <li>Use readable font sizes (at least 20pt for body text).</li>
+    <li>Include relevant images on the slides.</li>
+    <li>Avoid too much text on a single slide.</li>
+    <li>Add transitions between slides.</li>
+    <li>Apply animations to slide content.</li>
+    <li>Ensure all group members participate during the oral presentation.</li>
+  </ul>
+
+  <h2>Saving Your Work</h2>
+  <div class="info-box"><strong>Save your file as:</strong> Task3_Project_Presentation.pptx</div>
+
+  <div class="step-nav">
+    <span></span>
+    <a href="#" onclick="show('t3s1')" class="btn btn-start">START TASK 3 →</a>
+  </div>
+</div>
+</div>
+
+<!-- ======== TASK 3 STEP 1 ======== -->
+<div id="page-t3s1" class="page">
+<div class="container">
+  <div class="step-indicator">Task 3 · Step 1 of 6</div>
+  <h1>TASK 3: CREATING THE TITLE SLIDE</h1>
+  <p>In this step, you will learn how to create the first slide of your project presentation. The title slide introduces your project to the audience and provides important information about your research.</p>
+  <p>The first slide should be simple, attractive and contain only the necessary information. Avoid adding too much text on the title slide.</p>
+
+  <h2>Information Required on the Title Slide</h2>
+  <ul>
+    <li>Project title</li>
+    <li>School name</li>
+    <li>Subject name</li>
+    <li>Names of all group members</li>
+    <li>Year of the project</li>
+  </ul>
+
+  <h2>Example Title Slide</h2>
+  <div class="slide-example">
+    <h2>POOR WASTE MANAGEMENT IN OUR SCHOOL</h2>
+    <p><strong>Grade 10 ICT Project · 2026</strong></p>
+    <p style="margin-top:10px"><strong>Prepared by:</strong><br>
+    1. John Kiptoo &nbsp; 2. Mary Chebet &nbsp; 3. Peter Rotich<br>
+    4. Jane Akinyi &nbsp; 5. David Kamau</p>
+    <p style="margin-top:10px">Naikuru P.A.G Senior School</p>
+  </div>
+
+  <h2>Steps for Creating a Title Slide in PowerPoint</h2>
+  <ol>
+    <li>Open Microsoft PowerPoint.</li>
+    <li>Select <strong>Blank Presentation</strong>.</li>
+    <li>Click the <strong>Design</strong> tab and choose a suitable slide theme.</li>
+    <li>Click on the title text box and type your project title.</li>
+    <li>Click on the subtitle text box and enter group members' names and school details.</li>
+    <li>Apply suitable font size and formatting.</li>
+    <li>Insert a relevant image if necessary.</li>
+    <li>Save your presentation.</li>
+  </ol>
+
+  <div class="tip-box">
+    <strong>Good Title Slide Practices:</strong> Use a clear and readable title in large font. Avoid too many colours. Keep the slide neat. Use a professional slide design theme from the Design tab.
+  </div>
+
+  <div class="activity-box">
+    <h3>Activity</h3>
+    <p>Open Microsoft PowerPoint and create the first slide of your presentation. Include the project title, school name, group members' names, subject and year. Apply a slide design theme from the Design tab. Save as <strong>Task3_Project_Presentation.pptx</strong>.</p>
+  </div>
+
+  <div class="step-nav">
+    <a href="#" onclick="show('task3')" class="btn btn-secondary">← TASK 3 HOME</a>
+    <a href="#" onclick="show('t3s2')" class="btn btn-primary">NEXT STEP →</a>
+  </div>
+</div>
+</div>
+
+<!-- ======== TASK 3 STEP 2 ======== -->
+<div id="page-t3s2" class="page">
+<div class="container">
+  <div class="step-indicator">Task 3 · Step 2 of 6</div>
+  <h1>STEP 2: PROBLEM DESCRIPTION SLIDE</h1>
+  <p>Slide 2 should explain the problem your group investigated. Keep the text brief and use bullet points. The audience should be able to read the slide quickly and understand what the problem is.</p>
+
+  <h2>What to Include on Slide 2</h2>
+  <ul>
+    <li>A clear heading: <em>Problem Description</em> or <em>Background</em>.</li>
+    <li>A brief statement of the problem (2–3 bullet points).</li>
+    <li>Who is affected by the problem.</li>
+    <li>Where the problem is occurring.</li>
+    <li>Why it needs to be addressed.</li>
+  </ul>
+
+  <h2>Example Slide 2</h2>
+  <div class="slide-example">
+    <h2>Problem Description</h2>
+    <ul>
+      <li>Poor waste disposal practices are widespread at our school.</li>
+      <li>Litter is found in classrooms, corridors and the school compound daily.</li>
+      <li>A survey of 22 learners found that 78% observe litter at least 3 days per week.</li>
+      <li>The problem affects the health and learning environment of all learners and teachers.</li>
+    </ul>
+  </div>
+
+  <div class="tip-box">
+    <strong>Slide Design Tip:</strong> Do not copy full paragraphs from your report onto a slide. Slides should use short bullet points — 5 to 7 words per bullet is ideal.
+  </div>
+
+  <div class="activity-box">
+    <h3>Activity</h3>
+    <p>Add Slide 2 to your presentation. Use bullet points to describe the problem you investigated. Apply the same design theme as Slide 1. Keep the text brief and easy to read.</p>
+  </div>
+
+  <div class="step-nav">
+    <a href="#" onclick="show('t3s1')" class="btn btn-secondary">← PREVIOUS</a>
+    <a href="#" onclick="show('t3s3')" class="btn btn-primary">NEXT STEP →</a>
+  </div>
+</div>
+</div>
+
+<!-- ======== TASK 3 STEP 3 ======== -->
+<div id="page-t3s3" class="page">
+<div class="container">
+  <div class="step-indicator">Task 3 · Step 3 of 6</div>
+  <h1>STEP 3: RESEARCH FINDINGS SLIDE</h1>
+  <p>Slide 3 presents the data you collected and analysed in Task 1. This slide must include a chart or graph taken from your Excel spreadsheet. Use this slide to show the audience what the numbers reveal about the problem.</p>
+
+  <h2>What to Include on Slide 3</h2>
+  <ul>
+    <li>Heading: <em>Research Findings</em> or <em>Key Findings</em>.</li>
+    <li>A chart or graph copied from your Task 1 Excel file.</li>
+    <li>2–3 bullet points summarising the key findings in plain language.</li>
+  </ul>
+
+  <h2>How to Copy a Chart from Excel into PowerPoint</h2>
+  <ol>
+    <li>Open your <strong>Task1_Data_Analysis.xlsx</strong> file.</li>
+    <li>Click on the chart to select it.</li>
+    <li>Press <strong>Ctrl + C</strong> to copy the chart.</li>
+    <li>Switch to your PowerPoint presentation.</li>
+    <li>Click on Slide 3.</li>
+    <li>Press <strong>Ctrl + V</strong> to paste the chart.</li>
+    <li>Resize the chart to fit the slide neatly.</li>
+  </ol>
+
+  <h2>Example Slide 3</h2>
+  <div class="slide-example">
+    <h2>Research Findings</h2>
+    <ul>
+      <li>78% of learners observe litter in school at least 3 days per week.</li>
+      <li>82% say there are not enough dustbins in the school.</li>
+      <li>64% of respondents admitted to littering at least once.</li>
+      <li>[Chart showing frequency of litter observation — bar graph]</li>
+    </ul>
+  </div>
+
+  <div class="activity-box">
+    <h3>Activity</h3>
+    <p>Add Slide 3 to your presentation. Copy the chart from your Excel file and paste it onto this slide. Add 2–3 bullet points below or beside the chart summarising your main findings using actual numbers and percentages from your data.</p>
+  </div>
+
+  <div class="step-nav">
+    <a href="#" onclick="show('t3s2')" class="btn btn-secondary">← PREVIOUS</a>
+    <a href="#" onclick="show('t3s4')" class="btn btn-primary">NEXT STEP →</a>
+  </div>
+</div>
+</div>
+
+<!-- ======== TASK 3 STEP 4 ======== -->
+<div id="page-t3s4" class="page">
+<div class="container">
+  <div class="step-indicator">Task 3 · Step 4 of 6</div>
+  <h1>STEP 4: CAUSES, EFFECTS AND SOLUTIONS SLIDES</h1>
+  <p>In this step you will create Slide 4 (Causes and Effects) and Slide 5 (Proposed Solutions). These slides summarise the analysis from your Task 2 report.</p>
+
+  <h2>Slide 4 — Causes and Effects</h2>
+  <table>
+    <thead><tr><th>Causes</th><th>Effects</th></tr></thead>
+    <tbody>
+      <tr><td>Insufficient dustbins in school</td><td>Dirty school environment</td></tr>
+      <tr><td>Lack of awareness among learners</td><td>Health risks for learners and teachers</td></tr>
+      <tr><td>No waste management policy</td><td>Pests and disease spread</td></tr>
+      <tr><td>Poor habits from home</td><td>Negative image of the school</td></tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box">
+    <strong>Tip:</strong> You can present causes and effects as a two-column table on the slide — it looks neat and professional. Alternatively, use two bullet-point sections labelled Causes and Effects.
+  </div>
+
+  <h2>Slide 5 — Proposed Solutions</h2>
+  <div class="slide-example">
+    <h2>Proposed Solutions</h2>
+    <ul>
+      <li>Install 10 additional dustbins near classrooms and the canteen.</li>
+      <li>Conduct weekly waste awareness sessions during school assembly.</li>
+      <li>Introduce a class cleanliness competition every term.</li>
+      <li>Partner with the county government for a waste collection schedule.</li>
+    </ul>
+  </div>
+
+  <div class="activity-box">
+    <h3>Activity</h3>
+    <p>Add Slide 4 showing the causes and effects using a table or two columns. Add Slide 5 showing your proposed solutions as bullet points. Keep the text brief. Insert a relevant image on one of the slides if appropriate.</p>
+  </div>
+
+  <div class="step-nav">
+    <a href="#" onclick="show('t3s3')" class="btn btn-secondary">← PREVIOUS</a>
+    <a href="#" onclick="show('t3s5')" class="btn btn-primary">NEXT STEP →</a>
+  </div>
+</div>
+</div>
+
+<!-- ======== TASK 3 STEP 5 ======== -->
+<div id="page-t3s5" class="page">
+<div class="container">
+  <div class="step-indicator">Task 3 · Step 5 of 6</div>
+  <h1>STEP 5: CONCLUSION SLIDE AND APPLYING EFFECTS</h1>
+
+  <h2>Slide 6 — Conclusion</h2>
+  <p>The final content slide should summarise your project and recommend action to be taken by the school or community.</p>
+
+  <div class="slide-example">
+    <h2>Conclusion and Recommendations</h2>
+    <ul>
+      <li>Poor waste management at school is a serious and solvable problem.</li>
+      <li>Survey data confirms that most learners are affected daily.</li>
+      <li>The main causes are lack of bins and low awareness.</li>
+      <li>With the right action, littering can be reduced within one term.</li>
+      <li>We recommend the school act on all three proposed solutions immediately.</li>
+    </ul>
+  </div>
+
+  <h2>Applying Transitions</h2>
+  <p>Transitions are the effects seen when moving from one slide to the next.</p>
+  <ol>
+    <li>Press <strong>Ctrl + A</strong> to select all slides in the slide panel on the left.</li>
+    <li>Click the <strong>Transitions</strong> tab on the menu bar.</li>
+    <li>Click on a transition effect such as <em>Fade</em>, <em>Push</em> or <em>Wipe</em>.</li>
+    <li>Click <strong>Apply to All</strong> to apply the same transition to every slide.</li>
+  </ol>
+
+  <h2>Applying Animations</h2>
+  <p>Animations control how content appears on a slide when you present.</p>
+  <ol>
+    <li>Click on a text box or image on any slide.</li>
+    <li>Click the <strong>Animations</strong> tab on the menu bar.</li>
+    <li>Click <strong>Add Animation</strong> and choose an effect such as <em>Appear</em> or <em>Fly In</em>.</li>
+    <li>Repeat for other elements you want to animate.</li>
+  </ol>
+
+  <div class="tip-box">
+    <strong>Remember:</strong> You need both transitions AND animations for full marks. Transitions go between slides. Animations go inside slides, on individual text boxes or images.
+  </div>
+
+  <div class="activity-box">
+    <h3>Activity</h3>
+    <p>Add Slide 6 with your conclusion. Apply transitions to all slides. Add at least one animation to the content on any slide. Check that you have between 5 and 8 slides total.</p>
+  </div>
+
+  <div class="step-nav">
+    <a href="#" onclick="show('t3s4')" class="btn btn-secondary">← PREVIOUS</a>
+    <a href="#" onclick="show('t3s6')" class="btn btn-primary">NEXT STEP →</a>
+  </div>
+</div>
+</div>
+
+<!-- ======== TASK 3 STEP 6 ======== -->
+<div id="page-t3s6" class="page">
+<div class="container">
+  <div class="step-indicator">Task 3 · Step 6 of 6</div>
+  <h1>STEP 6: SAVING AND PRESENTING</h1>
+  <p>You have completed your presentation. Now save your work and prepare for the oral delivery to the school community.</p>
+
+  <h2>Saving the Presentation</h2>
+  <ol>
+    <li>Click <strong>File</strong> on the menu bar.</li>
+    <li>Click <strong>Save As</strong>.</li>
+    <li>Navigate to your project folder.</li>
+    <li>Type the file name: <strong>Task3_Project_Presentation.pptx</strong></li>
+    <li>Ensure the format is <strong>PowerPoint Presentation (.pptx)</strong>.</li>
+    <li>Click <strong>Save</strong>.</li>
+  </ol>
+
+  <h2>Preparing for the Oral Presentation</h2>
+  <ul>
+    <li>Every group member must speak during the presentation.</li>
+    <li>Divide the slides equally among group members.</li>
+    <li>Practise presenting your section at home.</li>
+    <li>Speak clearly, face the audience, and do not read directly from the slides.</li>
+    <li>Be ready to answer questions from the audience or teacher.</li>
+  </ul>
+
+  <div class="example-box">
+    <h3>Task 3 Checklist — Before Presenting</h3>
+    <ul>
+      <li>✅ Presentation has between 5 and 8 slides</li>
+      <li>✅ All required content sections are present</li>
+      <li>✅ A chart or graph from Task 1 is included on the findings slide</li>
+      <li>✅ A consistent slide design theme is applied</li>
+      <li>✅ Transitions applied to all slides</li>
+      <li>✅ At least one animation applied to slide content</li>
+      <li>✅ Saved as Task3_Project_Presentation.pptx in the project folder</li>
+      <li>✅ All group members have practised their speaking part</li>
+    </ul>
+  </div>
+
+  <div class="step-nav">
+    <a href="#" onclick="show('t3s5')" class="btn btn-secondary">← PREVIOUS</a>
+    <a href="#" onclick="show('task4')" class="btn btn-start">PROCEED TO TASK 4 →</a>
+  </div>
+</div>
+</div>
+
+<!-- ======== TASK 4 ======== -->
+<div id="page-task4" class="page">
+<div class="container">
+  <h1>GRADE 10 ICT PROJECT 2026</h1>
+  <h2>Task 4: File Management</h2>
+  <p>Task 4 involves organising all your project files into one folder and submitting your completed work as an e-portfolio. This task is worth 2 marks and is straightforward — do not lose these marks.</p>
+
+  <h2>What is Required in Task 4?</h2>
+  <ul>
+    <li>Save all project files in <strong>one folder</strong>.</li>
+    <li>Name the folder clearly using your group name or number and topic.</li>
+    <li>Submit the project folder as an e-portfolio using the method provided by your teacher.</li>
+  </ul>
+
+  <h2>How to Create a Folder</h2>
+  <ol>
+    <li>Open <strong>File Explorer</strong> (Windows) or <strong>Finder</strong> (Mac).</li>
+    <li>Navigate to the location where you want to save your work.</li>
+    <li>Right-click in an empty area.</li>
+    <li>Click <strong>New</strong> → <strong>Folder</strong>.</li>
+    <li>Type a clear name for the folder, for example: <strong>Group3_WasteManagement_Project</strong>.</li>
+    <li>Move all your project files into this folder.</li>
+  </ol>
+
+  <h2>Files to Include in Your Folder</h2>
+  <table>
+    <thead><tr><th>File Name</th><th>Task</th><th>Format</th></tr></thead>
+    <tbody>
+      <tr><td>Task1_Data_Analysis.xlsx</td><td>Task 1</td><td>Excel Workbook</td></tr>
+      <tr><td>Task2_Project_Report.docx</td><td>Task 2</td><td>Word Document</td></tr>
+      <tr><td>Task2_MailMerge_Letters.docx</td><td>Task 2</td><td>Word Document</td></tr>
+      <tr><td>Classmates_List.xlsx</td><td>Task 2 (mail merge data)</td><td>Excel Workbook</td></tr>
+      <tr><td>Task3_Project_Presentation.pptx</td><td>Task 3</td><td>PowerPoint</td></tr>
+    </tbody>
+  </table>
+
+  <h2>What is an E-Portfolio?</h2>
+  <p>An e-portfolio is a digital collection of your work, stored and submitted electronically. For this project, your e-portfolio is simply the folder containing all your project files, submitted to your teacher using one of the methods below:</p>
+  <ul>
+    <li>Copied to a USB flash drive.</li>
+    <li>Uploaded to a shared school network folder.</li>
+    <li>Sent via email as a compressed (zipped) folder.</li>
+    <li>Uploaded to a shared cloud folder provided by your teacher.</li>
+  </ul>
+
+  <div class="info-box">
+    <strong>Ask your teacher</strong> which submission method to use. Use the exact method provided — do not assume.
+  </div>
+
+  <div class="example-box">
+    <h3>Final Project Checklist</h3>
+    <ul>
+      <li>✅ Task 1: Excel file with 20+ rows of data, formulas, chart — saved correctly</li>
+      <li>✅ Task 2: Word report with all sections, formatting, TOC — saved correctly</li>
+      <li>✅ Task 2: Mail merge letters saved as a separate document</li>
+      <li>✅ Task 3: PowerPoint with 5–8 slides, design, transitions, animations — saved correctly</li>
+      <li>✅ Task 4: All files in one named folder — submitted to teacher</li>
+    </ul>
+  </div>
+
+  <div class="tip-box">
+    <strong>Congratulations!</strong> Once you have submitted your e-portfolio and delivered your oral presentation, you have completed the Grade 10 ICT Project. Ensure all group members have actively participated in the work before submitting.
+  </div>
+</div>
+</div>
+
+<footer>
+  © 2026 Grade 10 ICT Project Portal · Prepared by Computer Studies Department · Naikuru P.A.G Senior School
+</footer>
+
+<script>
+function show(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const el=document.getElementById('page-'+id);
+  if(el){el.classList.add('active');window.scrollTo(0,0);}
+  const navMap={home:'nav-home',task1:'nav-task1',task2:'nav-task2',task3:'nav-task3',task4:'nav-task4',
+    t1s1:'nav-task1',t1s2:'nav-task1',t1s3:'nav-task1',t1s4:'nav-task1',t1s5:'nav-task1',t1s6:'nav-task1',
+    t2s1:'nav-task2',t2s2:'nav-task2',t2s3:'nav-task2',t2s4:'nav-task2',t2s5:'nav-task2',t2s6:'nav-task2',
+    t3s1:'nav-task3',t3s2:'nav-task3',t3s3:'nav-task3',t3s4:'nav-task3',t3s5:'nav-task3',t3s6:'nav-task3',
+    task4:'nav-task4'};
+  document.querySelectorAll('.nav-inner a').forEach(a=>a.classList.remove('active'));
+  const navId=navMap[id];
+  if(navId)document.getElementById(navId).classList.add('active');
+  return false;
+}
+document.querySelectorAll('a[href="#"]').forEach(a=>{a.addEventListener('click',e=>e.preventDefault());});
+</script>
+</body>
+</html>
