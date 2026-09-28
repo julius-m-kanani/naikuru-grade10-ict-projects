@@ -1,0 +1,13 @@
+# Binaries / office temp files
+~$*.xlsx
+~$*.docx
+~$*.pptx
+*.tmp
+*.bak
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Archives (keep small zips out unless needed)
+*.zip

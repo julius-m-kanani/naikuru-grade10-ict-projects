@@ -1,0 +1,21 @@
+RespondentID,Class_Role,CommonWaste,DisposalMethod,CleaningDaysPerWeek,CleanlinessRating_1to5,MainCause,MainEffect,SuggestedSolution
+R01,Form 1A,Plastic,Bin,3,3,FewBins,Smell,Bins
+R02,Form 1A,Food,Ground,2,2,Attitude,Disease,Rota
+R03,Form 2E,Plastic,Pit,4,3,FarBins,Drainage,Bins
+R04,Form 2E,Compound,Bin,5,4,Awareness,Image,Club
+R05,Form 3W,Plastic,Burning,3,2,Delay,Smell,Compost
+R06,Form 3W,Food,Pit,2,2,FewBins,Disease,Compost
+R07,Form 4E,Compound,Ground,1,1,Attitude,Image,Rota
+R08,Form 4E,Plastic,Bin,5,4,FarBins,Smell,Bins
+R09,Form 1B,Food,Bin,4,3,Awareness,Disease,Club
+R10,Form 1B,Plastic,Ground,2,2,Attitude,Animals,Fine-Reward
+R11,Form 2W,Compound,Pit,3,3,Delay,Drainage,Compost
+R12,Form 2W,Plastic,Bin,5,4,FewBins,Image,Bins
+R13,Form 3E,Food,Burning,2,2,Awareness,Smell,Club
+R14,Form 3E,Plastic,Ground,1,1,Attitude,Disease,Rota
+R15,Teacher,Compound,Bin,5,4,FarBins,Image,Club
+R16,Teacher,Plastic,Pit,4,3,Delay,Smell,Bins
+R17,Worker,Plastic,Bin,6,4,Awareness,Drainage,Compost
+R18,Worker,Food,Bin,6,3,FewBins,Disease,Compost
+R19,Parent,Plastic,CarryHome,3,3,Awareness,Image,Club
+R20,Parent,Food,Pit,3,2,Attitude,Smell,Fine-Reward
