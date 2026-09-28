@@ -1,0 +1,35 @@
+/* Naikuru P.A.G — Task pages, same style family as reference portal (green theme) */
+body{font-family:Arial,sans-serif;background:#f4f6f7;margin:0}
+.container{width:80%;margin:auto;background:#fff;padding:30px;margin-top:30px;margin-bottom:30px;box-shadow:0 0 10px gray}
+h1{text-align:center;color:green}
+h2{color:#333;margin-top:30px}
+h3{color:#1F4E79}
+table{width:100%;border-collapse:collapse;margin-top:20px}
+table,th,td{border:1px solid #000}
+th{background:green;color:#fff;padding:10px}
+td{padding:10px}
+.btn{display:inline-block;background:green;color:#fff;padding:12px 25px;text-decoration:none;margin-top:30px;margin-right:10px;border-radius:5px;font-weight:bold}
+.btn:hover{background:darkgreen}
+.top-nav{background:green;padding:15px;text-align:center;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.top-nav a{color:#fff;text-decoration:none;padding:10px 15px;margin:5px;display:inline-block;border-radius:5px;font-weight:bold;transition:.3s}
+.top-nav a:hover{background:#fff;color:#006400}
+.topic-box{background:#f0f7f0;border-left:6px solid green;padding:15px 20px;margin:20px 0;border-radius:0 8px 8px 0}
+.output-box{background:#fffbe6;border-left:6px solid #d4a017;padding:15px 20px;margin:20px 0;border-radius:0 8px 8px 0}
+.file-box{background:#eee;border:1px dashed #555;padding:14px;text-align:center;font-family:monospace;font-weight:bold;margin:15px 0;font-size:17px}
+/* PowerPoint Slide Example */
+.powerpoint-slide{width:80%;min-height:450px;margin:30px auto;background:#fff;border:2px solid #555;box-shadow:0 0 15px gray;padding:40px;text-align:center;font-family:Arial,sans-serif;position:relative}
+.powerpoint-slide h1{margin-top:40px;font-size:36px;color:#006400;font-weight:bold}
+.powerpoint-slide h3{font-size:22px;margin-top:20px}
+.prepared{margin-top:40px;font-size:18px}
+.school-info{margin-top:30px;font-size:18px}
+.ppt-slide{width:80%;min-height:450px;margin:30px auto;background:#fff;border:2px solid #333;box-shadow:0 0 15px gray;font-family:Arial,sans-serif;position:relative;text-align:left}
+.ppt-title{background:#1F4E79;color:#fff;text-align:center;padding:20px;font-size:30px;font-weight:bold}
+.ppt-content{padding:30px 50px}
+.ppt-content h2{color:#1F4E79;font-size:26px;margin-bottom:20px}
+.ppt-content ul{font-size:20px;line-height:1.6}
+.ppt-content li{margin-bottom:10px}
+.ppt-footer{padding:10px 30px;font-size:14px;color:#555;border-top:1px solid #ccc}
+.slide-number{text-align:right;font-size:14px;color:#555;padding:0 30px 15px}
+.bar{background:#e0e0e0;border-radius:6px;margin:8px auto;height:26px;max-width:420px;text-align:left}
+.bar span{display:block;height:26px;border-radius:6px;background:#006400;color:#fff;line-height:26px;padding-left:10px;font-weight:bold}
+@media(max-width:700px){.container{width:94%;padding:18px}.powerpoint-slide,.ppt-slide{width:100%;padding:20px}.powerpoint-slide h1{font-size:26px}}
