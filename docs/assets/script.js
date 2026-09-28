@@ -1,1 +1,0 @@
-function showTask(id,btn){document.querySelectorAll('.task').forEach(t=>t.classList.remove('active'));document.getElementById(id).classList.add('active');if(btn){btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('active'));btn.classList.add('active')}window.scrollTo({top:document.querySelector('.steps').offsetTop-70,behavior:'smooth'})}

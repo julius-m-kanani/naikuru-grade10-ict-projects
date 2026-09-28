@@ -1,4 +1,0 @@
-RespID,Class,StudyHrs,HomeworkHrs,SleepHrs,PhoneHrs,HasTimetable,MeetsDeadlines,Postpones,Rushes,TopDistractor,Effect,TopSolution
-R01,Grade 10,1.5,1,6.5,2.5,Sometimes,Sometimes,Often,Often,Mobile phone,Late submission,Personal timetable
-R02,Grade 10,2.5,1.5,7,1,Rarely,Often,Sometimes,Sometimes,Friends,Stress,To-do list
-,,,,,,,,,,,,

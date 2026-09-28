@@ -1,4 +1,0 @@
-RespID,Role,TreesCount,GreenRating,ErosionSeen,WateringWho,TopCause,Effect,PlantedBefore,WillingToPlant,TopSolution
-R01,Learner,1-3,2,Yes,Nobody,No watering,Dust,No,Yes,Watering rota
-R02,Teacher,4+,4,No,Workers,Goats,None,Yes,Yes,Tree database
-,,,,,,,,,,
