@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Time Management — Step-by-Step | Naikuru P.A.G ICT</title><link rel="stylesheet" href="../assets/style.css"></head><body>
+<header><h1>Project 4: Time Management Among Learners</h1><p>Real student questionnaire (31 Qs) • Study hours, phone use, procrastination</p></header>
+<nav><a href="../index.html">← Home</a><a href="../templates/time-management-questionnaire.html">Fillable questionnaire</a><a href="../templates/analysis-guide.html">Analysis guide</a></nav>
+<div class="container">
+<div class="steps"><h2>Overview</h2>
+<p><b>Problem:</b> Late submission, last-minute rushing, phone/social media eating study time, no personal timetable.</p>
+<p><b>Your questionnaire (real):</b> A General → B Use of time (study hrs Q4, homework Q5, sleep Q6, leisure Q7, phone Q8) → C Practices (timetable Q9, priorities Q11, deadlines Q12, procrastination Q13–14) → D Factors (Q15–18) → E Effects (Q19–21) → F Solutions (Q22–26) → G Opinions (Q27–31). Fillable: <a href="../templates/time-management-questionnaire.html"><b>open fillable questionnaire</b></a>.</p></div>
+<div class="tasknav"><button class="active" onclick="showTask('t1',this)">Task 1: Spreadsheet</button><button onclick="showTask('t2',this)">Task 2: Report</button><button onclick="showTask('t3',this)">Task 3: Slides</button><button onclick="showTask('t4',this)">Task 4: Files</button></div>
+<div class="steps">
+<div id="t1" class="task active"><h2>Task 1 — Collect & Analyse (13)</h2>
+<ol>
+<li><b>Short 12-Q field version:</b> Class, StudyHrs, HomeworkHrs, SleepHrs, PhoneHrs, HasTimetable?, MeetsDeadlines?, Postpones?, Rushes?, TopDistractor?, Effect?, TopSolution?</li>
+<li>Headings:<br><code>RespID, Class, StudyHrs, HomeworkHrs, SleepHrs, PhoneHrs, HasTimetable, MeetsDeadlines, Postpones, Rushes, TopDistractor, Effect, TopSolution</code><br>Code answers as numbers where possible (e.g. StudyHrs: &lt;1=0.5, 1–2=1.5, 2–3=2.5, 3–4=3.5, &gt;4=5). Starter: <a href="../templates/csv/time-management-starter.csv">time-management-starter.csv</a></li>
+<li><b>Formulas (rows 2–21):</b><br><code>=AVERAGE(C2:C21)</code> avg study • <code>=AVERAGE(F2:F21)</code> avg phone • <code>=MAX(C2:C21)</code>/<code>=MIN(C2:C21)</code> • <code>=COUNTIF(G2:G21,"Never")</code> no timetable • <code>=COUNTIF(I2:I21,"Always")+COUNTIF(I2:I21,"Often")</code> chronic postponers • <code>=COUNTIF(K2:K21,"*phone*")</code> phone as top distractor • <code>=IF(F2&gt;C2,"Phone &gt; Study","Study ≥ Phone")</code> flag • <code>=CORREL? (skip)</code> — instead compare averages: phone-heavy vs study-heavy groups.</li>
+<li><b>Charts:</b> bar of avg hours (Study vs Homework vs Sleep vs Phone vs Leisure); pie of MeetsDeadlines; bar of TopDistractor. One is enough, two is excellent.</li>
+</ol></div>
+<div id="t2" class="task"><h2>Task 2 — Report (21)</h2><ol><li>Description: avg study vs phone hours, % with no timetable, % postponing.</li><li>Causes bullets: phone/social, no timetable, procrastination, household duties, fatigue.</li><li>Effects + photo (study desk / prep room, no faces) — late submission, stress, poor performance.</li><li>Solutions table: personal timetable template | to-do + alarms | study groups | phone-free prep | counselling/study-skills.</li><li>Attach a 1-week sample timetable as appendix/figure. Mail merge it to 10 classmates.</li></ol></div>
+<div id="t3" class="task"><h2>Task 3 — Slides (14)</h2><p>6 slides: Title → Hours chart → Habits (timetable/deadlines) → Distractors → Solutions (sample timetable image) → Pledge ("My 2-hour rule").</p></div>
+<div id="t4" class="task"><h2>Task 4 — Files (2)</h2><p>Folder <code>Grade10_ICT_GroupXX_2026</code>.</p></div>
+</div>
+<div class="steps"><h2>Possible steps your group can take</h2><ul><li>Run a 7-day time diary with 5 volunteers → analyse.</li><li>Design a printable weekly timetable in Word (A4) + share via mail merge.</li><li>Phone-free prep challenge for 1 week, record results.</li><li>Peer study-group rota + reminder alarms demo.</li></ul></div>
+</div><footer>Naikuru P.A.G ICT • <a style="color:#ffd54f" href="../index.html">Home</a></footer><script src="../assets/script.js"></script></body></html>

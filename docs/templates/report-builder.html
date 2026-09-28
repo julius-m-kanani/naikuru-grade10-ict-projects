@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fillable Report Builder (Task 2) | Naikuru P.A.G</title><link rel="stylesheet" href="../assets/style.css">
+<style>textarea,input[type=text]{width:100%;padding:10px;margin:6px 0;border:1px solid #bbb;border-radius:8px;font-family:inherit}pre{background:#fff;padding:16px;border-radius:8px;white-space:pre-wrap}@media print{nav,.noprint{display:none}}</style></head><body>
+<header><h1>Task 2 — Fillable Report Builder</h1><p>Type each section → live preview → print / paste into Word → apply styles + TOC</p></header>
+<nav><a href="../index.html">← Home</a><a href="analysis-guide.html">Analysis guide</a></nav>
+<div class="container">
+<div class="steps"><h2>Type here</h2>
+Title <input id="t" type="text" value="Tackling [Problem] at Naikuru P.A.G Secondary">
+Introduction <textarea id="i" rows="3">Our group of five Grade 10 learners investigated… We surveyed 20 participants…</textarea>
+Description (numbers from Task 1) <textarea id="d" rows="3">Average rating… Only …% …</textarea>
+Causes (one per line → bullets) <textarea id="c" rows="4">Too few bins
+Distance to bins
+Low awareness
+Attitude
+Delayed collection</textarea>
+Effects + photo note <textarea id="e" rows="3">Bad smell… Flies… Photo: gate road at dismissal (faces blurred).</textarea>
+Solutions (format: Solution | Who | When — one per line) <textarea id="s" rows="4">10 labelled bins | Deputy + prefects | Week 1-2
+Duty rota | Class teachers | Daily
+Club Fridays | ICT patron | Fridays</textarea>
+Conclusion <textarea id="k" rows="3">Low-cost fix… Target… We request support…</textarea>
+<p class="noprint"><button onclick="render()" style="padding:10px 18px;background:#0f3a2d;color:#fff;border:none;border-radius:8px">Update preview</button> <button onclick="window.print()" style="padding:10px 18px">Print</button></p></div>
+<div class="steps"><h2>Preview (paste into Word, then format)</h2><pre id="p"></pre>
+<p><b>In Word:</b> apply Heading 1 to section titles, bullets to causes, Insert→Table for solutions, Insert→Picture + Caption, 1.15 spacing, centred title + justified body, References→Table of Contents, save <code>GroupXX_Task2_Report.docx</code>, mail merge to 10 classmates.</p></div>
+</div><footer>Naikuru P.A.G ICT</footer>
+<script>function render(){const g=id=>document.getElementById(id).value;const causes=g('c').split('\n').map(x=>'• '+x).join('\n');const sols=g('s').split('\n').map((x,i)=>(i+1)+'. '+x).join('\n');document.getElementById('p').textContent=g('t').toUpperCase()+`\n\n1. INTRODUCTION\n`+g('i')+`\n\n2. DESCRIPTION\n`+g('d')+`\n\n3. CAUSES\n`+causes+`\n\n4. EFFECTS\n`+g('e')+`\n[Insert 1 photo here, centred + caption]\n\n5. SOLUTIONS\n`+sols+`\n\n6. CONCLUSION\n`+g('k')}render()</script></body></html>

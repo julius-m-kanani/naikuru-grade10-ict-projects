@@ -1,0 +1,4 @@
+RespID,Role,Distance,TravelMode,RoadsCrossed,TaughtSafety,KnowsZebra,CrossBehaviour,Helmet,PhoneUse,CrossingNearGate,WitnessedAccident,TopSolution
+R01,Learner,1-3 km,Walking,1-2 roads,Yes at school,Yes,Look both ways,Often,Sometimes,No,No,Speed bumps
+R02,Learner,Less than 1 km,Boda boda,1-2 roads,No never,Some,Run across,Never,Often,No,Yes once,Pedestrian crossing
+,,,,,,,,,,,,

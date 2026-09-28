@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Road Safety — Step-by-Step | Naikuru P.A.G ICT</title><link rel="stylesheet" href="../assets/style.css"></head><body>
+<header><h1>Project 5: Road Safety at Naikuru PAG</h1><p>Real student questionnaire (37 Qs) • Condensed field version + full analysis steps</p></header>
+<nav><a href="../index.html">← Home</a><a href="../templates/road-safety-questionnaire.html">Fillable questionnaire</a><a href="../templates/analysis-guide.html">Analysis guide</a></nav>
+<div class="container">
+<div class="steps"><h2>Overview</h2>
+<p><b>Problem:</b> Learners cross busy roads to/from school — boda-boda overload, no zebra crossing, phone distraction, speeding near gate.</p>
+<p><b>Your questionnaire (real, from your class):</b> Sections A–I: General info → Travel → Awareness (Q9–13) → Behaviour (Q14–18) → Safety near school (Q19–23) → Effects (Q24–25) → Solutions (Q26–29) → ICT (Q30–33) → Opinions (Q34–37). Full printable fillable version: <a href="../templates/road-safety-questionnaire.html"><b>open fillable questionnaire</b></a>.</p>
+<p><b>Field tip:</b> Use the 12-question short version for 20 respondents (5 min each), keep the full 37 for deep dives.</p></div>
+<div class="tasknav"><button class="active" onclick="showTask('t1',this)">Task 1: Spreadsheet</button><button onclick="showTask('t2',this)">Task 2: Report</button><button onclick="showTask('t3',this)">Task 3: Slides</button><button onclick="showTask('t4',this)">Task 4: Files</button></div>
+<div class="steps">
+<div id="t1" class="task active"><h2>Task 1 — Collect & Analyse (13)</h2>
+<ol>
+<li><b>Short questionnaire (pick these 12):</b> Role, Distance, TravelMode, RoadsCrossed, TaughtSafety?, KnowsZebra?, CrossBehaviour?, Helmet?, PhoneWhileWalking?, CrossingNearGate?, WitnessedAccident?, TopSolution?</li>
+<li>Survey 20+. Suggested spreadsheet headings:<br><code>RespID, Role, Distance, TravelMode, RoadsCrossed, TaughtSafety, KnowsZebra, CrossBehaviour, Helmet, PhoneUse, CrossingNearGate, WitnessedAccident, TopSolution</code><br>Starter file: <a href="../templates/csv/road-safety-starter.csv">road-safety-starter.csv</a></li>
+<li><b>Formulas to use (rows 2–21):</b><br><code>=COUNTA(A2:A21)</code> n • <code>=COUNTIF(D2:D21,"Walking")</code> walkers • <code>=COUNTIF(D2:D21,"Boda*")</code> boda users • <code>=COUNTIF(H2:H21,"*phone*")</code> risky crossing • <code>=COUNTIF(J2:J21,"Never")</code> phone-always • <code>=COUNTIF(L2:L21,"Yes*")</code> witnessed • <code>=COUNTIF(M2:M21,"*Speed bump*")</code> • <code>=COUNTIF(D2:D21,"Walking")/COUNTA(A2:A21)*100</code> % walking • <code>=IF(J2="Always","High risk",IF(J2="Often","Medium","OK"))</code></li>
+<li><b>Charts (at least 1):</b> bar of TravelMode; pie of PhoneWhileWalking (Always/Often/Sometimes/Rarely/Never); bar of TopSolution. Title + labels required.</li>
+<li>Save <code>GroupXX_Task1_Spreadsheet.xlsx</code>. Full click-by-click: <a href="../templates/analysis-guide.html">analysis guide</a>.</li>
+</ol></div>
+<div id="t2" class="task"><h2>Task 2 — Report (21)</h2>
+<ol><li>Title + intro (Naikuru centre road, who you surveyed).</li>
+<li>Description: % walking/boda, roads crossed, % never taught safety, % phone use.</li>
+<li>Causes (bullets): no zebra, faded signs, speeding, boda overload/no helmet, phone distraction.</li>
+<li>Effects + 1 photo (gate road at dismissal, faces blurred) + witnessed-accident stat.</li>
+<li>Solutions table: speed bumps | painted zebra | prefect patrol + posters | assembly campaign + petition letter (mail-merge this letter!) | boda rules.</li>
+<li>Format + auto TOC + mail merge to 10 classmates. Builder: <a href="../templates/report-builder.html">fillable report builder</a>.</li></ol></div>
+<div id="t3" class="task"><h2>Task 3 — Slides (14)</h2><p>6 slides: Title → How learners travel (chart) → Riskiest behaviours (phone/boda stat) → Gate safety rating → Solutions → Call to action ("Look both ways. Prefect patrol Fridays."). Design + transitions + 1 animation/slide max.</p></div>
+<div id="t4" class="task"><h2>Task 4 — Files (2)</h2><p>Folder <code>Grade10_ICT_GroupXX_2026</code> with all 4 files.</p></div>
+</div>
+<div class="steps"><h2>Possible steps your group can take (beyond paper)</h2><ul><li>Map crossing points + photograph gate at 6:30am/5pm.</li><li>Count boda helmets for 30 min (tally → spreadsheet).</li><li>Design A4 posters in Word; display near gate.</li><li>Draft petition letter (mail merge) to county: zebra + bumps.</li><li>Volunteer prefect patrol rota for one week.</li></ul></div>
+</div><footer>Naikuru P.A.G ICT • <a style="color:#ffd54f" href="../index.html">Home</a></footer><script src="../assets/script.js"></script></body></html>

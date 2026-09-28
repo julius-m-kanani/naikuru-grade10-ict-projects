@@ -1,0 +1,28 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Waste Management — Step-by-Step | Naikuru P.A.G ICT</title><link rel="stylesheet" href="../assets/style.css"></head><body>
+<header><h1>Project 1: Waste Management at School</h1><p>Naikuru P.A.G Secondary • Grade 10 ICT SBA • Sample Project</p></header>
+<nav><a href="../index.html">← Home</a><a href="environmental-conservation.html">Next: Environment →</a></nav>
+<div class="container">
+<div class="steps"><h2>Overview & Objectives</h2>
+<p><b>Problem:</b> Plastic/papers behind classes, food waste attracting flies, delayed collection. Sample cleanliness rating 2.75/5; only 40% use bins.</p>
+<p><b>Objectives:</b> measure disposal habits (n=20), analyse causes/effects, propose low-cost fixes (bins, rota, club, compost).</p></div>
+<div class="tasknav"><button class="active" onclick="showTask('t1',this)">Task 1: Spreadsheet (13)</button><button onclick="showTask('t2',this)">Task 2: Report (21)</button><button onclick="showTask('t3',this)">Task 3: Slides (14)</button><button onclick="showTask('t4',this)">Task 4: Files (2)</button></div>
+<div class="steps">
+<div id="t1" class="task active"><h2>Task 1 — Collect & Analyse (13)</h2>
+<ol><li>Adapt questionnaire: CommonWaste? DisposalMethod? CleaningDays (0–7)? Rating (1–5)? Cause? Effect? Solution?</li>
+<li>Survey 20 people (learners, teachers, workers, parents). See <code>../samples/task1-collect-analyse/</code> CSV sample.</li>
+<li>Enter with headings: RespondentID, Class_Role, CommonWaste, DisposalMethod, CleaningDaysPerWeek, CleanlinessRating, MainCause, MainEffect, SuggestedSolution.</li>
+<li>Formulas (data rows 2–21):<br><code>=COUNTA(A2:A21)</code> total • <code>=AVERAGE(E2:E21)</code> avg days • <code>=AVERAGE(F2:F21)</code> avg rating • <code>=COUNTIF(C2:C21,"Plastic")</code> • <code>=COUNTIF(D2:D21,"Bin")/COUNTA(A2:A21)*100</code> % bin use • <code>=IF(F2&lt;=2,"Needs attention","OK")</code></li>
+<li>Charts: bar of waste types (Plastic 10, Food 6, Compound 4) + pie of disposal (Bin 8, Pit 5, Ground 4, Burning 2, CarryHome 1).</li>
+<li>Save <code>GroupXX_Task1_Spreadsheet.xlsx</code>.</li></ol></div>
+<div id="t2" class="task"><h2>Task 2 — Report (21)</h2>
+<ol><li>Sections: Title+Intro → Description (rating 2.75, 40% bin use) → Causes (bullets: few bins, distance, awareness, attitude, delays) → Effects + 1 photo → Solutions table → Conclusion.</li>
+<li>Solutions table: 10 labelled bins | duty rota | environment club Fridays | compost pit + recycling | cleanest-class award.</li>
+<li>Format: Heading 1/2, bold/italic, 1.15 spacing, centred title + justified body, auto TOC.</li>
+<li>Mail merge letter to 10 classmates using recipient CSV → save <code>GroupXX_Task2_MailMerge.docx</code>.</li></ol></div>
+<div id="t3" class="task"><h2>Task 3 — Presentation (14)</h2>
+<ol><li>6 slides: Title → Description → Findings+chart → Causes/Effects → Solutions → Conclusion + call to action.</li><li>Theme, transitions (Fade/Push), one animation per slide, 24pt+ text, chart takeaway: "6 in 10 don't use bins."</li><li>Oral: each member speaks ~1 min. Save <code>GroupXX_Task3_Presentation.pptx</code>.</li></ol></div>
+<div id="t4" class="task"><h2>Task 4 — E-portfolio (2)</h2><p>Folder <code>Grade10_ICT_GroupXX_2026</code> with spreadsheet + report + merge letters + presentation. Check each opens.</p></div>
+</div>
+<div class="steps"><h2>Checklist</h2><ul class="checklist"><li>☐ 20 rows + 4+ formulas + 1 titled chart</li><li>☐ Report has bullets, image, table, TOC, merge to 10</li><li>☐ 5–8 slides + oral done</li><li>☐ One correctly named folder</li></ul></div>
+</div><footer>Naikuru P.A.G ICT • <a style="color:#ffd54f" href="../index.html">Home</a></footer><script src="../assets/script.js"></script></body></html>

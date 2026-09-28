@@ -1,0 +1,24 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Step-by-Step Spreadsheet Analysis | Naikuru P.A.G</title><link rel="stylesheet" href="../assets/style.css"></head><body>
+<header><h1>Task 1 Analysis — Click-by-Click</h1><p>Excel / LibreOffice Calc / Google Sheets • Same steps for every project</p></header>
+<nav><a href="../index.html">← Home</a><a href="data-collection.html">Data sheet</a><a href="report-builder.html">Report builder</a></nav>
+<div class="container">
+<div class="steps"><h2>Step 0 — Open your data</h2><ol><li>Download a starter: <a href="csv/road-safety-starter.csv">road</a> • <a href="csv/time-management-starter.csv">time</a> • <a href="csv/environment-starter.csv">environment</a> • <a href="csv/health-safety-starter.csv">health</a> • <a href="csv/business-starter.csv">business</a></li><li>Open in Excel/Calc/Sheets → <b>Save As</b> <code>GroupXX_Task1_Spreadsheet.xlsx</code>.</li></ol></div>
+<div class="steps"><h2>Step 1 — Clean headings (5 min)</h2><ul><li>Row 1 bold, centre, freeze top row (View → Freeze).</li><li>No blank columns. Ratings/hours = numbers, not words.</li><li>Add borders. Create sheets: <code>RawData</code>, <code>Analysis</code>, <code>Charts</code>.</li></ul></div>
+<div class="steps"><h2>Step 2 — Copy-paste formulas (15 min)</h2>
+<p>Assume responses in rows 2–21. Type each in <code>Analysis</code> sheet:</p>
+<table><tr><th>What</th><th>Type this</th><th>Example result</th></tr>
+<tr><td>Total respondents</td><td><code>=COUNTA(RawData!A2:A21)</code></td><td>20</td></tr>
+<tr><td>Average (rating/hours)</td><td><code>=AVERAGE(RawData!F2:F21)</code></td><td>2.75</td></tr>
+<tr><td>Maximum / Minimum</td><td><code>=MAX(RawData!E2:E21)</code> / <code>=MIN(RawData!E2:E21)</code></td><td>6 / 1</td></tr>
+<tr><td>Count one answer</td><td><code>=COUNTIF(RawData!D2:D21,"Bin")</code></td><td>8</td></tr>
+<tr><td>Percentage</td><td><code>=COUNTIF(RawData!D2:D21,"Bin")/COUNTA(RawData!A2:A21)*100</code></td><td>40%</td></tr>
+<tr><td>Flag risky rows</td><td><code>=IF(RawData!F2&lt;=2,"Needs attention","OK")</code> (copy down)</td><td>—</td></tr>
+<tr><td>Profit (business only)</td><td><code>=C2*D2</code> total, <code>=E2-F2</code> profit, <code>=SUM(G2:G8)</code> week</td><td>—</td></tr>
+</table>
+<p><b>Road safety swaps:</b> <code>=COUNTIF(D2:D21,"Walking")</code>, <code>=COUNTIF(J2:J21,"Always")</code> phone-always.<br>
+<b>Time swaps:</b> <code>=AVERAGE(C2:C21)</code> study hrs, <code>=AVERAGE(F2:F21)</code> phone hrs, <code>=COUNTIF(G2:G21,"Never")</code> no timetable, <code>=IF(F2&gt;C2,"Phone&gt;Study","Study≥Phone")</code>.</p></div>
+<div class="steps"><h2>Step 3 — Chart in 6 clicks (10 min)</h2><ol><li>On <code>Analysis</code>, make a mini table: Answer | Count (from your COUNTIFs).</li><li>Select it → Insert → Column (bar) or Pie.</li><li>Right-click chart → Add Data Labels; Chart Title: e.g. "Travel to school (n=20)".</li><li>Move chart to <code>Charts</code> sheet. Must have: title + labels/legend.</li></ol>
+<p>Recommended per project: waste=bar waste types; road=bar travel mode + pie phone use; time=bar avg hours; environment=bar causes; health=pie handwash; business=line 7-day sales.</p></div>
+<div class="steps"><h2>Step 4 — Validate (teacher checks this)</h2><ul class="checklist"><li>☐ 20+ rows, headings, frozen top row?</li><li>☐ 4+ different functions (SUM/AVERAGE/COUNT/COUNTIF/MAX/MIN/IF)?</li><li>☐ 1+ titled chart with labels?</li><li>☐ File named <code>GroupXX_Task1_Spreadsheet.xlsx</code>?</li><li>☐ One-sentence takeaway written under chart (reuse in report + slides)?</li></ul></div>
+</div><footer>Naikuru P.A.G ICT</footer></body></html>

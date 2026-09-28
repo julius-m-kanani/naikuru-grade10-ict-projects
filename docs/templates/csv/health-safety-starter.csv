@@ -1,0 +1,4 @@
+RespID,Role,Handwash,WaterSafe,ToiletRating,FirstAid,SickLastTerm,TopCause,Effect,TopSolution
+R01,Learner,Sometimes,No,2,No idea,Yes,No soap,Stomach upset,Refill rota
+R02,Teacher,Always,Yes,4,Rough idea,No,No lessons,None,Posters
+,,,,,,,,,

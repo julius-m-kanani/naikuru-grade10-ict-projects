@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fillable Data Sheet + CSV Export | Naikuru P.A.G</title><link rel="stylesheet" href="../assets/style.css">
+<style>@media print{nav,.noprint{display:none}.container{max-width:100%}}</style></head><body>
+<header><h1>Fillable Data Collection Sheet</h1><p>Works for any problem area • Add rows • Export CSV • Print for field use</p></header>
+<nav><a href="../index.html">← Home</a><a href="analysis-guide.html">Next: Analysis guide →</a></nav>
+<div class="container">
+<div class="steps"><h2>1. Group info (fill, then print or keep open on phone)</h2>
+<p>Group: <input id="g" placeholder="Group03" style="padding:8px"> Problem: <input id="p" placeholder="Road safety" style="padding:8px;width:220px"> Date: <input id="d" type="date" style="padding:8px"></p>
+<p class="noprint">Headings are editable — change Q1..Q5 to match your questionnaire (e.g. TravelMode, PhoneUse).</p></div>
+<div class="steps"><h2>2. Responses (20+ rows)</h2>
+<div style="overflow:auto"><table id="t"><thead><tr>
+<th>ID</th><th>Name (optional)</th><th><input value="Q1: Mode/Cause" style="width:130px"></th><th><input value="Q2: Frequency" style="width:130px"></th><th><input value="Q3: Rating 1-5" style="width:130px"></th><th><input value="Q4: Effect" style="width:130px"></th><th><input value="Q5: Solution" style="width:130px"></th>
+</tr></thead><tbody id="b"></tbody></table></div>
+<p class="noprint"><button onclick="addRows(5)" style="padding:10px 16px">+ Add 5 rows</button> <button onclick="exportCSV()" style="padding:10px 16px;background:#0f3a2d;color:#fff;border:none;border-radius:8px">Download CSV</button> <button onclick="window.print()" style="padding:10px 16px">Print blank sheet</button></p></div>
+<div class="steps"><h2>3. Field rules</h2><ul><li>One row per respondent. No names required (confidential).</li><li>Use same wording every time (e.g. Always/Often/Sometimes/Rarely/Never).</li><li>Numbers for ratings/hours make analysis 10× easier.</li><li>Aim 20 minimum; 25 is safer (spoilt forms).</li></ul></div>
+</div><footer>Naikuru P.A.G ICT</footer>
+<script>
+let n=0;function row(){n++;const tr=document.createElement('tr');tr.innerHTML=`<td>R${String(n).padStart(2,'0')}</td><td contenteditable></td><td contenteditable></td><td contenteditable></td><td contenteditable></td><td contenteditable></td><td contenteditable></td>`;document.getElementById('b').appendChild(tr)}
+function addRows(k){for(let i=0;i<k;i++)row()}
+addRows(20);
+function exportCSV(){const heads=[...document.querySelectorAll('#t thead input')].map(i=>'"'+i.value.replace(/"/g,'""')+'"');let csv='RespID,Name,'+heads.join(',')+'\n';document.querySelectorAll('#b tr').forEach(tr=>{const cells=[...tr.querySelectorAll('td')].map(td=>'"'+td.innerText.replace(/"/g,'""')+'"');csv+=cells.join(',')+'\n'});const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='group-data.csv';a.click()}
+</script></body></html>

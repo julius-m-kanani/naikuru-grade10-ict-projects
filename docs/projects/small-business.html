@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Small Business Records — Step-by-Step | Naikuru P.A.G ICT</title><link rel="stylesheet" href="../assets/style.css"></head><body>
+<header><h1>Project 6: Small Business Record Keeping</h1><p>Canteen/kiosk sales, stock & profit • Spreadsheet power project</p></header>
+<nav><a href="../index.html">← Home</a><a href="../templates/analysis-guide.html">Analysis guide</a><a href="../templates/data-collection.html">Fillable data sheet</a></nav>
+<div class="container">
+<div class="steps"><h2>Overview</h2><p><b>Problem:</b> Kiosks/canteen lose money: no daily records, unknown profit, stock-outs, cash mixing.</p></div>
+<div class="tasknav"><button class="active" onclick="showTask('t1',this)">Task 1</button><button onclick="showTask('t2',this)">Task 2</button><button onclick="showTask('t3',this)">Task 3</button><button onclick="showTask('t4',this)">Task 4</button></div>
+<div class="steps">
+<div id="t1" class="task active"><h2>Task 1 — Collect & Analyse</h2><ol><li>Survey 20: 5 sellers + 15 customers. Qs: Item, BuyingPrice, SellingPrice, QtyPerDay, KeepsRecords?, TopChallenge (no book/no pricing/stock-out/debt), RecordsHelpful?</li><li>Two sheets: (A) Survey + (B) 7-day sales log: <code>Date, Item, Qty, UnitPrice, Total(=Qty*Price), Cost, Profit(=Total-Cost)</code> — starter: <a href="../templates/csv/business-starter.csv">business-starter.csv</a></li><li>Formulas: <code>=B2*C2</code> total • <code>=D2-E2</code> profit • <code>=SUM(D2:D8)</code> week sales • <code>=SUM(F2:F8)</code> week profit • <code>=AVERAGE(...)</code> • <code>=MAX/MIN</code> best/worst item • <code>=COUNTIF(...,"No")</code> no records • <code>=IF(F2&lt;0,"Loss","OK")</code></li><li>Charts: bar of profit per item; line of 7-day sales.</li></ol></div>
+<div id="t2" class="task"><h2>Task 2 — Report</h2><p>Causes: no record book, guess pricing, no stock count, credit/debt. Effects + photo (stock shelf, permission). Solutions table: daily sales book template | pricing formula (price = cost + margin) | weekly stock count | debt list | simple receipt in Word. Include your 7-day profit table. Mail merge price list to 10 classmates.</p></div>
+<div id="t3" class="task"><h2>Task 3 — Slides</h2><p>Title → Week sales line chart → Best/worst items → Record-book demo → Pricing rule → "Every shilling recorded".</p></div>
+<div id="t4" class="task"><h2>Task 4</h2><p>Folder <code>Grade10_ICT_GroupXX_2026</code>.</p></div>
+</div>
+<div class="steps"><h2>Possible steps</h2><ul><li>Keep a real 7-day sales book for canteen/kiosk (with permission).</li><li>Build a printable receipt + stock sheet in Word/Excel.</li><li>Train seller on SUM/profit formulas (10 min demo).</li></ul></div>
+</div><footer>Naikuru P.A.G ICT • <a style="color:#ffd54f" href="../index.html">Home</a></footer><script src="../assets/script.js"></script></body></html>
