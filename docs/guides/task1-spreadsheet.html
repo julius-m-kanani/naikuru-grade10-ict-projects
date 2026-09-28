@@ -1,0 +1,20 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Build Guide Task 1: Spreadsheet | Naikuru P.A.G</title><link rel="stylesheet" href="../assets/style.css"></head><body>
+<header><h1>Build Guide — Task 1: Spreadsheet (13 marks)</h1><p>Excel • LibreOffice Calc • Google Sheets — same clicks, different names</p></header>
+<nav><a href="../index.html">← Home</a><a href="../templates/analysis-guide.html">Formula cheat-sheet</a><a href="task2-report-merge.html">Next: Task 2 →</a></nav>
+<div class="container">
+<div class="steps"><h2>What the examiner sees</h2><p>Headings + 20 rows + 4+ functions + 1 titled chart + correct filename. Miss one = lose marks.</p></div>
+<div class="steps"><h2>Step A — Create file (2 min)</h2><ol><li>Download starter CSV for your problem (see homepage templates).</li><li><b>Excel:</b> File → Open → CSV → File → Save As → <code>GroupXX_Task1_Spreadsheet.xlsx</code>.<br><b>Calc:</b> same, save as .xlsx (keep Excel format for marking).<br><b>Sheets:</b> File → Import → Upload → File → Download → .xlsx before submitting.</li><li>Rename Sheet1 → <code>RawData</code>. Add sheets <code>Analysis</code>, <code>Charts</code> (right-click tab → Rename/Insert).</li></ol></div>
+<div class="steps"><h2>Step B — Format headings (3 min)</h2><ol><li>Select row 1 → Bold → Centre → Fill colour.</li><li>View → Freeze Top Row (View → Freeze Rows/Columns in Calc).</li><li>Select all data → Borders → All Borders. Set rating columns to Number, 1 decimal for averages.</li></ol></div>
+<div class="steps"><h2>Step C — Analysis formulas (10 min, copy-paste)</h2><p>In <code>Analysis</code> sheet, type label in A, formula in B (data in <code>RawData!A2:A21</code>):</p>
+<table><tr><th>Label (A)</th><th>Formula (B)</th></tr>
+<tr><td>Total</td><td><code>=COUNTA(RawData!A2:A21)</code></td></tr>
+<tr><td>Average</td><td><code>=AVERAGE(RawData!F2:F21)</code></td></tr>
+<tr><td>Max / Min</td><td><code>=MAX(RawData!E2:E21)</code> / <code>=MIN(RawData!E2:E21)</code></td></tr>
+<tr><td>Count answer</td><td><code>=COUNTIF(RawData!D2:D21,"Bin")</code> (change Bin to your answer)</td></tr>
+<tr><td>Percent</td><td><code>=COUNTIF(RawData!D2:D21,"Bin")/COUNTA(RawData!A2:A21)*100</code></td></tr>
+<tr><td>Flag</td><td><code>=IF(RawData!F2&lt;=2,"Needs attention","OK")</code> → drag down</td></tr></table>
+<p>Business: <code>=C2*D2</code> (Total), <code>=E2-F2</code> (Profit), <code>=SUM(G2:G8)</code> (week).</p></div>
+<div class="steps"><h2>Step D — Chart (5 min)</h2><ol><li>In Analysis make mini table: Answer | Count (e.g. Walking 11, Boda 6, Matatu 3).</li><li>Select table → Insert → Column Chart (bar) or Pie.</li><li>Chart Title (e.g. "Travel to school, n=20") → Add Data Labels → Axis Titles.</li><li>Cut → paste into <code>Charts</code> sheet. Write one takeaway below: "Only 40% use bins."</li></ol></div>
+<div class="steps"><h2>Step E — Save + check</h2><ul class="checklist"><li>☐ 20 rows? ☐ 4+ functions recalc? ☐ Chart titled? ☐ Filename <code>GroupXX_Task1_Spreadsheet.xlsx</code>?</li></ul></div>
+</div><footer>Naikuru P.A.G ICT</footer></body></html>

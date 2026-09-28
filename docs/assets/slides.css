@@ -1,0 +1,18 @@
+/* PowerPoint-like 16:9 viewer — Naikuru P.A.G */
+.deck{max-width:960px;margin:18px auto;padding:0 14px}
+.slidebox{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.18);aspect-ratio:16/9;display:none;position:relative}
+.slidebox.active{display:block}
+.slidetop{background:#0f3a2d;color:#fff;padding:10px 18px;font-size:.85rem;display:flex;justify-content:space-between}
+.slidebody{padding:28px 34px;height:calc(100% - 110px);overflow:auto}
+.slidebody h1{margin:0 0 6px;font-size:2rem;color:#0f3a2d}
+.slidebody h2{margin:0 0 10px;font-size:1.5rem;color:#0f3a2d;border-bottom:3px solid #ffd54f;display:inline-block;padding-bottom:4px}
+.slidefoot{position:absolute;bottom:0;width:100%;background:#f0f0f0;padding:6px 18px;font-size:.8rem;display:flex;justify-content:space-between;color:#555}
+.controls{text-align:center;margin:12px 0}
+.controls button{padding:10px 20px;margin:0 6px;border:none;border-radius:8px;background:#0f3a2d;color:#fff;font-weight:700;cursor:pointer}
+.controls button.gold{background:#ffd54f;color:#222}
+.notes{background:#fffbe6;border-left:5px solid #ffd54f;padding:12px 16px;margin:12px auto;max-width:960px;border-radius:0 10px 10px 0;font-size:.92rem}
+.build{background:#eef6f1;border:1px dashed #0f3a2d;padding:10px 14px;border-radius:10px;margin:10px auto;max-width:960px;font-size:.9rem}
+.bar{background:#e0e0e0;border-radius:8px;margin:6px 0;height:26px}
+.bar span{display:block;height:26px;border-radius:8px;background:#2e7d32;color:#fff;line-height:26px;padding-left:10px;font-size:.85rem;font-weight:700}
+table.mini{width:100%;border-collapse:collapse;font-size:.9rem}table.mini th,table.mini td{border:1px solid #ccc;padding:6px}table.mini th{background:#0f3a2d;color:#fff}
+@media print{.controls,.noprint,nav{display:none}.slidebox{display:block;break-inside:avoid;margin-bottom:12px}}
