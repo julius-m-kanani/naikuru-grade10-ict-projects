@@ -6,78 +6,97 @@
 <title>Grade 10 ICT Project Portal</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Segoe UI',Arial,sans-serif;background:#f5f5f5;color:#222;font-size:16px;line-height:1.75}
-a{color:#005a9e;text-decoration:none}
+:root{--bg:#f8f7f4;--surface:#ffffff;--surface2:#f0efe9;--text:#1a1a18;--muted:#6b6b66;--accent:#1a5c96;--accent-bg:#e8f0f9;--green:#1e6b3a;--green-bg:#e6f4ec;--amber:#8a4f00;--amber-bg:#fef3e2;--border:rgba(0,0,0,0.09);--radius:10px}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.65}
+a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
 
-nav{background:#1a3a6b;padding:0}
+/* Top bar only on small screens — the sidebar covers desktop */
+nav.topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:0}
 .nav-inner{max-width:900px;margin:0 auto;display:flex;flex-wrap:wrap;gap:0}
-.nav-inner a{color:#fff;padding:13px 18px;font-size:14px;font-weight:500;display:block;border-right:1px solid rgba(255,255,255,0.15)}
-.nav-inner a:hover,.nav-inner a.active{background:#2e5da8;text-decoration:none}
-.nav-inner a:first-child{font-weight:700;font-size:15px}
+.nav-inner a{color:var(--accent);padding:13px 16px;font-size:14px;font-weight:500;display:block}
+.nav-inner a:hover,.nav-inner a.active{background:var(--accent-bg);text-decoration:none}
+@media(min-width:901px){nav.topbar{display:none}}
 
 .container{max-width:900px;margin:0 auto;padding:30px 20px 60px}
 
-h1{font-size:24px;font-weight:700;color:#1a3a6b;margin-bottom:6px;border-bottom:3px solid #1a3a6b;padding-bottom:10px}
-h2{font-size:19px;font-weight:700;color:#1a3a6b;margin:28px 0 10px}
-h3{font-size:16px;font-weight:700;color:#333;margin:20px 0 8px}
+h1{font-size:22px;font-weight:600;color:var(--text);margin-bottom:6px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+h2{font-size:18px;font-weight:600;color:var(--text);margin:28px 0 10px}
+h3{font-size:15px;font-weight:600;color:var(--text);margin:20px 0 8px}
 p{margin-bottom:12px}
 ul,ol{margin:0 0 14px 24px}
 li{margin-bottom:5px}
 strong{font-weight:700}
 
-table{width:100%;border-collapse:collapse;margin:14px 0 20px;font-size:15px}
-th{background:#1a3a6b;color:#fff;padding:10px 14px;text-align:left}
-td{padding:9px 14px;border:1px solid #ccc}
-tr:nth-child(even) td{background:#f0f4fb}
+table{width:100%;border-collapse:collapse;margin:14px 0 20px;font-size:14px;background:var(--surface);border-radius:var(--radius);overflow:hidden}
+th{background:var(--accent);color:#fff;padding:10px 14px;text-align:left}
+td{padding:9px 14px;border:1px solid var(--border)}
+tr:nth-child(even) td{background:#f4f6f9}
 
-.info-box{background:#e8f0fb;border-left:5px solid #1a3a6b;padding:14px 18px;margin:16px 0;border-radius:0 6px 6px 0}
-.tip-box{background:#fff8e1;border-left:5px solid #f59e0b;padding:14px 18px;margin:16px 0;border-radius:0 6px 6px 0}
-.example-box{background:#f0fdf4;border-left:5px solid #16a34a;padding:14px 18px;margin:16px 0;border-radius:0 6px 6px 0}
-.example-box h3{color:#15803d;margin-top:0}
-.activity-box{background:#fef3c7;border:2px solid #d97706;padding:14px 18px;margin:20px 0;border-radius:6px}
-.activity-box h3{color:#92400e;margin-top:0}
+.info-box{background:var(--accent-bg);border-left:3px solid var(--accent);padding:10px 14px;margin:16px 0;border-radius:0 7px 7px 0;font-size:14px}
+.tip-box{background:var(--amber-bg);border-left:3px solid #f59e0b;padding:10px 14px;margin:16px 0;border-radius:0 7px 7px 0;font-size:13px;color:var(--amber)}
+.example-box{background:var(--green-bg);border-left:3px solid #16a34a;padding:10px 14px;margin:16px 0;border-radius:0 7px 7px 0;font-size:14px}
+.example-box h3{color:var(--green);margin-top:0}
+.activity-box{background:var(--amber-bg);border:1px solid #f59e0b;padding:14px 18px;margin:20px 0;border-radius:var(--radius)}
+.activity-box h3{color:#6b3800;margin-top:0}
 
-.step-nav{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:20px;border-top:2px solid #ddd;flex-wrap:wrap;gap:10px}
-.btn{display:inline-block;padding:11px 24px;border-radius:5px;font-size:15px;font-weight:600;cursor:pointer;border:none;text-decoration:none}
-.btn-primary{background:#1a3a6b;color:#fff}
-.btn-primary:hover{background:#2e5da8;text-decoration:none}
-.btn-secondary{background:#fff;color:#1a3a6b;border:2px solid #1a3a6b}
-.btn-secondary:hover{background:#e8f0fb;text-decoration:none}
-.btn-start{background:#16a34a;color:#fff;font-size:16px;padding:13px 30px}
-.btn-start:hover{background:#15803d;text-decoration:none}
+.step-nav{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:20px;border-top:1px solid var(--border);flex-wrap:wrap;gap:10px}
+.btn{display:inline-block;padding:9px 18px;border-radius:7px;font-size:14px;font-weight:600;cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--text);text-decoration:none}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-primary:hover{opacity:.9;text-decoration:none}
+.btn-secondary{background:var(--surface);color:var(--accent);border:1px solid var(--accent)}
+.btn-secondary:hover{background:var(--accent-bg);text-decoration:none}
+.btn-start{background:var(--green);color:#fff;font-size:15px;padding:11px 26px;border-color:var(--green)}
+.btn-start:hover{opacity:.9;text-decoration:none}
 
-.hero{background:linear-gradient(135deg,#1a3a6b,#2e5da8);color:#fff;padding:36px 30px;border-radius:8px;margin-bottom:28px}
-.hero h1{color:#fff;border-bottom:2px solid rgba(255,255,255,0.4);font-size:26px}
-.hero p{color:rgba(255,255,255,0.9);font-size:16px;margin-bottom:0}
+.hero{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:var(--radius);color:var(--text);padding:24px 26px;margin-bottom:24px}
+.hero h1{color:var(--text);border-bottom:none;font-size:22px;padding-bottom:0;margin-bottom:4px}
+.hero p{color:var(--muted);font-size:14px;margin-bottom:6px}
+.hero p:last-child{margin-bottom:0}
+.hero a{font-weight:600}
 
-.task-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:24px 0}
-.task-card{background:#fff;border:1px solid #d0d7e4;border-radius:8px;padding:20px;cursor:pointer}
-.task-card:hover{border-color:#1a3a6b;box-shadow:0 2px 8px rgba(26,58,107,0.15)}
-.task-card-num{font-size:12px;font-weight:700;color:#1a3a6b;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
-.task-card-title{font-size:15px;font-weight:700;color:#1a3a6b;margin-bottom:6px}
-.task-card-desc{font-size:13px;color:#555;line-height:1.5}
-.task-card-marks{margin-top:10px;font-size:13px;font-weight:700;color:#16a34a}
+.task-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:24px 0}
+.task-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.task-card:hover{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-bg)}
+.task-card-num{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.task-card-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px}
+.task-card-desc{font-size:13px;color:var(--muted);line-height:1.5}
+.task-card-marks{margin-top:10px;font-size:13px;font-weight:600;color:var(--green)}
 
-.step-indicator{background:#e8f0fb;border-radius:5px;padding:8px 14px;font-size:13px;color:#1a3a6b;font-weight:600;margin-bottom:18px;display:inline-block}
+.step-indicator{background:var(--accent-bg);border-radius:5px;padding:8px 14px;font-size:13px;color:var(--accent);font-weight:600;margin-bottom:18px;display:inline-block}
 
-.slide-example{background:#1a3a6b;color:#fff;border-radius:8px;padding:24px 28px;margin:14px 0;min-height:140px}
-.slide-example h2{color:#fff;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:8px;margin-bottom:12px;margin-top:0;font-size:17px}
-.slide-example p,.slide-example li{color:rgba(255,255,255,0.9);font-size:14px}
-.slide-example ul{margin-left:20px}
+.slide-example{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin:14px 0}
+.slide-example h2{background:var(--accent);color:#fff;font-size:16px;padding:12px 20px;margin:0;border:none}
+.slide-example p,.slide-example li{color:var(--text);font-size:14px}
+.slide-example ul,.slide-example p{margin-left:20px;margin-right:20px}
+.slide-example p{padding-bottom:4px}
 
-.formula-box{background:#1e1e1e;border-radius:6px;padding:14px 18px;font-family:'Courier New',monospace;font-size:13px;color:#4ec9b0;margin:10px 0;line-height:1.8}
+.formula-box{background:#1e1e1e;border-radius:10px;padding:14px 18px;font-family:'Courier New',monospace;font-size:13px;color:#4ec9b0;margin:10px 0;line-height:1.8}
 .formula-box .cmt{color:#6a9955}
 .formula-box .kw{color:#ce9178}
 
-.title-page-example{border:2px solid #ccc;border-radius:6px;padding:28px;text-align:center;background:#fff;margin:14px 0;font-family:'Times New Roman',serif}
-.title-page-example h2{font-size:18px;color:#1a3a6b;margin:0 0 10px;border:none}
+.title-page-example{border:1px solid var(--border);border-radius:var(--radius);padding:28px;text-align:center;background:var(--surface);margin:14px 0;font-family:'Times New Roman',serif}
+.title-page-example h2{font-size:18px;color:var(--accent);margin:0 0 10px;border:none}
 .title-page-example p{margin-bottom:6px;font-size:14px}
 
-footer{background:#1a3a6b;color:rgba(255,255,255,0.8);text-align:center;padding:18px;font-size:13px}
+footer{background:var(--surface);border-top:1px solid var(--border);color:var(--muted);text-align:center;padding:18px;font-size:13px}
 
 .page{display:none}
 .page.active{display:block}
+
+/* Sidebar organisation — matches the interactive guide */
+.layout{display:flex;align-items:flex-start;max-width:1180px;margin:0 auto}
+.sidebar{width:260px;flex-shrink:0;background:var(--surface);border-right:1px solid var(--border);padding:1.5rem 1rem;position:sticky;top:0;height:100vh;overflow-y:auto}
+.side-logo{font-size:13px;font-weight:600;color:var(--accent);letter-spacing:.03em;margin-bottom:1.2rem;padding:0 8px 1rem;border-bottom:1px solid var(--border)}
+.side-logo span{display:block;color:var(--muted);font-weight:400;margin-top:2px;font-size:12px}
+.side-label{font-size:10px;font-weight:600;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;padding:10px 8px 4px}
+.sidebar a{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:7px;font-size:13.5px;color:var(--muted);transition:background .15s}
+.sidebar a:hover{background:var(--surface2);color:var(--text);text-decoration:none}
+.sidebar a.active{background:var(--accent-bg);color:var(--accent);font-weight:500;text-decoration:none}
+.sidebar a.sub{padding-left:26px;font-size:12.5px}
+.main-col{flex:1;min-width:0}
+.main-col .container{max-width:900px}
+.marks-tag{display:inline-block;background:var(--green-bg);color:var(--green);font-weight:600;font-size:11px;padding:1px 9px;border-radius:20px;margin-left:6px}
 
 @media(max-width:600px){
   .nav-inner a{padding:10px 12px;font-size:13px}
@@ -85,20 +104,67 @@ footer{background:#1a3a6b;color:rgba(255,255,255,0.8);text-align:center;padding:
   h1{font-size:20px}
   .task-cards{grid-template-columns:1fr}
 }
+@media(max-width:900px){
+  .sidebar{display:none}
+}
 </style>
 </head>
 <body>
 
-<nav>
+<nav class="topbar">
   <div class="nav-inner">
     <a href="#" onclick="show('home')" id="nav-home" class="active">🏠 Home</a>
     <a href="#" onclick="show('task1')" id="nav-task1">Task 1</a>
     <a href="#" onclick="show('task2')" id="nav-task2">Task 2</a>
     <a href="#" onclick="show('task3')" id="nav-task3">Task 3</a>
     <a href="#" onclick="show('task4')" id="nav-task4">Task 4</a>
+    <a href="#" onclick="show('samples')" id="nav-samples">Samples</a>
     <a href="interactive-guide.html">✨ Interactive Guide</a>
   </div>
 </nav>
+
+<div class="layout">
+<aside class="sidebar">
+  <div class="side-logo">ICT Project Portal<span>Naikuru P.A.G · Grade 10 · 2026</span></div>
+  <div class="side-label">Start here</div>
+  <a href="#" onclick="show('home')">🏠 Home</a>
+  <a href="interactive-guide.html">✨ Interactive Guide</a>
+  <div class="side-label">Task 1 · Data (13)</div>
+  <a href="#" onclick="show('task1')">Overview</a>
+  <a href="#" onclick="show('t1s1')" class="sub">1. Forming your group</a>
+  <a href="#" onclick="show('t1s2')" class="sub">2. Identifying the problem</a>
+  <a href="#" onclick="show('t1s3')" class="sub">3. Survey questions</a>
+  <a href="#" onclick="show('t1s4')" class="sub">4. Collecting data</a>
+  <a href="#" onclick="show('t1s5')" class="sub">5. Excel analysis</a>
+  <a href="#" onclick="show('t1s6')" class="sub">6. Saving work</a>
+  <div class="side-label">Task 2 · Report (21)</div>
+  <a href="#" onclick="show('task2')">Overview</a>
+  <a href="#" onclick="show('t2s1')" class="sub">1. Title page</a>
+  <a href="#" onclick="show('t2s2')" class="sub">2. Report content</a>
+  <a href="#" onclick="show('t2s3')" class="sub">3. Formatting</a>
+  <a href="#" onclick="show('t2s4')" class="sub">4. Table of contents</a>
+  <a href="#" onclick="show('t2s5')" class="sub">5. Mail merge</a>
+  <a href="#" onclick="show('t2s6')" class="sub">6. Saving work</a>
+  <div class="side-label">Task 3 · Slides (14)</div>
+  <a href="#" onclick="show('task3')">Overview</a>
+  <a href="#" onclick="show('t3s1')" class="sub">1. Title slide</a>
+  <a href="#" onclick="show('t3s2')" class="sub">2. Problem slide</a>
+  <a href="#" onclick="show('t3s3')" class="sub">3. Findings + chart</a>
+  <a href="#" onclick="show('t3s4')" class="sub">4. Causes &amp; solutions</a>
+  <a href="#" onclick="show('t3s5')" class="sub">5. Conclusion + effects</a>
+  <a href="#" onclick="show('t3s6')" class="sub">6. Save + present</a>
+  <div class="side-label">Sample projects · 50-mark mapped</div>
+  <a href="#" onclick="show('samples')">🗂 All samples</a>
+  <a href="#" onclick="show('sp-waste')" class="sub">♻️ Waste management</a>
+  <a href="#" onclick="show('sp-road')" class="sub">🛣 Road safety</a>
+  <a href="#" onclick="show('sp-time')" class="sub">⏰ Time management</a>
+  <a href="#" onclick="show('sp-health')" class="sub">🧼 Health &amp; safety</a>
+  <a href="#" onclick="show('sp-env')" class="sub">🌳 Environment</a>
+  <a href="#" onclick="show('sp-business')" class="sub">💰 Business records</a>
+  <div class="side-label">Finish</div>
+  <a href="#" onclick="show('task4')">🗂 File management (2)</a>
+</aside>
+<div class="main-col">
 
 <!-- ======== HOME ======== -->
 <div id="page-home" class="page active">
@@ -1226,6 +1292,9 @@ footer{background:#1a3a6b;color:rgba(255,255,255,0.8);text-align:center;padding:
   </div>
 </div>
 </div>
+
+</div><!-- /main-col -->
+</div><!-- /layout -->
 
 <footer>
   © 2026 Grade 10 ICT Project Portal · Prepared by Computer Studies Department · Naikuru P.A.G Senior School
