@@ -79,6 +79,24 @@ tr:nth-child(even) td{background:#f4f6f9}
 .title-page-example h2{font-size:18px;color:var(--accent);margin:0 0 10px;border:none}
 .title-page-example p{margin-bottom:6px;font-size:14px}
 
+/* Word-document mock — same look as the interactive guide samples */
+.doc-preview{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin:14px 0}
+.doc-toolbar{background:#f3f2f0;border-bottom:1px solid var(--border);padding:6px 12px;font-size:12px;color:var(--muted)}
+.doc-body{padding:1.5rem 2rem;font-family:'Times New Roman',serif;font-size:13.5px;line-height:1.8}
+.doc-h1{font-size:18px;font-weight:bold;text-align:center;margin-bottom:4px}
+.doc-sub{text-align:center;font-size:11px;color:var(--muted);margin-bottom:10px}
+.doc-h2{font-size:14px;font-weight:bold;margin:12px 0 4px}
+.doc-p{margin-bottom:8px;text-align:justify}
+.doc-toc{background:#f9f9f9;border:1px solid #ddd;padding:10px 14px;margin:10px 0;font-size:12px}
+.doc-toc-title{font-weight:bold;margin-bottom:6px;font-size:13px}
+.doc-toc-item{display:flex;justify-content:space-between;padding:2px 0;color:#444}
+.doc-bullet{margin-left:18px;font-size:13px}
+.doc-table{width:100%;border-collapse:collapse;font-size:12px;margin:8px 0}
+.doc-table th{background:#217346;color:#fff;padding:6px 10px;text-align:left;border:1px solid #217346}
+.doc-table td{padding:5px 10px;border:1px solid #ccc}
+.doc-table tr:nth-child(even) td{background:#f5f5f5}
+.doc-imgbox{background:#f0f0f0;border:1px solid #ccc;padding:8px;text-align:center;font-size:11px;color:#666;margin:8px 0;border-radius:4px}
+
 footer{background:var(--surface);border-top:1px solid var(--border);color:var(--muted);text-align:center;padding:18px;font-size:13px}
 
 .page{display:none}
@@ -1325,63 +1343,41 @@ footer{background:var(--surface);border-top:1px solid var(--border);color:var(--
   <p>Poor disposal of waste has resulted in a dirty school environment and may affect the health of learners and teachers at Naikuru P.A.G Senior School.</p></div>
 
   <h2>Full sample report — read and imitate (Task 2)</h2>
-  <div class="title-page-example">
-    <h2>GRADE 10 ICT PROJECT 2026</h2>
-    <h2 style="font-size:16px;margin-bottom:16px">POOR WASTE MANAGEMENT IN OUR SCHOOL</h2>
-    <p><strong>Prepared by:</strong> Group 3 (5 members)</p>
-    <p><strong>School:</strong> Naikuru P.A.G Senior School</p>
-    <p><strong>Subject:</strong> Information and Communication Technology (ICT)</p>
-    <p><strong>Year:</strong> 2026</p>
+    <div class="doc-preview">
+  <div class="doc-toolbar">📄 Task2_WasteManagement_Report.docx — Sample (abridged)</div>
+  <div class="doc-body">
+  <div class="doc-h1">POOR WASTE MANAGEMENT IN OUR SCHOOL</div>
+  <div class="doc-sub">A Community Service Learning Report | Grade 10 ICT | 2026</div>
+  <div class="doc-toc">
+  <div class="doc-toc-title">Table of Contents</div>
+  <div class="doc-toc-item"><span>1. Introduction ................</span><span>2</span></div>
+  <div class="doc-toc-item"><span>2. Description of the Problem ..</span><span>2</span></div>
+  <div class="doc-toc-item"><span>3. Causes .....................</span><span>3</span></div>
+  <div class="doc-toc-item"><span>4. Effects ....................</span><span>3</span></div>
+  <div class="doc-toc-item"><span>5. Proposed Solutions .........</span><span>4</span></div>
+  <div class="doc-toc-item"><span>6. Conclusion .................</span><span>5</span></div>
   </div>
-  <div class="example-box"><h3>Table of Contents</h3>
-  <p>1. Introduction ................ 2<br>2. Description of the Problem .. 2<br>3. Causes ..................... 3<br>4. Effects .................... 3<br>5. Proposed Solutions ......... 4<br>6. Conclusion ................. 5</p></div>
-  <h3>1. Introduction</h3>
-  <p>Cleanliness around our school affects health, pride and learning. This report investigates poor waste disposal at Naikuru P.A.G Senior School, based on a survey of 22 respondents conducted in September 2026.</p>
-  <h3>2. Description of the Problem</h3>
-  <p>Litter lies behind classrooms, along paths and near the canteen every day. The survey found that 78% of respondents observe litter at least three days a week, 82% say dustbins are insufficient, and 64% admit littering themselves.</p>
-  <h3>3. Causes of the Problem</h3>
-  <ul><li>Too few dustbins near classrooms</li><li>Low awareness among learners</li><li>No school waste management policy</li><li>Poor habits carried from home</li></ul>
-  <h3>4. Effects of the Problem</h3>
-  <p>Litter makes the compound ugly, attracts flies and pests, blocks drainage during the rains and gives visitors a poor image of the school.</p>
-  <p><em>[Insert image: photo of the collection point]</em></p>
-  <h3>5. Proposed Solutions</h3>
-  <table><thead><tr><th>#</th><th>Solution</th><th>Responsible Party</th><th>Expected Outcome</th></tr></thead><tbody>
+  <div class="doc-h2">1. Introduction</div>
+  <div class="doc-p">Cleanliness around our school affects health, pride and learning. This report investigates poor waste disposal at Naikuru P.A.G Senior School, based on a survey of 22 respondents conducted in September 2026.</div>
+  <div class="doc-h2">2. Description of the Problem</div>
+  <div class="doc-p">Litter lies behind classrooms, along paths and near the canteen every day. The survey found that 78% of respondents observe litter at least three days a week, 82% say dustbins are insufficient, and 64% admit littering themselves.</div>
+  <div class="doc-h2">3. Causes of the Problem</div>
+  <ul class="doc-bullet"><li>Too few dustbins near classrooms</li><li>Low awareness among learners</li><li>No school waste management policy</li><li>Poor habits carried from home</li></ul>
+  <div class="doc-h2">4. Effects of the Problem</div>
+  <div class="doc-p">Litter makes the compound ugly, attracts flies and pests, blocks drainage during the rains and gives visitors a poor image of the school.</div>
+  <div class="doc-imgbox">[Insert image: photo of the collection point]</div>
+  <div class="doc-h2">5. Proposed Solutions</div>
+  <table class="doc-table"><thead><tr><th>#</th><th>Solution</th><th>Responsible Party</th><th>Expected Outcome</th></tr></thead><tbody>
   <tr><td>1</td><td>Install 10 labelled dustbins</td><td>Deputy + prefects</td><td>Bin use rises to 70%</td></tr>
   <tr><td>2</td><td>Awareness sessions during assembly</td><td>Patron</td><td>Sorting compliance improves</td></tr>
   <tr><td>3</td><td>Cleanliness competition</td><td>Houses</td><td>Sustained tidy classes</td></tr>
   <tr><td>4</td><td>County collection schedule</td><td>Administration</td><td>Pits emptied on time</td></tr>
   </tbody></table>
-  <h3>6. Conclusion</h3>
-  <p>Poor waste management is visible, measurable and solvable. With more bins, awareness and a collection schedule, the school can be clean within one term. The administration is urged to adopt these low-cost recommendations.</p>
+  <div class="doc-h2">6. Conclusion</div>
+  <div class="doc-p">Poor waste management is visible, measurable and solvable. With more bins, awareness and a collection schedule, the school can be clean within one term. The administration is urged to adopt these low-cost recommendations.</div>
+  </div>
+  </div>
 
-  <h2>Where the 50 marks come from</h2>
-  <table><thead><tr><th>#</th><th>Assessed item</th><th>Mk</th><th>How this sample earns it</th></tr></thead><tbody>
-  <tr><td>1.1</td><td>Problem identified</td><td>1</td><td>Specific school waste problem stated</td></tr>
-  <tr><td>1.2</td><td>20+ respondents, headings/labels</td><td>3</td><td>22 rows, 5 labelled columns</td></tr>
-  <tr><td>1.3</td><td>Correct entry, neat sheet</td><td>2</td><td>Frozen panes, borders, number formats</td></tr>
-  <tr><td>1.4</td><td>4+ formulas/functions</td><td>4</td><td>COUNTIF, AVERAGE, %, MAX, MIN</td></tr>
-  <tr><td>1.5</td><td>Titled chart, labelled</td><td>2</td><td>Bar graph + title + axis labels</td></tr>
-  <tr><td>1.6</td><td>Correct file name</td><td>1</td><td>Task1_Data_Analysis.xlsx</td></tr>
-  <tr><td>2.1</td><td>Title + introduction</td><td>2</td><td>Title page + 2-paragraph intro</td></tr>
-  <tr><td>2.2</td><td>Problem description</td><td>3</td><td>Local detail + 78% survey evidence</td></tr>
-  <tr><td>2.3</td><td>Causes in bullets (4+)</td><td>2</td><td>4 bulleted causes</td></tr>
-  <tr><td>2.4</td><td>Effects + captioned image</td><td>3</td><td>Effects + captioned photo</td></tr>
-  <tr><td>2.5</td><td>Solutions table (3+)</td><td>3</td><td>4 feasible solutions tabled</td></tr>
-  <tr><td>2.6</td><td>Conclusion + action</td><td>2</td><td>Summary + call to action</td></tr>
-  <tr><td>2.7</td><td>Headings correct</td><td>1</td><td>Heading 1 on all sections</td></tr>
-  <tr><td>2.8</td><td>Font styles</td><td>1</td><td>Two fonts, bold titles</td></tr>
-  <tr><td>2.9</td><td>Spacing + alignment</td><td>1</td><td>1.5 spacing; centred + justified</td></tr>
-  <tr><td>2.10</td><td>Auto table of contents</td><td>1</td><td>References → Automatic Table 1</td></tr>
-  <tr><td>2.11</td><td>Merge to 10+, letters saved</td><td>2</td><td>12 letters, separate file</td></tr>
-  <tr><td>3.1</td><td>5–8 slides, correct flow</td><td>5</td><td>6 slides in required order</td></tr>
-  <tr><td>3.2</td><td>Findings chart from Task 1</td><td>2</td><td>Bar chart pasted as picture</td></tr>
-  <tr><td>3.3</td><td>Design, readable</td><td>2</td><td>One theme, 24pt+ text</td></tr>
-  <tr><td>3.4</td><td>Transitions</td><td>1</td><td>Fade, Apply to All</td></tr>
-  <tr><td>3.5</td><td>Animations</td><td>1</td><td>Appear/Fly-In, restrained</td></tr>
-  <tr><td>3.6</td><td>Saved + all speak</td><td>3</td><td>.pptx + 5 speakers, timed</td></tr>
-  <tr><td>4.1</td><td>One correctly named folder</td><td>1</td><td>Group3_WasteManagement_Project</td></tr>
-  <tr><td>4.2</td><td>Files named, portfolio complete</td><td>1</td><td>5 files, submitted on USB</td></tr>
-  </tbody></table>
   <div class="step-nav"><a href="#" onclick="show('samples')" class="btn btn-secondary">← ALL SAMPLES</a><a href="#" onclick="show('sp-road')" class="btn btn-primary">SAMPLE 2 →</a></div>
 </div>
 </div>
@@ -1395,63 +1391,41 @@ footer{background:var(--surface);border-top:1px solid var(--border);color:var(--
   <p>Speeding vehicles and the lack of a marked crossing on the road at the Naikuru P.A.G gate put walking learners at risk of accidents every morning and evening.</p></div>
 
   <h2>Full sample report — read and imitate (Task 2)</h2>
-  <div class="title-page-example">
-    <h2>GRADE 10 ICT PROJECT 2026</h2>
-    <h2 style="font-size:16px;margin-bottom:16px">ROAD SAFETY RISKS AT THE SCHOOL GATE</h2>
-    <p><strong>Prepared by:</strong> Group 5 (5 members)</p>
-    <p><strong>School:</strong> Naikuru P.A.G Senior School</p>
-    <p><strong>Subject:</strong> Information and Communication Technology (ICT)</p>
-    <p><strong>Year:</strong> 2026</p>
+    <div class="doc-preview">
+  <div class="doc-toolbar">📄 Task2_RoadSafety_Report.docx — Sample (abridged)</div>
+  <div class="doc-body">
+  <div class="doc-h1">ROAD SAFETY RISKS AT THE SCHOOL GATE</div>
+  <div class="doc-sub">A Community Service Learning Report | Grade 10 ICT | 2026</div>
+  <div class="doc-toc">
+  <div class="doc-toc-title">Table of Contents</div>
+  <div class="doc-toc-item"><span>1. Introduction ................</span><span>2</span></div>
+  <div class="doc-toc-item"><span>2. Description of the Problem ..</span><span>2</span></div>
+  <div class="doc-toc-item"><span>3. Causes .....................</span><span>3</span></div>
+  <div class="doc-toc-item"><span>4. Effects ....................</span><span>3</span></div>
+  <div class="doc-toc-item"><span>5. Proposed Solutions .........</span><span>4</span></div>
+  <div class="doc-toc-item"><span>6. Conclusion .................</span><span>5</span></div>
   </div>
-  <div class="example-box"><h3>Table of Contents</h3>
-  <p>1. Introduction ................ 2<br>2. Description of the Problem .. 2<br>3. Causes ..................... 3<br>4. Effects .................... 3<br>5. Proposed Solutions ......... 4<br>6. Conclusion ................. 5</p></div>
-  <h3>1. Introduction</h3>
-  <p>Walking to school should not be dangerous. This report investigates road safety risks at the Naikuru P.A.G gate, based on a survey of 20 respondents conducted in September 2026.</p>
-  <h3>2. Description of the Problem</h3>
-  <p>Most learners (55%) walk while 30% use boda-bodas. Over a third are often on their phones while walking, 70% say there is no marked zebra crossing, and 30% have witnessed an accident near the gate.</p>
-  <h3>3. Causes of the Problem</h3>
-  <ul><li>No marked zebra crossing at the gate</li><li>Speeding vehicles at arrival and dismissal</li><li>Overloaded boda-bodas and weak helmet use</li><li>Phone distraction while walking</li></ul>
-  <h3>4. Effects of the Problem</h3>
-  <p>Near-misses cause fear and lateness, and real crashes cause injuries that keep learners out of class and burden parents with hospital costs.</p>
-  <p><em>[Insert image: photo of the gate road at dismissal]</em></p>
-  <h3>5. Proposed Solutions</h3>
-  <table><thead><tr><th>#</th><th>Solution</th><th>Responsible Party</th><th>Expected Outcome</th></tr></thead><tbody>
+  <div class="doc-h2">1. Introduction</div>
+  <div class="doc-p">Walking to school should not be dangerous. This report investigates road safety risks at the Naikuru P.A.G gate, based on a survey of 20 respondents conducted in September 2026.</div>
+  <div class="doc-h2">2. Description of the Problem</div>
+  <div class="doc-p">Most learners (55%) walk while 30% use boda-bodas. Over a third are often on their phones while walking, 70% say there is no marked zebra crossing, and 30% have witnessed an accident near the gate.</div>
+  <div class="doc-h2">3. Causes of the Problem</div>
+  <ul class="doc-bullet"><li>No marked zebra crossing at the gate</li><li>Speeding vehicles at arrival and dismissal</li><li>Overloaded boda-bodas and weak helmet use</li><li>Phone distraction while walking</li></ul>
+  <div class="doc-h2">4. Effects of the Problem</div>
+  <div class="doc-p">Near-misses cause fear and lateness, and real crashes cause injuries that keep learners out of class and burden parents with hospital costs.</div>
+  <div class="doc-imgbox">[Insert image: photo of the gate road at dismissal]</div>
+  <div class="doc-h2">5. Proposed Solutions</div>
+  <table class="doc-table"><thead><tr><th>#</th><th>Solution</th><th>Responsible Party</th><th>Expected Outcome</th></tr></thead><tbody>
   <tr><td>1</td><td>Painted zebra crossing + petition</td><td>Prefects + county</td><td>A safe crossing point</td></tr>
   <tr><td>2</td><td>Speed bumps near the gate</td><td>Administration</td><td>Slower traffic</td></tr>
   <tr><td>3</td><td>Prefect patrol rota</td><td>Teachers</td><td>Guided crossing daily</td></tr>
   <tr><td>4</td><td>Rules for boda riders</td><td>Riders</td><td>Helmets and no overload</td></tr>
   </tbody></table>
-  <h3>6. Conclusion</h3>
-  <p>The gate road is the most dangerous part of the school day. A crossing, bumps and a patrol rota can be in place this term. The school and the county are urged to act before a serious accident occurs.</p>
+  <div class="doc-h2">6. Conclusion</div>
+  <div class="doc-p">The gate road is the most dangerous part of the school day. A crossing, bumps and a patrol rota can be in place this term. The school and the county are urged to act before a serious accident occurs.</div>
+  </div>
+  </div>
 
-  <h2>Where the 50 marks come from</h2>
-  <table><thead><tr><th>#</th><th>Assessed item</th><th>Mk</th><th>How this sample earns it</th></tr></thead><tbody>
-  <tr><td>1.1</td><td>Problem identified</td><td>1</td><td>Gate road risk specified</td></tr>
-  <tr><td>1.2</td><td>20+ respondents, headings/labels</td><td>3</td><td>20 rows, 6 labelled columns</td></tr>
-  <tr><td>1.3</td><td>Correct entry, neat sheet</td><td>2</td><td>Frozen panes, borders</td></tr>
-  <tr><td>1.4</td><td>4+ formulas/functions</td><td>4</td><td>COUNTIF ×3, AVERAGE, %, MAX/MIN</td></tr>
-  <tr><td>1.5</td><td>Titled chart, labelled</td><td>2</td><td>Travel-mode bar + labels</td></tr>
-  <tr><td>1.6</td><td>Correct file name</td><td>1</td><td>Task1_Data_Analysis.xlsx</td></tr>
-  <tr><td>2.1</td><td>Title + introduction</td><td>2</td><td>Title page + purpose intro</td></tr>
-  <tr><td>2.2</td><td>Problem description</td><td>3</td><td>Gate detail + 55% walk stat</td></tr>
-  <tr><td>2.3</td><td>Causes in bullets (4+)</td><td>2</td><td>4 bulleted causes</td></tr>
-  <tr><td>2.4</td><td>Effects + captioned image</td><td>3</td><td>Effects + gate photo captioned</td></tr>
-  <tr><td>2.5</td><td>Solutions table (3+)</td><td>3</td><td>4 solutions with owners/dates</td></tr>
-  <tr><td>2.6</td><td>Conclusion + action</td><td>2</td><td>Summary + petition call</td></tr>
-  <tr><td>2.7</td><td>Headings correct</td><td>1</td><td>Heading 1 throughout</td></tr>
-  <tr><td>2.8</td><td>Font styles</td><td>1</td><td>Two fonts applied</td></tr>
-  <tr><td>2.9</td><td>Spacing + alignment</td><td>1</td><td>1.5 spacing; centred + justified</td></tr>
-  <tr><td>2.10</td><td>Auto table of contents</td><td>1</td><td>Automatic Table 1</td></tr>
-  <tr><td>2.11</td><td>Merge to 10+, letters saved</td><td>2</td><td>11 letters, separate file</td></tr>
-  <tr><td>3.1</td><td>5–8 slides, correct flow</td><td>5</td><td>6 slides in order</td></tr>
-  <tr><td>3.2</td><td>Findings chart from Task 1</td><td>2</td><td>Travel chart on slide 3</td></tr>
-  <tr><td>3.3</td><td>Design, readable</td><td>2</td><td>Consistent theme, large text</td></tr>
-  <tr><td>3.4</td><td>Transitions</td><td>1</td><td>Push on all slides</td></tr>
-  <tr><td>3.5</td><td>Animations</td><td>1</td><td>Appear on bullets/chart</td></tr>
-  <tr><td>3.6</td><td>Saved + all speak</td><td>3</td><td>.pptx + full-group delivery</td></tr>
-  <tr><td>4.1</td><td>One correctly named folder</td><td>1</td><td>Group5_RoadSafety_Project</td></tr>
-  <tr><td>4.2</td><td>Files named, portfolio complete</td><td>1</td><td>5 files on Drive</td></tr>
-  </tbody></table>
   <div class="step-nav"><a href="#" onclick="show('sp-waste')" class="btn btn-secondary">← SAMPLE 1</a><a href="#" onclick="show('sp-time')" class="btn btn-primary">SAMPLE 3 →</a></div>
 </div>
 </div>
@@ -1482,31 +1456,37 @@ footer{background:var(--surface);border-top:1px solid var(--border);color:var(--
   <p>Chart: bar graph titled <strong>Late arrivals per week (n=22)</strong> with labelled axes — the same chart is pasted into the Task 3 slides below.</p>
 
   <h2>Full sample report — read and imitate (Task 2)</h2>
-  <div class="title-page-example">
-    <h2>TIME MANAGEMENT AMONG LEARNERS AT NAIKURU SECONDARY SCHOOL</h2>
-    <h2 style="font-size:16px;margin-bottom:16px">A Community Service Learning Report | Grade 10 ICT | 2026</h2>
-    <p><strong>Prepared by:</strong> Group 2 (5 members)</p>
-    <p><strong>School:</strong> Naikuru P.A.G Senior School</p>
-    <p><strong>Subject:</strong> Information and Communication Technology (ICT)</p>
-    <p><strong>Year:</strong> 2026</p>
+    <div class="doc-preview">
+  <div class="doc-toolbar">📄 Task2_TimeManagement_Report.docx — Sample (abridged)</div>
+  <div class="doc-body">
+  <div class="doc-h1">TIME MANAGEMENT AMONG LEARNERS AT NAIKURU SECONDARY SCHOOL</div>
+  <div class="doc-sub">A Community Service Learning Report | Grade 10 ICT | 2026</div>
+  <div class="doc-toc">
+  <div class="doc-toc-title">Table of Contents</div>
+  <div class="doc-toc-item"><span>1. Introduction ................</span><span>2</span></div>
+  <div class="doc-toc-item"><span>2. Description of the Problem ..</span><span>2</span></div>
+  <div class="doc-toc-item"><span>3. Causes .....................</span><span>3</span></div>
+  <div class="doc-toc-item"><span>4. Effects ....................</span><span>3</span></div>
+  <div class="doc-toc-item"><span>5. Proposed Solutions .........</span><span>4</span></div>
+  <div class="doc-toc-item"><span>6. Conclusion .................</span><span>5</span></div>
   </div>
-  <div class="example-box"><h3>Table of Contents</h3>
-  <p>1. Introduction ................ 2<br>2. Description of the Problem .. 2<br>3. Causes ..................... 3<br>4. Effects .................... 3<br>5. Proposed Solutions ......... 4<br>6. Conclusion ................. 5</p></div>
-  <h3>1. Introduction</h3>
-  <p>Time management is one of the most critical skills for academic success. This report investigates the challenge of poor time management among Grade 10 learners at Naikuru Secondary School, based on a survey conducted in September 2026 with 22 participants.</p>
-  <h3>3. Causes of the Problem</h3>
-  <ul><li>Excessive use of mobile phones for entertainment during study hours</li><li>Lack of structured daily routines at home</li><li>Heavy household chores assigned to learners in the evenings</li><li>Peer pressure leading to socialising instead of studying</li></ul>
-  <h3>4. Effects of the Problem</h3>
-  <p>Poor time management leads to late arrival to school, incomplete assignments, and low examination performance. The survey found that 64% of respondents arrive late at least once per week.</p>
-  <p><em>[Insert image: photo or diagram showing effects of poor time management]</em></p>
-  <h3>5. Proposed Solutions</h3>
-  <table><thead><tr><th>#</th><th>Solution</th><th>Responsible Party</th><th>Expected Outcome</th></tr></thead><tbody>
+  <div class="doc-h2">1. Introduction</div>
+  <div class="doc-p">Time management is one of the most critical skills for academic success. This report investigates the challenge of poor time management among Grade 10 learners at Naikuru Secondary School, based on a survey conducted in September 2026 with 22 participants.</div>
+  <div class="doc-h2">3. Causes of the Problem</div>
+  <ul class="doc-bullet"><li>Excessive use of mobile phones for entertainment during study hours</li><li>Lack of structured daily routines at home</li><li>Heavy household chores assigned to learners in the evenings</li><li>Peer pressure leading to socialising instead of studying</li></ul>
+  <div class="doc-h2">4. Effects of the Problem</div>
+  <div class="doc-p">Poor time management leads to late arrival to school, incomplete assignments, and low examination performance. The survey found that 64% of respondents arrive late at least once per week.</div>
+  <div class="doc-imgbox">[Insert image: photo or diagram showing effects of poor time management]</div>
+  <div class="doc-h2">5. Proposed Solutions</div>
+  <table class="doc-table"><thead><tr><th>#</th><th>Solution</th><th>Responsible Party</th><th>Expected Outcome</th></tr></thead><tbody>
   <tr><td>1</td><td>Introduce a school diary/planner</td><td>Class teachers</td><td>Learners plan their week</td></tr>
   <tr><td>2</td><td>Time management sessions during assembly</td><td>Guidance teacher</td><td>Improved habits</td></tr>
   <tr><td>3</td><td>Phone-free study period policy (4–6pm)</td><td>Parents &amp; school</td><td>2+ study hours daily</td></tr>
   </tbody></table>
-  <h3>6. Conclusion</h3>
-  <p>Poor time management is a real and measurable problem among Grade 10 learners at Naikuru. The proposed interventions are practical, low-cost, and can be implemented immediately. The school community is urged to adopt these recommendations to improve academic outcomes.</p>
+  <div class="doc-h2">6. Conclusion</div>
+  <div class="doc-p">Poor time management is a real and measurable problem among Grade 10 learners at Naikuru. The proposed interventions are practical, low-cost, and can be implemented immediately. The school community is urged to adopt these recommendations to improve academic outcomes.</div>
+  </div>
+  </div>
   <h2>Part 3 — Sample slides (Task 3), all 5 content slides</h2>
   <p>Recreate these in PowerPoint: one design theme, transitions on every slide, one animation per slide, then present orally as a group.</p>
   <div class="slide-example"><h2>Slide 1 — Time Management Among Learners</h2><p>Grade 10 ICT SBA Project · Naikuru Secondary School · 2026</p></div>
@@ -1516,34 +1496,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);color:var(--
   <div class="slide-example"><h2>Slide 5 — Conclusion</h2><p>With structured interventions at home and school, poor time management is solvable. We recommend the school adopt all three proposed solutions by the start of next term.</p></div>
 
 
-  <h2>Where the 50 marks come from</h2>
-  <table><thead><tr><th>#</th><th>Assessed item</th><th>Mk</th><th>How this sample earns it</th></tr></thead><tbody>
-  <tr><td>1.1</td><td>Problem identified</td><td>1</td><td>Late submission problem specified</td></tr>
-  <tr><td>1.2</td><td>20+ respondents, headings/labels</td><td>3</td><td>20 rows, 6 labelled columns</td></tr>
-  <tr><td>1.3</td><td>Correct entry, neat sheet</td><td>2</td><td>Hour values as numbers, borders</td></tr>
-  <tr><td>1.4</td><td>4+ formulas/functions</td><td>4</td><td>AVERAGE ×2, COUNTIF ×2, %, MAX/MIN</td></tr>
-  <tr><td>1.5</td><td>Titled chart, labelled</td><td>2</td><td>Hours bar + title + labels</td></tr>
-  <tr><td>1.6</td><td>Correct file name</td><td>1</td><td>Task1_Data_Analysis.xlsx</td></tr>
-  <tr><td>2.1</td><td>Title + introduction</td><td>2</td><td>Title page + intro</td></tr>
-  <tr><td>2.2</td><td>Problem description</td><td>3</td><td>Evening-hours detail + 1.8v2.6 stat</td></tr>
-  <tr><td>2.3</td><td>Causes in bullets (4+)</td><td>2</td><td>4 bulleted causes</td></tr>
-  <tr><td>2.4</td><td>Effects + captioned image</td><td>3</td><td>Effects + prep-room photo</td></tr>
-  <tr><td>2.5</td><td>Solutions table (3+)</td><td>3</td><td>4 solutions tabled</td></tr>
-  <tr><td>2.6</td><td>Conclusion + action</td><td>2</td><td>Summary + pledge call</td></tr>
-  <tr><td>2.7</td><td>Headings correct</td><td>1</td><td>Heading 1 throughout</td></tr>
-  <tr><td>2.8</td><td>Font styles</td><td>1</td><td>Two fonts applied</td></tr>
-  <tr><td>2.9</td><td>Spacing + alignment</td><td>1</td><td>1.5 spacing; centred + justified</td></tr>
-  <tr><td>2.10</td><td>Auto table of contents</td><td>1</td><td>Automatic Table 1</td></tr>
-  <tr><td>2.11</td><td>Merge to 10+, letters saved</td><td>2</td><td>10 letters incl. timetable</td></tr>
-  <tr><td>3.1</td><td>5–8 slides, correct flow</td><td>5</td><td>6 slides in order</td></tr>
-  <tr><td>3.2</td><td>Findings chart from Task 1</td><td>2</td><td>Hours chart on slide 3</td></tr>
-  <tr><td>3.3</td><td>Design, readable</td><td>2</td><td>One theme, timetable readable</td></tr>
-  <tr><td>3.4</td><td>Transitions</td><td>1</td><td>Fade on all slides</td></tr>
-  <tr><td>3.5</td><td>Animations</td><td>1</td><td>Wipe on chart</td></tr>
-  <tr><td>3.6</td><td>Saved + all speak</td><td>3</td><td>.pptx + all members speak</td></tr>
-  <tr><td>4.1</td><td>One correctly named folder</td><td>1</td><td>Group2_TimeManagement_Project</td></tr>
-  <tr><td>4.2</td><td>Files named, portfolio complete</td><td>1</td><td>5 files on USB</td></tr>
-  </tbody></table>
   <div class="step-nav"><a href="#" onclick="show('sp-road')" class="btn btn-secondary">← SAMPLE 2</a><a href="#" onclick="show('sp-health')" class="btn btn-primary">SAMPLE 4 →</a></div>
 </div>
 </div>
@@ -1557,63 +1509,41 @@ footer{background:var(--surface);border-top:1px solid var(--border);color:var(--
   <p>Learners at Naikuru P.A.G often skip handwashing and use dirty toilets because taps lack soap and hygiene lessons are rarely taught.</p></div>
 
   <h2>Full sample report — read and imitate (Task 2)</h2>
-  <div class="title-page-example">
-    <h2>GRADE 10 ICT PROJECT 2026</h2>
-    <h2 style="font-size:16px;margin-bottom:16px">POOR HANDWASHING AND SANITATION AWARENESS</h2>
-    <p><strong>Prepared by:</strong> Group 4 (5 members)</p>
-    <p><strong>School:</strong> Naikuru P.A.G Senior School</p>
-    <p><strong>Subject:</strong> Information and Communication Technology (ICT)</p>
-    <p><strong>Year:</strong> 2026</p>
+    <div class="doc-preview">
+  <div class="doc-toolbar">📄 Task2_HealthSafety_Report.docx — Sample (abridged)</div>
+  <div class="doc-body">
+  <div class="doc-h1">POOR HANDWASHING AND SANITATION AWARENESS</div>
+  <div class="doc-sub">A Community Service Learning Report | Grade 10 ICT | 2026</div>
+  <div class="doc-toc">
+  <div class="doc-toc-title">Table of Contents</div>
+  <div class="doc-toc-item"><span>1. Introduction ................</span><span>2</span></div>
+  <div class="doc-toc-item"><span>2. Description of the Problem ..</span><span>2</span></div>
+  <div class="doc-toc-item"><span>3. Causes .....................</span><span>3</span></div>
+  <div class="doc-toc-item"><span>4. Effects ....................</span><span>3</span></div>
+  <div class="doc-toc-item"><span>5. Proposed Solutions .........</span><span>4</span></div>
+  <div class="doc-toc-item"><span>6. Conclusion .................</span><span>5</span></div>
   </div>
-  <div class="example-box"><h3>Table of Contents</h3>
-  <p>1. Introduction ................ 2<br>2. Description of the Problem .. 2<br>3. Causes ..................... 3<br>4. Effects .................... 3<br>5. Proposed Solutions ......... 4<br>6. Conclusion ................. 5</p></div>
-  <h3>1. Introduction</h3>
-  <p>Clean hands prevent disease. This report investigates handwashing and sanitation habits at Naikuru P.A.G Senior School, based on a survey of 20 respondents conducted in September 2026.</p>
-  <h3>2. Description of the Problem</h3>
-  <p>Only 35% of respondents always wash their hands, toilets rate 2.6 out of 5, and 45% blame missing soap. Four in ten respondents were sick at least once last term.</p>
-  <h3>3. Causes of the Problem</h3>
-  <ul><li>No soap at most tap points</li><li>Irregular water supply during the day</li><li>Hygiene is rarely taught or inspected</li><li>No stocked first-aid kit in school</li></ul>
-  <h3>4. Effects of the Problem</h3>
-  <p>Dirty hands spread stomach upsets and flu, illness keeps learners out of class, and dirty toilets discourage use and soil the compound.</p>
-  <p><em>[Insert image: photo of a tap point]</em></p>
-  <h3>5. Proposed Solutions</h3>
-  <table><thead><tr><th>#</th><th>Solution</th><th>Responsible Party</th><th>Expected Outcome</th></tr></thead><tbody>
+  <div class="doc-h2">1. Introduction</div>
+  <div class="doc-p">Clean hands prevent disease. This report investigates handwashing and sanitation habits at Naikuru P.A.G Senior School, based on a survey of 20 respondents conducted in September 2026.</div>
+  <div class="doc-h2">2. Description of the Problem</div>
+  <div class="doc-p">Only 35% of respondents always wash their hands, toilets rate 2.6 out of 5, and 45% blame missing soap. Four in ten respondents were sick at least once last term.</div>
+  <div class="doc-h2">3. Causes of the Problem</div>
+  <ul class="doc-bullet"><li>No soap at most tap points</li><li>Irregular water supply during the day</li><li>Hygiene is rarely taught or inspected</li><li>No stocked first-aid kit in school</li></ul>
+  <div class="doc-h2">4. Effects of the Problem</div>
+  <div class="doc-p">Dirty hands spread stomach upsets and flu, illness keeps learners out of class, and dirty toilets discourage use and soil the compound.</div>
+  <div class="doc-imgbox">[Insert image: photo of a tap point]</div>
+  <div class="doc-h2">5. Proposed Solutions</div>
+  <table class="doc-table"><thead><tr><th>#</th><th>Solution</th><th>Responsible Party</th><th>Expected Outcome</th></tr></thead><tbody>
   <tr><td>1</td><td>Refill rota + soap fund</td><td>Health prefect</td><td>Soap always present</td></tr>
   <tr><td>2</td><td>Handwash posters at taps</td><td>Group</td><td>Steps remembered</td></tr>
   <tr><td>3</td><td>First-aid box + demo</td><td>Patron</td><td>Cuts treated fast</td></tr>
   <tr><td>4</td><td>Hygiene lessons at assembly</td><td>Teachers</td><td>Habits improve</td></tr>
   </tbody></table>
-  <h3>6. Conclusion</h3>
-  <p>Soap, water and knowledge cost little and prevent much sickness. The school is urged to adopt the refill rota, posters and first-aid kit immediately.</p>
+  <div class="doc-h2">6. Conclusion</div>
+  <div class="doc-p">Soap, water and knowledge cost little and prevent much sickness. The school is urged to adopt the refill rota, posters and first-aid kit immediately.</div>
+  </div>
+  </div>
 
-  <h2>Where the 50 marks come from</h2>
-  <table><thead><tr><th>#</th><th>Assessed item</th><th>Mk</th><th>How this sample earns it</th></tr></thead><tbody>
-  <tr><td>1.1</td><td>Problem identified</td><td>1</td><td>Hygiene problem specified</td></tr>
-  <tr><td>1.2</td><td>20+ respondents, headings/labels</td><td>3</td><td>20 rows, 6 labelled columns</td></tr>
-  <tr><td>1.3</td><td>Correct entry, neat sheet</td><td>2</td><td>Ratings as numbers, borders</td></tr>
-  <tr><td>1.4</td><td>4+ formulas/functions</td><td>4</td><td>COUNTIF ×2, AVERAGE, %, MAX/MIN</td></tr>
-  <tr><td>1.5</td><td>Titled chart, labelled</td><td>2</td><td>Pie chart + title + legend</td></tr>
-  <tr><td>1.6</td><td>Correct file name</td><td>1</td><td>Task1_Data_Analysis.xlsx</td></tr>
-  <tr><td>2.1</td><td>Title + introduction</td><td>2</td><td>Title page + intro</td></tr>
-  <tr><td>2.2</td><td>Problem description</td><td>3</td><td>Tap/toilet detail + 35% stat</td></tr>
-  <tr><td>2.3</td><td>Causes in bullets (4+)</td><td>2</td><td>4 bulleted causes</td></tr>
-  <tr><td>2.4</td><td>Effects + captioned image</td><td>3</td><td>Effects + tap photo captioned</td></tr>
-  <tr><td>2.5</td><td>Solutions table (3+)</td><td>3</td><td>4 solutions tabled</td></tr>
-  <tr><td>2.6</td><td>Conclusion + action</td><td>2</td><td>Summary + hygiene pledge</td></tr>
-  <tr><td>2.7</td><td>Headings correct</td><td>1</td><td>Heading 1 throughout</td></tr>
-  <tr><td>2.8</td><td>Font styles</td><td>1</td><td>Two fonts applied</td></tr>
-  <tr><td>2.9</td><td>Spacing + alignment</td><td>1</td><td>1.5 spacing; centred + justified</td></tr>
-  <tr><td>2.10</td><td>Auto table of contents</td><td>1</td><td>Automatic Table 1</td></tr>
-  <tr><td>2.11</td><td>Merge to 10+, letters saved</td><td>2</td><td>10 pledge letters filed</td></tr>
-  <tr><td>3.1</td><td>5–8 slides, correct flow</td><td>5</td><td>6 slides in order</td></tr>
-  <tr><td>3.2</td><td>Findings chart from Task 1</td><td>2</td><td>Pie chart on slide 3</td></tr>
-  <tr><td>3.3</td><td>Design, readable</td><td>2</td><td>One theme, demo icons clear</td></tr>
-  <tr><td>3.4</td><td>Transitions</td><td>1</td><td>Wipe on all slides</td></tr>
-  <tr><td>3.5</td><td>Animations</td><td>1</td><td>Appear on steps</td></tr>
-  <tr><td>3.6</td><td>Saved + all speak</td><td>3</td><td>.pptx + live handwash demo</td></tr>
-  <tr><td>4.1</td><td>One correctly named folder</td><td>1</td><td>Group4_HealthSafety_Project</td></tr>
-  <tr><td>4.2</td><td>Files named, portfolio complete</td><td>1</td><td>5 files, zipped by email</td></tr>
-  </tbody></table>
   <div class="step-nav"><a href="#" onclick="show('sp-time')" class="btn btn-secondary">← SAMPLE 3</a><a href="#" onclick="show('sp-env')" class="btn btn-primary">SAMPLE 5 →</a></div>
 </div>
 </div>
@@ -1627,63 +1557,41 @@ footer{background:var(--surface);border-top:1px solid var(--border);color:var(--
   <p>Large parts of the Naikuru P.A.G compound are bare and dusty, and rainwater carries soil away because few trees are planted and none are watered on a rota.</p></div>
 
   <h2>Full sample report — read and imitate (Task 2)</h2>
-  <div class="title-page-example">
-    <h2>GRADE 10 ICT PROJECT 2026</h2>
-    <h2 style="font-size:16px;margin-bottom:16px">BARE COMPOUND AND SOIL EROSION</h2>
-    <p><strong>Prepared by:</strong> Group 1 (5 members)</p>
-    <p><strong>School:</strong> Naikuru P.A.G Senior School</p>
-    <p><strong>Subject:</strong> Information and Communication Technology (ICT)</p>
-    <p><strong>Year:</strong> 2026</p>
+    <div class="doc-preview">
+  <div class="doc-toolbar">📄 Task2_Environment_Report.docx — Sample (abridged)</div>
+  <div class="doc-body">
+  <div class="doc-h1">BARE COMPOUND AND SOIL EROSION</div>
+  <div class="doc-sub">A Community Service Learning Report | Grade 10 ICT | 2026</div>
+  <div class="doc-toc">
+  <div class="doc-toc-title">Table of Contents</div>
+  <div class="doc-toc-item"><span>1. Introduction ................</span><span>2</span></div>
+  <div class="doc-toc-item"><span>2. Description of the Problem ..</span><span>2</span></div>
+  <div class="doc-toc-item"><span>3. Causes .....................</span><span>3</span></div>
+  <div class="doc-toc-item"><span>4. Effects ....................</span><span>3</span></div>
+  <div class="doc-toc-item"><span>5. Proposed Solutions .........</span><span>4</span></div>
+  <div class="doc-toc-item"><span>6. Conclusion .................</span><span>5</span></div>
   </div>
-  <div class="example-box"><h3>Table of Contents</h3>
-  <p>1. Introduction ................ 2<br>2. Description of the Problem .. 2<br>3. Causes ..................... 3<br>4. Effects .................... 3<br>5. Proposed Solutions ......... 4<br>6. Conclusion ................. 5</p></div>
-  <h3>1. Introduction</h3>
-  <p>Trees cool the compound, stop dust and hold the soil. This report investigates the bare, eroding compound at Naikuru P.A.G Senior School, based on a survey of 20 respondents conducted in September 2026.</p>
-  <h3>2. Description of the Problem</h3>
-  <p>Greenness around classes rates only 2.4 out of 5, and 60% of respondents have seen active erosion. In 45% of spots nobody waters, yet 80% of respondents are willing to plant trees.</p>
-  <h3>3. Causes of the Problem</h3>
-  <ul><li>No planting plan for the compound</li><li>No watering rota, so seedlings die</li><li>Goats destroy young trees</li><li>No records of planted trees</li></ul>
-  <h3>4. Effects of the Problem</h3>
-  <p>Dust dirties classrooms, gullies widen every rainy season, and the bare compound gives visitors a neglected image of the school.</p>
-  <p><em>[Insert image: photo of an eroded patch]</em></p>
-  <h3>5. Proposed Solutions</h3>
-  <table><thead><tr><th>#</th><th>Solution</th><th>Responsible Party</th><th>Expected Outcome</th></tr></thead><tbody>
+  <div class="doc-h2">1. Introduction</div>
+  <div class="doc-p">Trees cool the compound, stop dust and hold the soil. This report investigates the bare, eroding compound at Naikuru P.A.G Senior School, based on a survey of 20 respondents conducted in September 2026.</div>
+  <div class="doc-h2">2. Description of the Problem</div>
+  <div class="doc-p">Greenness around classes rates only 2.4 out of 5, and 60% of respondents have seen active erosion. In 45% of spots nobody waters, yet 80% of respondents are willing to plant trees.</div>
+  <div class="doc-h2">3. Causes of the Problem</div>
+  <ul class="doc-bullet"><li>No planting plan for the compound</li><li>No watering rota, so seedlings die</li><li>Goats destroy young trees</li><li>No records of planted trees</li></ul>
+  <div class="doc-h2">4. Effects of the Problem</div>
+  <div class="doc-p">Dust dirties classrooms, gullies widen every rainy season, and the bare compound gives visitors a neglected image of the school.</div>
+  <div class="doc-imgbox">[Insert image: photo of an eroded patch]</div>
+  <div class="doc-h2">5. Proposed Solutions</div>
+  <table class="doc-table"><thead><tr><th>#</th><th>Solution</th><th>Responsible Party</th><th>Expected Outcome</th></tr></thead><tbody>
   <tr><td>1</td><td>Plant 20 seedlings + map</td><td>Club + PTA</td><td>A shade belt started</td></tr>
   <tr><td>2</td><td>Watering rota</td><td>Classes</td><td>Seedlings survive</td></tr>
   <tr><td>3</td><td>Tree database (ID/species/planter)</td><td>Group</td><td>Every tree tracked</td></tr>
   <tr><td>4</td><td>Progress noticeboard</td><td>Patron</td><td>Motivation stays high</td></tr>
   </tbody></table>
-  <h3>6. Conclusion</h3>
-  <p>The willingness is there — 80% will plant. Organisation is all that is missing. The school is urged to approve the seedlings and the watering rota this month.</p>
+  <div class="doc-h2">6. Conclusion</div>
+  <div class="doc-p">The willingness is there — 80% will plant. Organisation is all that is missing. The school is urged to approve the seedlings and the watering rota this month.</div>
+  </div>
+  </div>
 
-  <h2>Where the 50 marks come from</h2>
-  <table><thead><tr><th>#</th><th>Assessed item</th><th>Mk</th><th>How this sample earns it</th></tr></thead><tbody>
-  <tr><td>1.1</td><td>Problem identified</td><td>1</td><td>Erosion problem specified</td></tr>
-  <tr><td>1.2</td><td>20+ respondents, headings/labels</td><td>3</td><td>20 rows, 6 labelled columns</td></tr>
-  <tr><td>1.3</td><td>Correct entry, neat sheet</td><td>2</td><td>Ratings as numbers, borders</td></tr>
-  <tr><td>1.4</td><td>4+ formulas/functions</td><td>4</td><td>AVERAGE, COUNTIF ×2, %, MAX/MIN</td></tr>
-  <tr><td>1.5</td><td>Titled chart, labelled</td><td>2</td><td>Causes bar + title + labels</td></tr>
-  <tr><td>1.6</td><td>Correct file name</td><td>1</td><td>Task1_Data_Analysis.xlsx</td></tr>
-  <tr><td>2.1</td><td>Title + introduction</td><td>2</td><td>Title page + intro</td></tr>
-  <tr><td>2.2</td><td>Problem description</td><td>3</td><td>Compound detail + 2.4/5 stat</td></tr>
-  <tr><td>2.3</td><td>Causes in bullets (4+)</td><td>2</td><td>4 bulleted causes</td></tr>
-  <tr><td>2.4</td><td>Effects + captioned image</td><td>3</td><td>Effects + erosion photo</td></tr>
-  <tr><td>2.5</td><td>Solutions table (3+)</td><td>3</td><td>4 solutions tabled</td></tr>
-  <tr><td>2.6</td><td>Conclusion + action</td><td>2</td><td>Summary + planting pledge</td></tr>
-  <tr><td>2.7</td><td>Headings correct</td><td>1</td><td>Heading 1 throughout</td></tr>
-  <tr><td>2.8</td><td>Font styles</td><td>1</td><td>Two fonts applied</td></tr>
-  <tr><td>2.9</td><td>Spacing + alignment</td><td>1</td><td>1.5 spacing; centred + justified</td></tr>
-  <tr><td>2.10</td><td>Auto table of contents</td><td>1</td><td>Automatic Table 1</td></tr>
-  <tr><td>2.11</td><td>Merge to 10+, letters saved</td><td>2</td><td>10 letters, separate file</td></tr>
-  <tr><td>3.1</td><td>5–8 slides, correct flow</td><td>5</td><td>6 slides in order</td></tr>
-  <tr><td>3.2</td><td>Findings chart from Task 1</td><td>2</td><td>Causes chart on slide 3</td></tr>
-  <tr><td>3.3</td><td>Design, readable</td><td>2</td><td>One theme, map readable</td></tr>
-  <tr><td>3.4</td><td>Transitions</td><td>1</td><td>Fade on all slides</td></tr>
-  <tr><td>3.5</td><td>Animations</td><td>1</td><td>Appear on list items</td></tr>
-  <tr><td>3.6</td><td>Saved + all speak</td><td>3</td><td>.pptx + all members speak</td></tr>
-  <tr><td>4.1</td><td>One correctly named folder</td><td>1</td><td>Group1_Environment_Project</td></tr>
-  <tr><td>4.2</td><td>Files named, portfolio complete</td><td>1</td><td>5 files on USB</td></tr>
-  </tbody></table>
   <div class="step-nav"><a href="#" onclick="show('sp-health')" class="btn btn-secondary">← SAMPLE 4</a><a href="#" onclick="show('sp-business')" class="btn btn-primary">SAMPLE 6 →</a></div>
 </div>
 </div>
@@ -1697,63 +1605,41 @@ footer{background:var(--surface);border-top:1px solid var(--border);color:var(--
   <p>The school canteen cannot tell which items make a profit because daily sales are never recorded and prices are guessed instead of calculated.</p></div>
 
   <h2>Full sample report — read and imitate (Task 2)</h2>
-  <div class="title-page-example">
-    <h2>GRADE 10 ICT PROJECT 2026</h2>
-    <h2 style="font-size:16px;margin-bottom:16px">CANTEEN LOSING MONEY WITHOUT RECORDS</h2>
-    <p><strong>Prepared by:</strong> Group 6 (5 members)</p>
-    <p><strong>School:</strong> Naikuru P.A.G Senior School</p>
-    <p><strong>Subject:</strong> Information and Communication Technology (ICT)</p>
-    <p><strong>Year:</strong> 2026</p>
+    <div class="doc-preview">
+  <div class="doc-toolbar">📄 Task2_BusinessRecords_Report.docx — Sample (abridged)</div>
+  <div class="doc-body">
+  <div class="doc-h1">CANTEEN LOSING MONEY WITHOUT RECORDS</div>
+  <div class="doc-sub">A Community Service Learning Report | Grade 10 ICT | 2026</div>
+  <div class="doc-toc">
+  <div class="doc-toc-title">Table of Contents</div>
+  <div class="doc-toc-item"><span>1. Introduction ................</span><span>2</span></div>
+  <div class="doc-toc-item"><span>2. Description of the Problem ..</span><span>2</span></div>
+  <div class="doc-toc-item"><span>3. Causes .....................</span><span>3</span></div>
+  <div class="doc-toc-item"><span>4. Effects ....................</span><span>3</span></div>
+  <div class="doc-toc-item"><span>5. Proposed Solutions .........</span><span>4</span></div>
+  <div class="doc-toc-item"><span>6. Conclusion .................</span><span>5</span></div>
   </div>
-  <div class="example-box"><h3>Table of Contents</h3>
-  <p>1. Introduction ................ 2<br>2. Description of the Problem .. 2<br>3. Causes ..................... 3<br>4. Effects .................... 3<br>5. Proposed Solutions ......... 4<br>6. Conclusion ................. 5</p></div>
-  <h3>1. Introduction</h3>
-  <p>A business that keeps no records cannot grow. This report investigates missing sales records at the school canteen, based on 5 sellers, 15 customers and a 7-day sales log kept in September 2026.</p>
-  <h3>2. Description of the Problem</h3>
-  <p>The sales log shows weekly sales of KSh 8,400 and a profit of KSh 1,900, with soda the best-selling item — yet 70% of sellers keep no records and prices are guessed instead of calculated.</p>
-  <h3>3. Causes of the Problem</h3>
-  <ul><li>No daily record book at the counter</li><li>Prices guessed instead of computed from cost</li><li>No weekly stock counts</li><li>Credit given out without a debt list</li></ul>
-  <h3>4. Effects of the Problem</h3>
-  <p>Unknown profits hide real losses, stock runs out without warning, and forgotten debts silently eat the capital.</p>
-  <p><em>[Insert image: photo of the stock shelf]</em></p>
-  <h3>5. Proposed Solutions</h3>
-  <table><thead><tr><th>#</th><th>Solution</th><th>Responsible Party</th><th>Expected Outcome</th></tr></thead><tbody>
+  <div class="doc-h2">1. Introduction</div>
+  <div class="doc-p">A business that keeps no records cannot grow. This report investigates missing sales records at the school canteen, based on 5 sellers, 15 customers and a 7-day sales log kept in September 2026.</div>
+  <div class="doc-h2">2. Description of the Problem</div>
+  <div class="doc-p">The sales log shows weekly sales of KSh 8,400 and a profit of KSh 1,900, with soda the best-selling item — yet 70% of sellers keep no records and prices are guessed instead of calculated.</div>
+  <div class="doc-h2">3. Causes of the Problem</div>
+  <ul class="doc-bullet"><li>No daily record book at the counter</li><li>Prices guessed instead of computed from cost</li><li>No weekly stock counts</li><li>Credit given out without a debt list</li></ul>
+  <div class="doc-h2">4. Effects of the Problem</div>
+  <div class="doc-p">Unknown profits hide real losses, stock runs out without warning, and forgotten debts silently eat the capital.</div>
+  <div class="doc-imgbox">[Insert image: photo of the stock shelf]</div>
+  <div class="doc-h2">5. Proposed Solutions</div>
+  <table class="doc-table"><thead><tr><th>#</th><th>Solution</th><th>Responsible Party</th><th>Expected Outcome</th></tr></thead><tbody>
   <tr><td>1</td><td>Daily sales book (Qty × Price, Profit)</td><td>Sellers</td><td>Every shilling traced</td></tr>
   <tr><td>2</td><td>Price = buying cost + margin</td><td>Group</td><td>Fair, profitable prices</td></tr>
   <tr><td>3</td><td>Weekly stock count</td><td>Storekeeper</td><td>No surprise stock-outs</td></tr>
   <tr><td>4</td><td>Debt list reviewed monthly</td><td>Patron</td><td>Debts recovered</td></tr>
   </tbody></table>
-  <h3>6. Conclusion</h3>
-  <p>One exercise book and four spreadsheet formulas turn guessing into management. The canteen is urged to start the daily sales book immediately.</p>
+  <div class="doc-h2">6. Conclusion</div>
+  <div class="doc-p">One exercise book and four spreadsheet formulas turn guessing into management. The canteen is urged to start the daily sales book immediately.</div>
+  </div>
+  </div>
 
-  <h2>Where the 50 marks come from</h2>
-  <table><thead><tr><th>#</th><th>Assessed item</th><th>Mk</th><th>How this sample earns it</th></tr></thead><tbody>
-  <tr><td>1.1</td><td>Problem identified</td><td>1</td><td>Canteen losses specified</td></tr>
-  <tr><td>1.2</td><td>20+ respondents, headings/labels</td><td>3</td><td>20 rows + 7-day log, labelled</td></tr>
-  <tr><td>1.3</td><td>Correct entry, neat sheet</td><td>2</td><td>Two sheets, currency formats</td></tr>
-  <tr><td>1.4</td><td>4+ formulas/functions</td><td>4</td><td>Total, Profit, SUM, AVERAGE, MAX, COUNTIF</td></tr>
-  <tr><td>1.5</td><td>Titled chart, labelled</td><td>2</td><td>Profit bar + sales line, titled</td></tr>
-  <tr><td>1.6</td><td>Correct file name</td><td>1</td><td>Task1_Data_Analysis.xlsx</td></tr>
-  <tr><td>2.1</td><td>Title + introduction</td><td>2</td><td>Title page + intro</td></tr>
-  <tr><td>2.2</td><td>Problem description</td><td>3</td><td>Canteen detail + KSh figures</td></tr>
-  <tr><td>2.3</td><td>Causes in bullets (4+)</td><td>2</td><td>4 bulleted causes</td></tr>
-  <tr><td>2.4</td><td>Effects + captioned image</td><td>3</td><td>Effects + shelf photo captioned</td></tr>
-  <tr><td>2.5</td><td>Solutions table (3+)</td><td>3</td><td>4 solutions tabled</td></tr>
-  <tr><td>2.6</td><td>Conclusion + action</td><td>2</td><td>Summary + record-daily call</td></tr>
-  <tr><td>2.7</td><td>Headings correct</td><td>1</td><td>Heading 1 throughout</td></tr>
-  <tr><td>2.8</td><td>Font styles</td><td>1</td><td>Two fonts applied</td></tr>
-  <tr><td>2.9</td><td>Spacing + alignment</td><td>1</td><td>1.5 spacing; centred + justified</td></tr>
-  <tr><td>2.10</td><td>Auto table of contents</td><td>1</td><td>Automatic Table 1</td></tr>
-  <tr><td>2.11</td><td>Merge to 10+, letters saved</td><td>2</td><td>10 price lists merged</td></tr>
-  <tr><td>3.1</td><td>5–8 slides, correct flow</td><td>5</td><td>6 slides in order</td></tr>
-  <tr><td>3.2</td><td>Findings chart from Task 1</td><td>2</td><td>Profit chart on slide 3</td></tr>
-  <tr><td>3.3</td><td>Design, readable</td><td>2</td><td>One theme, figures readable</td></tr>
-  <tr><td>3.4</td><td>Transitions</td><td>1</td><td>Push on all slides</td></tr>
-  <tr><td>3.5</td><td>Animations</td><td>1</td><td>Wipe on charts</td></tr>
-  <tr><td>3.6</td><td>Saved + all speak</td><td>3</td><td>.pptx + book demo by members</td></tr>
-  <tr><td>4.1</td><td>One correctly named folder</td><td>1</td><td>Group6_BusinessRecords_Project</td></tr>
-  <tr><td>4.2</td><td>Files named, portfolio complete</td><td>1</td><td>5 files on Drive</td></tr>
-  </tbody></table>
   <div class="step-nav"><a href="#" onclick="show('sp-env')" class="btn btn-secondary">← SAMPLE 5</a><a href="#" onclick="show('task4')" class="btn btn-start">FINISH: TASK 4 →</a></div>
 </div>
 </div>
