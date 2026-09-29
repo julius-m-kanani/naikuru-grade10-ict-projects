@@ -1496,12 +1496,29 @@ footer{background:var(--surface);border-top:1px solid var(--border);color:var(--
   <h1>SAMPLE: POOR TIME MANAGEMENT AMONG LEARNERS</h1>
   <div class="example-box"><h3>Problem statement (earns 1.1)</h3>
   <p>Many Grade 10 learners at Naikuru P.A.G submit assignments late and study too little because phone use and missing timetables waste their evenings.</p></div>
+  <h2>Part 1 — Sample spreadsheet (Task 1), exactly as marked</h2>
+  <div class="example-box"><h3>TimeManagement_Data.xlsx — 22 participants, 4 questions</h3>
+  <p>One row per learner (rows 2–23). Columns: Participant | Late arrivals/week | Completed HW? | Study hrs/day | Phone hrs/day.</p></div>
+  <table><thead><tr><th>Row</th><th>Participant</th><th>Late arrivals/week</th><th>Completed HW?</th><th>Study hrs/day</th><th>Phone hrs/day</th></tr></thead><tbody>
+  <tr><td>2</td><td>1</td><td>3</td><td>Sometimes</td><td>1.5</td><td>4</td></tr>
+  <tr><td>3</td><td>2</td><td>1</td><td>Yes</td><td>3.0</td><td>2</td></tr>
+  <tr><td>…</td><td>… 20 more rows …</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
+  </tbody></table>
+  <h3>Summary section below the data — where the analysis marks come from</h3>
+  <div class="formula-box">
+  <div class="cmt">'--- Summary rows 25–28 ---</div>
+  <div>=AVERAGE(B2:B23)<span class="cmt"> → 2.3 avg late arrivals/week</span></div>
+  <div>=COUNTIF(C2:C23,<span class="kw">"Yes"</span>)<span class="cmt"> → 6 learners always complete HW</span></div>
+  <div>=B26/22*100<span class="cmt"> → 27.3% complete HW daily</span></div>
+  <div>=MAX(E2:E23)<span class="cmt"> → 7 hrs max phone use/day</span></div>
+  </div>
+  <p>Chart: bar graph titled <strong>Late arrivals per week (n=22)</strong> with labelled axes — the same chart is pasted into the Task 3 slides below.</p>
   <h2>Task 1 evidence — spreadsheet (13)</h2>
   <ul>
     <li>Survey of <strong>22 respondents</strong>; headings: <em>No. | Study hrs | Phone hrs | Has timetable? | Meets deadlines? | Top distractor</em>.</li>
-    <li>Formulas: <code>=AVERAGE</code> (study, phone), <code>=COUNTIF</code> (no timetable, postponers), <code>%</code>, <code>=MAX/MIN</code>.</li>
-    <li>Key results: study <strong>1.8h</strong> vs phone <strong>2.6h</strong> · <strong>50%</strong> have no timetable · <strong>45%</strong> often postpone · <strong>60%</strong> submit late.</li>
-    <li>Chart: titled bar graph of average hours. Saved as <strong>Task1_Data_Analysis.xlsx</strong>.</li>
+    <li>Formulas: <code>=AVERAGE</code> (late arrivals), <code>=COUNTIF</code> (completed HW), <code>%</code> (daily completion), <code>=MAX</code> (phone hours).</li>
+    <li>Key results: <strong>2.3</strong> avg late arrivals/week · only <strong>27%</strong> complete HW daily · phone use averages <strong>4.2 hrs/day</strong> (max 7).</li>
+    <li>Chart: titled bar graph of late arrivals. Saved as <strong>Task1_Data_Analysis.xlsx</strong>.</li>
   </ul>
   <h2>Task 2 evidence — report (21)</h2>
   <ul>
@@ -1522,7 +1539,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);color:var(--
   <h3>1. Introduction</h3>
   <p>Time management is one of the most critical skills for academic success. This report investigates the challenge of poor time management among Grade 10 learners at Naikuru Secondary School, based on a survey conducted in September 2026 with 22 participants.</p>
   <h3>2. Description of the Problem</h3>
-  <p>Learners study only 1.8 hours daily against 2.6 hours on phones. Half of the respondents have no personal timetable, and 45% admit postponing schoolwork until the last minute. As a result, 60% submit assignments late at least once a week.</p>
+  <p>Learners average 2.3 late arrivals per week, only 27% complete their homework daily, and phone use averages 4.2 hours a day. As a result, most respondents fall behind in assignments and perform poorly in examinations.</p>
   <h3>3. Causes of the Problem</h3>
   <ul><li>Excessive use of mobile phones for entertainment during study hours</li><li>Lack of structured daily routines at home</li><li>Heavy household chores assigned to learners in the evenings</li><li>Peer pressure leading to socialising instead of studying</li></ul>
   <h3>4. Effects of the Problem</h3>
@@ -1536,8 +1553,15 @@ footer{background:var(--surface);border-top:1px solid var(--border);color:var(--
   </tbody></table>
   <h3>6. Conclusion</h3>
   <p>Poor time management is a real and measurable problem among Grade 10 learners at Naikuru. The proposed interventions are practical, low-cost, and can be implemented immediately. The school community is urged to adopt these recommendations to improve academic outcomes.</p>
+  <h2>Part 3 — Sample slides (Task 3), all 5 content slides</h2>
+  <p>Recreate these in PowerPoint: one design theme, transitions on every slide, one animation per slide, then present orally as a group.</p>
+  <div class="slide-example"><h2>Slide 1 — Time Management Among Learners</h2><p>Grade 10 ICT SBA Project · Naikuru Secondary School · 2026</p></div>
+  <div class="slide-example"><h2>Slide 2 — Problem Description</h2><ul><li>Survey of 22 Grade 10 learners at Naikuru Secondary School</li><li>Focus: punctuality, homework completion, daily study time</li><li>Data collected September 2026 using a structured questionnaire</li></ul></div>
+  <div class="slide-example"><h2>Slide 3 — Key Findings</h2><ul><li>Average: 2.3 late arrivals per week</li><li>Only 27% complete homework daily</li><li>Average phone use: 4.2 hours per day</li><li>[Bar chart pasted from Excel: 27% / 41% / 55%]</li></ul></div>
+  <div class="slide-example"><h2>Slide 4 — Proposed Solutions</h2><ul><li>School diary issued to every learner</li><li>Weekly time management assembly talk</li><li>Phone-free study hours policy (4–6pm)</li><li>Parent engagement sessions each term</li></ul></div>
+  <div class="slide-example"><h2>Slide 5 — Conclusion</h2><p>With structured interventions at home and school, poor time management is solvable. We recommend the school adopt all three proposed solutions by the start of next term.</p></div>
   <h2>Task 3 evidence — presentation (14)</h2>
-  <ul><li>6 slides with hours chart + sample timetable image, one theme, transitions, animations, all speak. <strong>Task3_Project_Presentation.pptx</strong>.</li></ul>
+  <ul><li>5 slides: title → problem → findings + bar chart → solutions → conclusion; one theme, transitions, animations, all speak. <strong>Task3_Project_Presentation.pptx</strong>.</li></ul>
   <h2>Task 4 evidence — e-portfolio (2)</h2>
   <p>Folder <strong>Group2_TimeManagement_Project</strong> with all 5 files, submitted on USB.</p>
   <h2>Where the 50 marks come from</h2>
