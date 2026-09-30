@@ -294,6 +294,7 @@
 
   <div id="topic-selected" style="display:none" class="success">
     ✅ Topic selected: <strong id="topic-name-display"></strong>. Now head to <strong>Task 1</strong> to start collecting your data.
+    <div style="margin-top:10px"><button class="btn primary" id="go-task1" style="display:none" onclick="startGuided()">▶ Start Task 1 — Data Collection</button></div>
   </div>
 </div>
 
@@ -317,7 +318,7 @@
 <!-- TASK 1 -->
 <div id="sec-task1" class="section">
   <div class="page-title">Task 1 — Collecting and analysing data</div>
-  <div class="page-sub">13 marks · Spreadsheet · At least 20 participants</div>
+  <div class="page-sub">13 marks · Spreadsheet · At least 20 participants &nbsp;·&nbsp; <span class="badge" style="background:var(--accent-bg);color:var(--accent);font-size:11px;padding:2px 10px;border-radius:20px">🎯 <span id="task1-topic">No topic selected</span></span></div>
 
   <div class="progress-wrap">
     <div class="progress-label">Your progress in Task 1</div>
@@ -421,7 +422,7 @@
 <!-- TASK 2 -->
 <div id="sec-task2" class="section">
   <div class="page-title">Task 2 — Report writing</div>
-  <div class="page-sub">21 marks · Word processor · Report + Mail merge</div>
+  <div class="page-sub">21 marks · Word processor · Report + Mail merge &nbsp;·&nbsp; <span class="badge" style="background:var(--accent-bg);color:var(--accent);font-size:11px;padding:2px 10px;border-radius:20px">🎯 <span id="task2-topic">No topic selected</span></span></div>
 
   <div class="progress-wrap">
     <div class="progress-label">Your progress in Task 2</div>
@@ -557,7 +558,7 @@
 <!-- TASK 3 -->
 <div id="sec-task3" class="section">
   <div class="page-title">Task 3 — Presentation</div>
-  <div class="page-sub">14 marks · PowerPoint or LibreOffice Impress · 5–8 slides · Oral delivery</div>
+  <div class="page-sub">14 marks · PowerPoint or LibreOffice Impress · 5–8 slides · Oral delivery &nbsp;·&nbsp; <span class="badge" style="background:var(--accent-bg);color:var(--accent);font-size:11px;padding:2px 10px;border-radius:20px">🎯 <span id="task3-topic">No topic selected</span></span></div>
 
   <div class="progress-wrap">
     <div class="progress-label">Your progress in Task 3</div>
@@ -643,7 +644,7 @@
 <!-- TASK 4 -->
 <div id="sec-task4" class="section">
   <div class="page-title">Task 4 — File management</div>
-  <div class="page-sub">2 marks — Easy marks, don't lose them</div>
+  <div class="page-sub">2 marks — Easy marks, don't lose them &nbsp;·&nbsp; <span class="badge" style="background:var(--accent-bg);color:var(--accent);font-size:11px;padding:2px 10px;border-radius:20px">🎯 <span id="task4-topic">No topic selected</span></span></div>
 
   <div class="card" style="border-left:4px solid #d97706">
     <div style="font-weight:600;margin-bottom:10px">Your folder structure should look like this:</div>
@@ -662,6 +663,10 @@
 
   <div class="tip" style="margin-top:1rem"><strong>E-portfolio submission:</strong> Your teacher will tell you how to submit — this may be a USB drive, Google Drive link, school network folder, or email. Whatever the method, submit the entire folder (not individual files).</div>
   <div class="success" style="margin-top:0.5rem">✅ All 5 files in one clearly named folder = full 2 marks for Task 4.</div>
+<div style="margin-top:16px;display:flex;justify-content:space-between;align-items:center">
+      <button class="btn" onclick="nextTask(3)">← Back to Task 3</button>
+      <button class="btn primary" onclick="nextTask(4)">Finish: Checklist →</button>
+    </div>
 </div>
 
 <!-- SAMPLES -->
@@ -861,18 +866,38 @@
   let currentSlide=1, totalSlides=5;
   let currentSampleSlide=1;
 
-  function showSection(id){
+  function showSection(id, evt){
     document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
     document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
     document.getElementById('sec-'+id).classList.add('active');
-    event.currentTarget.classList.add('active');
+    if(evt&&evt.currentTarget)evt.currentTarget.classList.add('active');
   }
 
+  var selectedTopic=null;
   function selectTopic(id, name){
     document.querySelectorAll('.topic-card').forEach(c=>c.classList.remove('selected'));
     document.getElementById(id).classList.add('selected');
-    document.getElementById('topic-selected').style.display='block';
+    selectedTopic={id:id,name:name};
+    var box=document.getElementById('topic-selected');
+    box.style.display='block';
+    box.classList.add('pulse');
+    setTimeout(()=>box.classList.remove('pulse'),600);
     document.getElementById('topic-name-display').textContent=name;
+    ['t1','t2','t3','t4'].forEach(function(t){
+      var el=document.getElementById(t+'-topic');
+      if(el)el.textContent=name;
+    });
+    var go=document.getElementById('go-task1');
+    if(go)go.style.display='inline-block';
+  }
+  function startGuided(){
+    if(!selectedTopic){alert('Please choose a topic first.');return;}
+    showSection('task1',{currentTarget:document.querySelector('.nav-item[onclick*="task1"]')});
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  function nextTask(n){
+    var map={1:'task2',2:'task3',3:'task4',4:'checklist'};
+    showSection(map[n],{currentTarget:document.querySelector('.nav-item[onclick*="'+map[n]+'"]')});
   }
 
   function changeStep(task, dir){
